@@ -1,0 +1,193 @@
+import streamlit as st
+import chromadb
+from langchain_core.documents import Document
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import ChatOpenAI
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+import logging
+import re
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# Initialize ChromaDB client
+chroma_client = chromadb.PersistentClient(path="./chroma_db")
+
+# Get API key from environment variables
+openai_api_key = os.getenv("OPENAI_API_KEY")
+
+# Path to the law PDF to preload
+LAW_PDF_PATH = "/Users/mi/Downloads/bundesverfassung-short.pdf"
+LAW_PDF_NAME = os.path.basename(LAW_PDF_PATH)
+COLLECTION_NAME = "rag_collection"
+
+# Streamlit UI setup
+st.title("Retrieval-Augmented Generation (RAG) Application")
+st.markdown(f"This app is preloaded with the law: `{LAW_PDF_NAME}`.\nAsk questions and get context-based answers with references to filename and article number.")
+
+# Sidebar for user inputs
+with st.sidebar:
+    st.header("Configuration")
+    if not openai_api_key:
+        openai_api_key = st.text_input("OpenAI API Key", type="password")
+    query = st.text_input("Enter your question")
+    num_results = st.slider(
+        "Number of Retrieval Results", min_value=1, max_value=10, value=4
+    )
+    submit_button = st.button("Submit Query")
+    delete_collection = st.button("Delete Collection")
+
+# Function to process the law PDF
+def process_law_pdf(pdf_path):
+    documents = []
+    logging.info(f"Processing law PDF: {pdf_path}")
+    loader = PyPDFLoader(pdf_path)
+    pages = loader.load()
+    full_text = "\n".join([page.page_content for page in pages])
+    logging.info(f"Loaded {len(pages)} pages from {pdf_path}")
+    # Split into articles using regex
+    article_splits = re.split(r'(Art\.\s*\d+[a-zA-Z]?)', full_text)
+    articles = []
+    i = 1
+    while i < len(article_splits):
+        art_number = article_splits[i].replace(' ', '')  # e.g., 'Art.1'
+        content = article_splits[i+1] if (i+1) < len(article_splits) else ''
+        article_text = f"{article_splits[i]}{content}".strip()
+        articles.append((art_number, article_text))
+        i += 2
+    logging.info(f"Split {pdf_path} into {len(articles)} articles")
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=1000, chunk_overlap=200, length_function=len
+    )
+    for art_number, article_text in articles:
+        subchunks = text_splitter.split_text(article_text)
+        for subchunk in subchunks:
+            meta = {"doc_name": LAW_PDF_NAME, "art_number": art_number}
+            documents.append(Document(page_content=subchunk, metadata=meta))
+    logging.info(f"Total documents processed: {len(documents)}")
+    return documents
+
+# Function to create or get ChromaDB collection
+def get_collection(collection_name=COLLECTION_NAME):
+    try:
+        logging.info(f"Getting or creating collection: {collection_name}")
+        collection = chroma_client.get_or_create_collection(name=collection_name)
+        return collection
+    except Exception as e:
+        logging.error(f"Error creating collection: {e}")
+        st.error(f"Error creating collection: {e}")
+        return None
+
+# Function to check if collection is empty
+def is_collection_empty(collection):
+    try:
+        count = collection.count()
+        return count == 0
+    except Exception as e:
+        logging.error(f"Error checking collection count: {e}")
+        return True
+
+# Function to add documents to ChromaDB
+def add_to_collection(documents, collection, embeddings):
+    for i, doc in enumerate(documents):
+        doc_name = doc.metadata.get("doc_name", "Unknown")
+        art_number = doc.metadata.get("art_number", "Unknown")
+        logging.info(f"Adding document {i} with doc_name: {doc_name}, art_number: {art_number}")
+        embedding = embeddings.embed_query(doc.page_content)
+        collection.add(
+            ids=[f"doc_{i}"],
+            embeddings=[embedding],
+            metadatas=[{"content": doc.page_content, "doc_name": doc_name, "art_number": art_number}],
+            documents=[doc.page_content],
+        )
+    logging.info(f"Added {len(documents)} documents to collection")
+
+# Function to query the RAG system
+def query_rag(query, collection, llm, num_results):
+    logging.info(f"Querying RAG system with query: {query}")
+    query_embedding = embeddings.embed_query(query)
+    results = collection.query(
+        query_embeddings=[query_embedding], n_results=num_results
+    )
+    retrieved_docs = results["documents"][0]
+    retrieved_metas = results["metadatas"][0]
+    context = "\n".join([
+        f"[Source: {meta.get('doc_name', 'Unknown')} - {meta.get('art_number', 'Unknown')}]\n{doc}"
+        for doc, meta in zip(retrieved_docs, retrieved_metas)
+    ])
+    logging.info(f"Retrieved {len(retrieved_docs)} documents for query")
+    prompt_template = ChatPromptTemplate.from_template(
+        """
+Answer the question based on the following context. Always cite the filename and article number (Art. nr) in your answer for each reference you use.
+
+{context}
+
+Question: {question}
+"""
+    )
+    rag_chain = (
+        {"context": RunnablePassthrough(), "question": RunnablePassthrough()}
+        | prompt_template
+        | llm
+        | StrOutputParser()
+    )
+    response = rag_chain.invoke({"context": context, "question": query})
+    logging.info("Generated response from RAG chain")
+    return response, retrieved_docs, retrieved_metas
+
+# Main application logic
+if openai_api_key:
+    embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+    llm = ChatOpenAI(openai_api_key=openai_api_key, model="gpt-4o-mini")
+    collection = get_collection()
+    # Preload and embed the law PDF if collection is empty
+    if collection and is_collection_empty(collection):
+        with st.spinner(f"Preloading and embedding {LAW_PDF_NAME}..."):
+            try:
+                documents = process_law_pdf(LAW_PDF_PATH)
+                add_to_collection(documents, collection, embeddings)
+                st.success(f"{LAW_PDF_NAME} processed and added to collection!")
+            except Exception as e:
+                logging.error(f"Error processing law PDF: {e}")
+                st.error(f"Error processing law PDF: {e}")
+    # Handle query submission
+    if submit_button and query:
+        with st.spinner("Generating response..."):
+            try:
+                response, retrieved_docs, retrieved_metas = query_rag(
+                    query, collection, llm, num_results
+                )
+                st.write("**Answer:**")
+                st.write(response)
+                st.write("**Retrieved Documents:**")
+                logging.info(f"retrieved_metas: {retrieved_metas}")
+                for i, (doc, meta) in enumerate(zip(retrieved_docs, retrieved_metas), 1):
+                    doc_name = meta.get("doc_name", "Unknown")
+                    art_number = meta.get("art_number", "Unknown")
+                    st.write(f"**[{doc_name}]-[{art_number}]:** {doc[:200]}...")
+            except Exception as e:
+                logging.error(f"Error generating response: {e}")
+                st.error(f"Error generating response: {e}")
+    # Handle collection deletion
+    if delete_collection:
+        try:
+            chroma_client.delete_collection(name=COLLECTION_NAME)
+            logging.info("Collection deleted successfully!")
+            st.success("Collection deleted successfully!")
+        except Exception as e:
+            logging.error(f"Error deleting collection: {e}")
+            st.error(f"Error deleting collection: {e}")
+else:
+    st.warning("Please enter your OpenAI API Key to proceed.")

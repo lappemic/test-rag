@@ -1,0 +1,8 @@
+langchain
+pinecone
+streamlit
+unstructured
+unstructured[pdf]
+openai
+chromadb
+tiktoken
