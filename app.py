@@ -29,7 +29,7 @@ chroma_client = chromadb.PersistentClient(path="./chroma_db")
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # Path to the law PDF to preload
-LAW_PDF_PATH = "/Users/mi/Downloads/bundesverfassung-short.pdf"
+LAW_PDF_PATH = "./data/bundesverfassung-short.pdf"
 LAW_PDF_NAME = os.path.basename(LAW_PDF_PATH)
 COLLECTION_NAME = "rag_collection"
 
