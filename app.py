@@ -33,21 +33,8 @@ LAW_PDF_PATH = "./data/bundesverfassung-short.pdf"
 LAW_PDF_NAME = os.path.basename(LAW_PDF_PATH)
 COLLECTION_NAME = "rag_collection"
 
-# Streamlit UI setup
-st.title("Retrieval-Augmented Generation (RAG) Application")
+st.title("Chat with Swiss Law (RAG)")
 st.markdown(f"This app is preloaded with the law: `{LAW_PDF_NAME}`.\nAsk questions and get context-based answers with references to filename and article number.")
-
-# Sidebar for user inputs
-with st.sidebar:
-    st.header("Configuration")
-    if not openai_api_key:
-        openai_api_key = st.text_input("OpenAI API Key", type="password")
-    query = st.text_input("Enter your question")
-    num_results = st.slider(
-        "Number of Retrieval Results", min_value=1, max_value=10, value=4
-    )
-    submit_button = st.button("Submit Query")
-    delete_collection = st.button("Delete Collection")
 
 # Function to process the law PDF
 def process_law_pdf(pdf_path):
@@ -115,7 +102,7 @@ def add_to_collection(documents, collection, embeddings):
     logging.info(f"Added {len(documents)} documents to collection")
 
 # Function to query the RAG system
-def query_rag(query, collection, llm, num_results):
+def query_rag(query, collection, llm, num_results, embeddings):
     logging.info(f"Querying RAG system with query: {query}")
     query_embedding = embeddings.embed_query(query)
     results = collection.query(
@@ -147,47 +134,66 @@ Question: {question}
     logging.info("Generated response from RAG chain")
     return response, retrieved_docs, retrieved_metas
 
-# Main application logic
-if openai_api_key:
-    embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-    llm = ChatOpenAI(openai_api_key=openai_api_key, model="gpt-4o-mini")
-    collection = get_collection()
-    # Preload and embed the law PDF if collection is empty
-    if collection and is_collection_empty(collection):
-        with st.spinner(f"Preloading and embedding {LAW_PDF_NAME}..."):
-            try:
-                documents = process_law_pdf(LAW_PDF_PATH)
-                add_to_collection(documents, collection, embeddings)
-                st.success(f"{LAW_PDF_NAME} processed and added to collection!")
-            except Exception as e:
-                logging.error(f"Error processing law PDF: {e}")
-                st.error(f"Error processing law PDF: {e}")
-    # Handle query submission
-    if submit_button and query:
-        with st.spinner("Generating response..."):
+# --- Chat Interface ---
+
+if not openai_api_key:
+    openai_api_key = st.text_input("OpenAI API Key", type="password")
+    st.warning("Please enter your OpenAI API Key to proceed.")
+    st.stop()
+
+embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+llm = ChatOpenAI(openai_api_key=openai_api_key, model="gpt-4o-mini")
+collection = get_collection()
+
+# Preload and embed the law PDF if collection is empty
+if collection and is_collection_empty(collection):
+    with st.spinner(f"Preloading and embedding {LAW_PDF_NAME}..."):
+        try:
+            documents = process_law_pdf(LAW_PDF_PATH)
+            add_to_collection(documents, collection, embeddings)
+            st.success(f"{LAW_PDF_NAME} processed and added to collection!")
+        except Exception as e:
+            logging.error(f"Error processing law PDF: {e}")
+            st.error(f"Error processing law PDF: {e}")
+
+# Chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+        if message["role"] == "assistant" and message.get("sources"):
+            st.markdown("**Sources:**")
+            for i, (doc, meta) in enumerate(zip(message["sources"]["docs"], message["sources"]["metas"]), 1):
+                doc_name = meta.get("doc_name", "Unknown")
+                art_number = meta.get("art_number", "Unknown")
+                st.markdown(f"**[{doc_name}]-[{art_number}]:** {doc[:200]}...")
+
+# Accept user input
+if prompt := st.chat_input("Ask a question about the law..."):
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    # Generate assistant response with RAG
+    with st.chat_message("assistant"):
+        with st.spinner("Retrieving and generating answer..."):
             try:
                 response, retrieved_docs, retrieved_metas = query_rag(
-                    query, collection, llm, num_results
+                    prompt, collection, llm, num_results=4, embeddings=embeddings
                 )
-                st.write("**Answer:**")
-                st.write(response)
-                st.write("**Retrieved Documents:**")
-                logging.info(f"retrieved_metas: {retrieved_metas}")
+                st.markdown(response)
+                st.markdown("**Sources:**")
                 for i, (doc, meta) in enumerate(zip(retrieved_docs, retrieved_metas), 1):
                     doc_name = meta.get("doc_name", "Unknown")
                     art_number = meta.get("art_number", "Unknown")
-                    st.write(f"**[{doc_name}]-[{art_number}]:** {doc[:200]}...")
+                    st.markdown(f"**[{doc_name}]-[{art_number}]:** {doc[:200]}...")
+                st.session_state.messages.append({
+                    "role": "assistant",
+                    "content": response,
+                    "sources": {"docs": retrieved_docs, "metas": retrieved_metas}
+                })
             except Exception as e:
-                logging.error(f"Error generating response: {e}")
                 st.error(f"Error generating response: {e}")
-    # Handle collection deletion
-    if delete_collection:
-        try:
-            chroma_client.delete_collection(name=COLLECTION_NAME)
-            logging.info("Collection deleted successfully!")
-            st.success("Collection deleted successfully!")
-        except Exception as e:
-            logging.error(f"Error deleting collection: {e}")
-            st.error(f"Error deleting collection: {e}")
-else:
-    st.warning("Please enter your OpenAI API Key to proceed.")
