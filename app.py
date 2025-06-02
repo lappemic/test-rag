@@ -33,8 +33,8 @@ LAW_PDF_PATH = "./data/bundesverfassung-short.pdf"
 LAW_PDF_NAME = os.path.basename(LAW_PDF_PATH)
 COLLECTION_NAME = "rag_collection"
 
-st.title("Chat with Swiss Law (RAG)")
-st.markdown(f"This app is preloaded with the law: `{LAW_PDF_NAME}`.\nAsk questions and get context-based answers with references to filename and article number.")
+st.title("Ciaoi stev :D")
+st.markdown(f"Das isch nume afe es test u het die erschte 4 site vor bundesverfassig glade. es isch afe mou zum zeige wie dases würd usgseh.")
 
 # Function to process the law PDF
 def process_law_pdf(pdf_path):
