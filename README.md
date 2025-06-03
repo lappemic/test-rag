@@ -1,3 +1,5 @@
+This repo is a WIP and intended to accompany the blog post [Streamlit RAG app with Chromadb and OpenAI](https://michaelscheiwiller.com/legal-rag-streamlit-chromadb-openai). Consult the blogpost for details. Below is the instruction on how to run this streamlit app on a vps.
+
 # Running as a systemd Service
 
 To keep the Streamlit app running in the background and automatically restart it if it fails, you can set it up as a systemd service.
