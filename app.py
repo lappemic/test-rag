@@ -33,8 +33,24 @@ LAW_PDF_PATH = "./data/bundesverfassung-short.pdf"
 LAW_PDF_NAME = os.path.basename(LAW_PDF_PATH)
 COLLECTION_NAME = "rag_collection"
 
-st.title("Ciaoi stev :D")
-st.markdown(f"Das isch nume afe es test u het die erschte 4 site vor bundesverfassig glade. es isch afe mou zum zeige wie dases würd usgseh.")
+st.title("Schwizerischer Rechts-Chatbot für Geflüchtete und Migrant\:innen")
+
+# --- Einfache Einführung für die Nutzer ---
+st.markdown("""
+Mit diesem Chatbot kannst du Fragen zu wichtigen Gesetzen für Geflüchtete und Migrant\:innen in der Schweiz stellen. Der Bot hilft dir zum Beispiel bei Themen wie Aufenthalt, Arbeitssuche, Rechte, Pflichten und nächsten Schritten.
+
+Aktuell kennt der Bot diese Gesetze:
+
+- [Genfer Flüchtlingskonvention (GFK)](https://www.fedlex.admin.ch/eli/cc/1955/443_461_469/de)
+- [Schweizerische Bundesverfassung (BV)](https://www.fedlex.admin.ch/eli/cc/1999/404/de)
+- [Schweizerisches Asylgesetz (AsylG)](https://www.fedlex.admin.ch/eli/oc/2024/189/de)
+- [Ausländer- und Integrationsgesetz (AIG)](https://www.fedlex.admin.ch/eli/oc/2024/188/de)
+- [Antifolterkonvention der Vereinten Nationen](https://www.fedlex.admin.ch/eli/cc/1987/1307_1307_1307/de)
+
+Stelle einfach deine Frage – der Bot sucht die passende Antwort in den Gesetzen.
+""")
+
+# - [Europäische Menschenrechtskonvention (EMRK)](https://www.echr.coe.int/documents/d/echr/convention_DEU)
 
 # Function to process the law PDF
 def process_law_pdf(pdf_path):
