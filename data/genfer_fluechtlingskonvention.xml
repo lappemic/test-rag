@@ -1,0 +1,5087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
+  xmlns:fedlex="http://fedlex.admin.ch/">
+  <act name="publicLaw">
+    <meta>
+      <identification source="#ch.bk">
+        <FRBRWork>
+          <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/main-text" />
+          <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614" />
+          <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+          <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+          <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+          <FRBRauthor href="#ch.bk" as="#publisher" />
+          <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+          <FRBRcountry value="CH" />
+          <FRBRnumber value="0.142.30" />
+          <FRBRname xml:lang="it"
+            value="Convenzione del 28 luglio 1951 sullo statuto dei rifugiati (con. All.)"
+            shortForm="" />
+          <FRBRname xml:lang="de"
+            value="Abkommen vom 28. Juli 1951 über die Rechtsstellung der Flüchtlinge (mit Anhang)"
+            shortForm="FK" />
+          <FRBRname xml:lang="fr"
+            value="Convention du 28 juillet 1951 relative au statut des réfugiés (avec annexe)"
+            shortForm="" />
+          <FRBRauthoritative value="true" />
+        </FRBRWork>
+        <FRBRExpression>
+          <FRBRthis
+            value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/main-text" />
+          <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de" />
+          <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+          <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+          <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+          <FRBRauthor href="#ch.bk" as="#publisher" />
+          <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+          <FRBRlanguage language="de" />
+        </FRBRExpression>
+        <FRBRManifestation>
+          <FRBRthis
+            value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml/main-text" />
+          <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml" />
+          <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+          <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+          <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+          <FRBRauthor href="#ch.bk" as="#publisher" />
+          <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+          <FRBRformat value="xml" fedlex:generator="2024-q4-rel-1.6.5" />
+        </FRBRManifestation>
+      </identification>
+      <references source="#ch.bk">
+        <TLCOrganization eId="ch.bk"
+          href="https://fedlex.data.admin.ch/vocabulary/legal-institution/2" showAs="Bundeskanzlei" />
+        <TLCRole eId="publisher"
+          href="http://data.legilux.public.lu/resource/ontology/jolux#publisher" showAs="Editeur" />
+        <TLCRole eId="rightsHolder"
+          href="http://data.legilux.public.lu/resource/ontology/jolux#rightsHolder"
+          showAs="Détenteur des droits" />
+        <TLCReference name="language"
+          href="http://publications.europa.eu/resource/authority/language/DEU" showAs="de" />
+        <TLCReference name="format" href="https://fedlex.data.admin.ch/vocabulary/user-format/xml"
+          showAs="xml" />
+      </references>
+    </meta>
+    <preface>
+      <p>
+        <docNumber>0.142.30</docNumber>
+      </p>
+      <p> AS <b>1955</b> 443; BBl <b>1954</b> II 69</p>
+      <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Übersetzung aus dem englischen und
+        französischen Originaltext<i>
+          <authorialNote>
+            <p> Der französische Originaltext findet sich unter der gleichen Nummer in der
+        französischen Ausgabe dieser Sammlung.</p>
+          </authorialNote>
+        </i></p>
+      <p>
+        <docTitle>Abkommen <br />über die Rechtsstellung der Flüchtlinge</docTitle>
+      </p>
+      <p>Abgeschlossen in Genf am 28. Juli 1951 <br />Von der Bundesversammlung genehmigt am 14.
+        Dezember 1954<authorialNote>
+          <p>
+            <ref href="https://fedlex.data.admin.ch/eli/oc/1955/441_459_467"
+              xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+              xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>1955</b> 441</ref>
+          </p>
+        </authorialNote> <br />Schweizerische
+        Ratifikationsurkunde hinterlegt am 21. Januar 1955 <br />In Kraft getreten für die Schweiz
+        am 21. April 1955</p>
+      <p> (Stand am 14. Juni 2012)</p>
+    </preface>
+    <preamble>
+      <p fedlex:role="heading">
+        <i>Präambel</i>
+      </p>
+      <p><i>In der Erwägung, </i>dass die Charta der Vereinten Nationen<authorialNote>
+          <p>
+            <ref href="https://fedlex.data.admin.ch/eli/cc/2003/160"
+              xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+              xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>0.120</b></ref>
+          </p>
+        </authorialNote>
+        und die am 10. Dezember 1948 von der Generalversammlung angenommene allgemeine Erklärung der
+        Menschenrechte den Grundsatz bestätigt haben, dass die Menschen ohne Unterschied die
+        Menschenrechte und Freiheitsrechte geniessen sollen,</p>
+      <p><i>in der Erwägung, </i>dass die Vereinten Nationen wiederholt ihr grosses Interesse für
+        die Flüchtlinge bekundet haben und dass sie sich bestrebt haben, diesen in möglichst weitem
+        Umfang die Ausübung der Menschenrechte und der Grundfreiheiten zu gewährleisten,</p>
+      <p><i>in der Erwägung, </i>dass es wünschenswert ist, die früheren internationalen Abkommen
+        über die Rechtsstellung der Flüchtlinge zu verbessern und zusammenzufassen sowie den
+        Anwendungsbereich dieser Abkommen und den dadurch gewährten Schutz durch eine neue
+        Vereinbarung zu erweitern,</p>
+      <p><i>in der Erwägung, </i>dass sich aus der Asylgewährung für einzelne Länder eine
+        ausserordentlich schwere Belastung ergeben kann und dass eine befriedigende Lösung des
+        Problems, dessen Tragweite und internationale Bedeutung die Organisation der Vereinten
+        Nationen anerkannt hat, ohne internationale Zusammenarbeit nicht erreicht werden kann,</p>
+      <p><i>in der Hoffnung, </i>dass alle Staaten mit Rücksicht auf den sozialen und humanitären
+        Charakter des Flüchtlingsproblems alles in ihrer Macht Liegende tun werden, um zu
+        verhindern, dass dieses Problem zu Spannungen zwischen den Staaten führt,</p>
+      <p><i>und in Kenntnis </i>schliesslich, dass der Hochkommissär der Vereinten Nationen für
+        Flüchtlinge mit der Aufgabe betraut ist, die Anwendung der internationalen Abkommen über den
+        Schutz der Flüchtlinge zu überwachen, und dass die wirksame Durchführung der zur Lösung des
+        Problems getroffenen Massnahmen von der Zusammenarbeit der Staaten mit dem Hochkommissär
+        abhängt,</p>
+      <p>haben die hohen Vertragsparteien folgendes vereinbart:</p>
+    </preamble>
+    <body>
+      <chapter eId="chap_I">
+        <num>Kapitel I </num>
+        <heading>Allgemeine Bestimmungen</heading>
+        <article eId="art_1">
+          <num>
+            <b>Art. 1</b>
+          </num>
+          <subdivision eId="art_1/subdiv">
+            <heading>Definition des Begriffs «Flüchtling»</heading>
+            <paragraph eId="art_1/subdiv/para">
+              <content>
+                <p>A.  «Flüchtling» im Sinne dieses Abkommens ist jede Person,</p>
+                <blockList eId="art_1/subdiv/para/list_u1">
+                  <item eId="art_1/subdiv/para/list_u1/lbl_1">
+                    <num>1. </num>
+                    <p>die nach den Vereinbarungen vom 12. Mai 1926 und 30. Juni 1928 oder nach den
+                      Abkommen vom 28. Oktober 1933 und 10. Februar 1938 und des Protokolls vom 14.
+                      September 1939 oder nach der Verfassung der Internationalen
+                      Flüchtlingsorganisation als Flüchtling betrachtet wurde;</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u1/bull_u2">
+                    <num />
+                    <p>die von der Internationalen Flüchtlingsorganisation während ihrer Tätigkeit
+                      getroffenen Entscheide über die Anerkennung eines Flüchtlings sind kein
+                      Hindernis, um einer Person, die die Bedingungen von Ziffer 2 dieses
+                      Abschnittes erfüllt, die Flüchtlingseigenschaft zuerkennen zu können;</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u1/lbl_2">
+                    <num>2. </num>
+                    <p>die sich auf Grund von Ereignissen, die vor dem 1. Januar 1951 eingetreten
+                      sind, und aus begründeter Furcht vor Verfolgung wegen ihrer Rasse, Religion,
+                      Staatszugehörigkeit, Zugehörigkeit zu einer bestimmten sozialen Gruppe oder
+                      wegen ihrer politischen Überzeugung ausserhalb ihres Heimatlandes befindet und
+                      dessen Schutz nicht beanspruchen kann oder wegen dieser Befürchtungen nicht
+                      beanspruchen will; oder die sich als Staatenlose infolge solcher Ereignisse
+                      ausserhalb ihres Wohnsitzstaates befindet und dorthin nicht zurückkehren kann
+                      oder wegen der erwähnten Befürchtungen nicht zurückkehren will.</p>
+                  </item>
+                </blockList>
+                <p>Wenn jemand mehr als eine Staatsangehörigkeit besitzt, wird als Heimatstaat jedes
+                  Land betrachtet, dessen Staatsangehörigkeit er besitzt. Wer nicht aus einem
+                  stichhaltigen, auf begründeter Furcht beruhenden Grunde den Schutz eines der
+                  Staaten, dessen Staatsangehörigkeit er besitzt, ablehnt, gilt nicht als des
+                  Schutzes seines Heimatstaates beraubt.</p>
+                <blockList eId="art_1/subdiv/para/list_u2">
+                  <item eId="art_1/subdiv/para/list_u2/lbl_B_1">
+                    <num>B.  1. </num>
+                    <blockList>
+                      <listIntroduction eId="art_1/subdiv/para/list_u2/lbl_B_1/listintro">Im Sinne
+                        dieses Abkommens sind unter den im Artikel 1, Abschnitt A enthaltenen Worten
+                        «Ereignisse, die vor dem 1. Januar 1951 eingetreten sind», zu verstehen:</listIntroduction>
+                      <item eId="art_1/subdiv/para/list_u2/lbl_B_1/lbl_a">
+                        <num>a) </num>
+                        <p>«Ereignisse, die vor dem 1. Januar 1951 in Europa eingetreten sind» oder</p>
+                      </item>
+                      <item eId="art_1/subdiv/para/list_u2/lbl_B_1/lbl_b">
+                        <num>b) </num>
+                        <p>«Ereignisse, die vor dem 1. Januar 1951 in Europa oder anderswo
+                          eingetreten sind».</p>
+                      </item>
+                    </blockList>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u2/bull_u2">
+                    <num />
+                    <p>Jeder vertragsschliessende Staat hat im Zeitpunkt der Unterzeichnung, der
+                      Ratifikation oder des Beitritts eine Erklärung darüber abzugeben, welche
+                      Bedeutung er dem Ausdruck mit Bezug auf seine aus diesem Abkommen übernommenen
+                      Verpflichtungen zu geben beabsichtigt.</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u2/lbl_2">
+                    <num>2. </num>
+                    <p>Jeder vertragsschliessende Staat, der die Alternative unter Buchstabe a
+                      angenommen hat, kann jederzeit durch Mitteilung an den Generalsekretär der
+                      Vereinten Nationen seine Verpflichtungen durch Annahme der Alternative gemäss
+                      Buchstabe b erweitern.</p>
+                  </item>
+                </blockList>
+                <p>C.  Eine Person, auf die die Bestimmungen des Abschnittes A zutreffen, fällt
+                  nicht mehr unter dieses Abkommen,</p>
+                <blockList eId="art_1/subdiv/para/list_u3">
+                  <item eId="art_1/subdiv/para/list_u3/lbl_1">
+                    <num>1. </num>
+                    <p>wenn sie sich freiwillig wieder unter den Schutz des Landes, dessen
+                      Staatsangehörigkeit sie besitzt, gestellt hat; oder</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u3/lbl_2">
+                    <num>2. </num>
+                    <p>wenn sie freiwillig die verlorene Staatsangehörigkeit wieder erworben hat;
+                      oder</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u3/lbl_3">
+                    <num>3. </num>
+                    <p>wenn sie eine neue Staatsangehörigkeit erworben hat und den Schutz des neuen
+                      Heimatstaates geniesst; oder</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u3/lbl_4">
+                    <num>4. </num>
+                    <p>wenn sie freiwillig in das Land, das sie aus Furcht vor Verfolgung verlassen
+                      oder nicht mehr betreten hat, zurückgekehrt ist und sich dort niedergelassen
+                      hat; oder</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u3/lbl_5">
+                    <num>5. </num>
+                    <p>wenn sie nach Wegfall der Umstände, auf Grund deren sie als Flüchtling
+                      anerkannt worden ist, es nicht mehr ablehnen kann, den Schutz ihres
+                      Heimatstaates in Anspruch zu nehmen.</p>
+                  </item>
+                </blockList>
+                <p>Diese Bestimmungen sind jedoch nicht auf die in Ziffer 1 des Abschnittes A
+                  erwähnten Flüchtlinge anwendbar, die den Schutz ihres Heimatstaates aus triftigen
+                  Gründen, die auf frühere Verfolgungen zurückgehen, ablehnen;</p>
+                <blockList eId="art_1/subdiv/para/list_u4">
+                  <item eId="art_1/subdiv/para/list_u4/lbl_6">
+                    <num>6. </num>
+                    <p>wenn sie staatenlos und nach Wegfall der Umstände, auf Grund deren sie als
+                      Flüchtling anerkannt worden ist, in der Lage ist, in das Land ihres früheren
+                      Wohnsitzes zurückzukehren;</p>
+                  </item>
+                </blockList>
+                <p>Diese Bestimmungen sind jedoch nicht auf die in Ziffer 1 des Abschnitts A
+                  erwähnten Flüchtlinge anwendbar, die die Rückkehr in das Land ihres früheren
+                  Wohnsitzes aus triftigen Gründen, die auf frühere Verfolgungen zurückgehen,
+                  ablehnen.</p>
+                <p>D.  Dieses Abkommen ist nicht anwendbar auf Personen, die zurzeit durch eine
+                  andere Organisation oder Institution der Vereinten Nationen als den Hochkommissär
+                  der Vereinten Nationen für Flüchtlinge Schutz oder Hilfe erhalten.</p>
+                <p>Wenn dieser Schutz oder diese Hilfe aus irgendeinem Grunde wegfallen, ohne dass
+                  die Stellung dieser Personen durch entsprechende Beschlüsse der Generalversammlung
+                  der Vereinten Nationen endgültig geregelt worden wäre, geniessen sie alle Rechte
+                  dieses Abkommens.</p>
+                <p>E.  Dieses Abkommen ist nicht anwendbar auf Personen, welche nach Auffassung der
+                  zuständigen Behörden des Wohnsitzstaates im Besitze aller Rechte und Pflichten von
+                  Staatsangehörigen des Landes stehen.</p>
+                <blockList eId="art_1/subdiv/para/list_u5">
+                  <listIntroduction eId="art_1/subdiv/para/list_u5/listintro">F.  Die Bestimmungen
+                    dieses Abkommens sind nicht anwendbar auf Personen, für die ernsthafte Gründe
+                    für den Verdacht bestehen:</listIntroduction>
+                  <item eId="art_1/subdiv/para/list_u5/lbl_a">
+                    <num>a) </num>
+                    <p>dass sie ein Verbrechen gegen den Frieden, ein Kriegsverbrechen oder ein
+                      Verbrechen gegen die Menschlichkeit im Sinne der internationalen Vertragswerke
+                      begangen haben, die Bestimmungen zur Verhinderung solcher Verbrechen
+                      enthalten;</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u5/lbl_b">
+                    <num>b) </num>
+                    <p>dass sie ein schweres Verbrechen des gemeinen Rechts ausserhalb des
+                      Gastlandes begangen haben, bevor sie dort als Flüchtling aufgenommen worden
+                      sind;</p>
+                  </item>
+                  <item eId="art_1/subdiv/para/list_u5/lbl_c">
+                    <num>c) </num>
+                    <p>dass sie sich Handlungen zuschulden kommen liessen, die gegen die Ziele und
+                      Grundsätze der Vereinten Nationen gerichtet sind.</p>
+                  </item>
+                </blockList>
+              </content>
+            </paragraph>
+          </subdivision>
+        </article>
+        <article eId="art_2">
+          <num>
+            <b>Art. 2</b>
+          </num>
+          <heading>Allgemeine Verpflichtungen</heading>
+          <paragraph eId="art_2/para">
+            <content>
+              <p>Jeder Flüchtling hat gegenüber dem Land, in dem er sich aufhält, Pflichten, zu
+                denen insbesondere die Verpflichtung gehört, sich den Gesetzen und Verordnungen
+                sowie den Massnahmen zur Aufrechterhaltung der öffentlichen Ordnung zu unterziehen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_3">
+          <num>
+            <b>Art. 3</b>
+          </num>
+          <heading>Verbot unterschiedlicher Behandlung</heading>
+          <paragraph eId="art_3/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten haben die Bestimmungen dieses Abkommens auf die
+                Flüchtlinge ohne Unterschied der Rasse, der Religion oder des Herkunftslandes
+                anzuwenden.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_4">
+          <num>
+            <b>Art. 4</b>
+          </num>
+          <heading>Religion</heading>
+          <paragraph eId="art_4/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten haben den Flüchtlingen auf ihrem Gebiet
+                mindestens die gleiche Freiheit in der Religionsausübung und im Religionsunterricht
+                der Kinder zuzugestehen wie den eigenen Staatsangehörigen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_5">
+          <num>
+            <b>Art. 5</b>
+          </num>
+          <heading>Rechte ausserhalb des Abkommens</heading>
+          <paragraph eId="art_5/para">
+            <content>
+              <p>Die Bestimmungen dieses Abkommens berühren die sonstigen Rechte und Vorteile nicht,
+                die den Flüchtlingen unabhängig von diesem Abkommen gewährt werden.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_6">
+          <num>
+            <b>Art. 6</b>
+          </num>
+          <heading>Ausdruck «unter den gleichen Umständen»</heading>
+          <paragraph eId="art_6/para">
+            <content>
+              <p>Im Sinne dieses Abkommens bedeutet der Ausdruck «unter den gleichen Umständen»,
+                dass eine Person alle Bedingungen (vor allem diejenigen über Dauer und
+                Voraussetzungen von Aufenthalt und Niederlassung) zur Ausübung eines Rechts erfüllen
+                muss, gleich wie wenn sie nicht Flüchtling wäre. Ausgenommen hievon sind nur die
+                Bedingungen, die ihrer Natur nach von einem Flüchtling nicht erfüllt werden können.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_7">
+          <num>
+            <b>Art. 7</b>
+          </num>
+          <heading>Befreiung vom Erfordernis der Gegenseitigkeit</heading>
+          <paragraph eId="art_7/para_1">
+            <num>1.</num>
+            <content>
+              <p>Unter Vorbehalt günstigerer Bestimmungen dieses Abkommens hat jeder
+                vertragsschliessende Staat den Flüchtlingen die Behandlung zuteil werden zu lassen,
+                die er Ausländern im Allgemeinen gewährt.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_7/para_2">
+            <num>2.</num>
+            <content>
+              <p>Nach dreijährigem Aufenthalt sind die Flüchtlinge in den vertragsschliessenden
+                Staaten von der Gegenseitigkeit in Bezug auf die gesetzlichen Bestimmungen befreit.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_7/para_3">
+            <num>3.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten haben den Flüchtlingen die Rechte und
+                Vergünstigungen, die ihnen ohne Rücksicht auf Gegenseitigkeit schon beim
+                Inkrafttreten dieses Abkommens zukamen, weiterhin zu gewähren.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_7/para_4">
+            <num>4.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten werden wohlwollend die Möglichkeit in Betracht
+                ziehen, den Flüchtlingen bei fehlender Gegenseitigkeit weitergehende Rechte und
+                Vergünstigungen als die zu gewähren, auf die sie gemäss den Ziffern 2 und 3 Anspruch
+                erheben können, sowie ferner die Möglichkeit, Flüchtlinge, die die Voraussetzungen
+                dieser beiden Ziffern nicht erfüllen, vom Erfordernis der Gegenseitigkeit zu
+                befreien.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_7/para_5">
+            <num>5.</num>
+            <content>
+              <p>Die Bestimmungen der Ziffern 2 und 3 finden sowohl auf die in den Artikeln 13, 18,
+                19, 21 und 22 des Abkommens erwähnten Rechte und Vergünstigungen Anwendung als auch
+                auf solche, die in diesem Abkommen nicht enthalten sind.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_8">
+          <num>
+            <b>Art. 8</b>
+          </num>
+          <heading>Befreiung von Sondermassnahmen</heading>
+          <paragraph eId="art_8/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten haben Sondermassnahmen, die gegen die Person, das
+                Vermögen oder die Interessen der Angehörigen eines bestimmten Staates ergriffen
+                werden könnten, nicht auf einen Flüchtling anzuwenden, der formell Angehöriger
+                dieses Staates ist, nur weil er dessen Staatsangehörigkeit besitzt. Die
+                vertragsschliessenden Staaten, die auf Grund ihrer Gesetzgebung diesen allgemeinen
+                Grundsatz nicht einhalten können, werden in geeigneten Fällen Ausnahmen zugunsten
+                der Flüchtlinge machen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_9">
+          <num>
+            <b>Art. 9</b>
+          </num>
+          <heading>Vorläufige Massnahmen</heading>
+          <paragraph eId="art_9/para">
+            <content>
+              <p>Keine Bestimmung dieses Abkommens hindert einen vertragsschliessenden Staat daran,
+                in Kriegszeiten oder bei andern schwerwiegenden und aussergewöhnlichen Umständen
+                gegenüber einer bestimmten Person vorübergehend die für die Staatssicherheit
+                erforderlichen Massnahmen zu ergreifen, bis abgeklärt ist, ob die Person tatsächlich
+                Flüchtling ist und ob die gegen sie ergriffenen Massnahmen im Interesse der
+                Staatssicherheit aufrecht erhalten bleiben müssen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_10">
+          <num>
+            <b>Art. 10</b>
+          </num>
+          <heading>Fortdauer des Aufenthaltes</heading>
+          <paragraph eId="art_10/para_1">
+            <num>1.</num>
+            <content>
+              <p>Ist ein Flüchtling im Verlaufe des zweiten Weltkrieges verschleppt und in das
+                Gebiet eines der vertragsschliessenden Staaten gebracht worden und hält sich dort
+                auf, so gilt die Dauer des Zwangsaufenthaltes in diesem Gebiet als rechtmässige
+                Anwesenheit.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_10/para_2">
+            <num>2.</num>
+            <content>
+              <p>Ist ein Flüchtling während des zweiten Weltkrieges aus dem Gebiet eines
+                vertragsschliessenden Staates verschleppt worden und vor dem Inkrafttreten dieses
+                Abkommens dorthin zurückgekehrt, um dort Wohnsitz zu nehmen, so gilt die Zeit vor
+                und nach dieser Zwangsverschleppung in allen Fällen, in denen ein ununterbrochener
+                Aufenthalt verlangt wird, als ein einziger ununterbrochener Zeitraum.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_11">
+          <num>
+            <b>Art. 11</b>
+          </num>
+          <heading>Geflüchtete Seeleute</heading>
+          <paragraph eId="art_11/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten werden wohlwollend die Möglichkeit prüfen,
+                Flüchtlingen, die reguläre Besatzungsmitglieder eines Schiffes sind, das ihre Flagge
+                führt, die Wohnsitznahme auf ihrem Gebiet zu gestatten, ihnen Reisepapiere
+                auszustellen oder sie vorübergehend aufzunehmen, um ihnen insbesondere die
+                Wohnsitznahme in einem andern Land zu erleichtern.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_II">
+        <num>Kapitel II </num>
+        <heading>Rechtsstellung</heading>
+        <article eId="art_12">
+          <num>
+            <b>Art. 12</b>
+          </num>
+          <heading>Personenrechtliche Stellung</heading>
+          <paragraph eId="art_12/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die personenrechtliche Stellung eines Flüchtlings bestimmt sich nach dem Gesetz
+                seines Wohnsitzlandes oder, wenn er keinen Wohnsitz hat, nach dem Gesetz des
+                Aufenthaltslandes.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_12/para_2">
+            <num>2.</num>
+            <content>
+              <p>Rechte, die ein Flüchtling vorher erworben hat und die auf seiner
+                personenrechtlichen Stellung beruhen, insbesondere solche Rechte, die sich aus der
+                Eheschliessung ergeben, sind von den vertragsschliessenden Staaten zu achten,
+                vorausgesetzt, dass die in der Gesetzgebung dieses Staates allfällig vorgesehenen
+                Formalitäten erfüllt sind; Voraussetzung ist ferner, dass es sich um Rechte handelt,
+                die von diesem Staat auch dann anerkannt worden wären, wenn die fragliche Person
+                nicht Flüchtling geworden wäre.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_13">
+          <num>
+            <b>Art. 13</b>
+          </num>
+          <heading>Bewegliches und unbewegliches Eigentum</heading>
+          <paragraph eId="art_13/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten haben den Flüchtlingen mit Bezug auf den Erwerb
+                von beweglichem und unbeweglichem Eigentum und den dazu gehörenden Rechten und in
+                Bezug auf Miet‑ und andere Verträge über bewegliches und unbewegliches Eigentum eine
+                möglichst günstige Behandlung zuteil werden zu lassen, die auf alle Fälle nicht
+                ungünstiger sein darf als die, welche Ausländern im allgemeinen unter den gleichen
+                Umständen zugestanden wird.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_14">
+          <num>
+            <b>Art. 14</b>
+          </num>
+          <heading>Geistiges und gewerbliches Eigentum</heading>
+          <paragraph eId="art_14/para">
+            <content>
+              <p>Mit Bezug auf den Schutz des gewerblichen Eigentums, insbesondere von Erfindungen,
+                technischen Plänen, Modellen, Fabrikmarken, Handelsfirmen und den Schutz von Werken
+                der Literatur, Kunst und Wissenschaft geniessen Flüchtlinge im Wohnsitzstaat den
+                Schutz, der den eigenen Staatsangehörigen gewährt wird. Im Gebiet eines andern
+                vertragsschliessenden Staates geniesst der Flüchtling den Schutz, der dort
+                Staatsangehörigen des Landes gewährt wird, in dem er seinen gewöhnlichen Aufenthalt
+                hat.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_15">
+          <num>
+            <b>Art. 15</b>
+          </num>
+          <heading>Vereinsrecht</heading>
+          <paragraph eId="art_15/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten haben den Flüchtlingen, die sich rechtmässig auf
+                ihrem Gebiet aufhalten, in Bezug auf Vereinigungen zu unpolitischen und nicht auf
+                Erwerb gerichteten Zwecken sowie in Bezug auf Gewerkschaften die günstigste
+                Behandlung zu gewähren, die den Angehörigen eines fremden Landes unter den gleichen
+                Umständen gewährt wird. </p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_16">
+          <num>
+            <b>Art. 16</b>
+          </num>
+          <heading>Zutritt zu den Gerichten</heading>
+          <paragraph eId="art_16/para_1">
+            <num>1.</num>
+            <content>
+              <p>Flüchtlinge haben auf dem Gebiete der vertragsschliessenden Staaten freien Zutritt
+                zu den Gerichten.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_16/para_2">
+            <num>2.</num>
+            <content>
+              <p>Flüchtlingen wird im Wohnsitzstaat hinsichtlich der Zulassung vor Gericht,
+                einschliesslich des Armenrechts und der Befreiung von der <i>cautio judicatum solvi,</i>
+                die gleiche Behandlung zuteil wie den Angehörigen dieses Staates.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_16/para_3">
+            <num>3.</num>
+            <content>
+              <p>In den vertragsschliessenden Staaten, in denen ein Flüchtling nicht seinen
+                ordentlichen Aufenthalt hat, geniesst er mit Bezug auf die in Ziffer 2 erwähnten
+                Rechte die gleiche Behandlung wie ein Angehöriger des Landes, in dem er seinen
+                ordentlichen Aufenthalt hat.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_III">
+        <num>Kapitel III </num>
+        <heading>Erwerbstätigkeit</heading>
+        <article eId="art_17">
+          <num>
+            <b>Art. 17</b>
+          </num>
+          <heading>Stellenantritt</heading>
+          <paragraph eId="art_17/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten gewähren Flüchtlingen, die sich ordnungsgemäss
+                auf ihrem Gebiet aufhalten, in Bezug auf den Stellenantritt die günstigste
+                Behandlung, die sie unter denselben Umständen Angehörigen eines fremden Landes
+                zubilligen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_17/para_2">
+            <num>2.</num>
+            <content>
+              <blockList>
+                <listIntroduction eId="art_17/para_2/listintro">Auf jeden Fall finden einschränkende
+                  Massnahmen gegen Ausländer oder gegen die Anstellung von Ausländern zum Schutze
+                  des einheimischen Arbeitsmarktes auf Flüchtlinge keine Anwendung, die bereits im
+                  Zeitpunkt des Inkrafttretens dieses Abkommens durch den betreffenden
+                  vertragsschliessenden Staat davon ausgenommen waren oder eine der nachstehenden
+                  Bedingungen erfüllen:</listIntroduction>
+                <item eId="art_17/para_2/lbl_a">
+                  <num>a) </num>
+                  <p>sich schon drei Jahre im Land aufhalten;</p>
+                </item>
+                <item eId="art_17/para_2/lbl_b">
+                  <num>b) </num>
+                  <p>mit einem Staatsangehörigen des Aufenthaltsstaates verheiratet sind; ein
+                    Flüchtling, der den Ehegatten verlassen hat, kann sich nicht auf diese
+                    Bestimmung berufen;</p>
+                </item>
+                <item eId="art_17/para_2/lbl_c">
+                  <num>c) </num>
+                  <p>ein oder mehrere Kinder haben, die die Staatsangehörigkeit des
+                    Aufenthaltsstaates besitzen.</p>
+                </item>
+              </blockList>
+            </content>
+          </paragraph>
+          <paragraph eId="art_17/para_3">
+            <num>3.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten prüfen wohlwollend, ob Massnahmen getroffen
+                werden können, um die Rechte aller Flüchtlinge in Bezug auf den Stellenantritt den
+                eigenen Staatsangehörigen möglichst anzugleichen, insbesondere der Flüchtlinge, die
+                auf Grund eines Anwerbungsprogramms für Arbeitskräfte oder eines Einwanderungsplanes
+                in ihr Gebiet gekommen sind.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_18">
+          <num>
+            <b>Art. 18</b>
+          </num>
+          <heading>Selbständige Erwerbstätigkeit</heading>
+          <paragraph eId="art_18/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten gewähren den Flüchtlingen, die sich
+                ordnungsgemäss auf ihrem Gebiet aufhalten, in Bezug auf die selbständige
+                Erwerbstätigkeit in der Landwirtschaft, Industrie, im Gewerbe und Handel sowie die
+                Gründung von Handels‑ oder Industriefirmen eine möglichst günstige Behandlung, die
+                jedenfalls nicht ungünstiger sein darf als die unter den gleichen Umständen
+                Ausländern im allgemeinen gewährte Behandlung.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_19">
+          <num>
+            <b>Art. 19</b>
+          </num>
+          <heading>Freie Berufe</heading>
+          <paragraph eId="art_19/para_1">
+            <num>1.</num>
+            <content>
+              <p>Jeder vertragsschliessende Staat sichert den Flüchtlingen, die sich rechtmässig auf
+                seinem Gebiet aufhalten, die Diplome besitzen, welche von den zuständigen Behörden
+                dieses Staates anerkannt werden, und die einen freien Beruf ausüben wollen, eine
+                möglichst günstige Behandlung zu; sie darf jedenfalls nicht ungünstiger sein als
+                die, welche unter den gleichen Umständen Ausländern im allgemeinen gewährt wird.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_19/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten tun, entsprechend ihren Gesetzen und
+                Verfassungen, alles in ihrer Macht Liegende, um die Ansiedlung solcher Flüchtlinge
+                in Gebieten ausserhalb des Mutterlandes zu sichern, für deren internationale
+                Beziehungen sie verantwortlich sind.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_IV">
+        <num>Kapitel IV </num>
+        <heading>Wohlfahrt</heading>
+        <article eId="art_20">
+          <num>
+            <b>Art. 20</b>
+          </num>
+          <heading>Rationierung</heading>
+          <paragraph eId="art_20/para">
+            <content>
+              <p>Wo ein Rationierungssystem besteht, das die allgemeine Verteilung von Mangelwaren
+                regelt und dem die ganze Bevölkerung unterworfen ist, sind die Flüchtlinge wie die
+                Einheimischen zu behandeln.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_21">
+          <num>
+            <b>Art. 21</b>
+          </num>
+          <heading>Unterkunft</heading>
+          <paragraph eId="art_21/para">
+            <content>
+              <p>Mit Bezug auf die Unterkunft haben die vertragsschliessenden Staaten, soweit diese
+                Frage durch Gesetze und Verordnungen geregelt ist oder unter der Kontrolle der
+                öffentlichen Behörden steht, den Flüchtlingen, die sich rechtmässig auf ihrem Gebiet
+                aufhalten, eine möglichst günstige Behandlung zuteil werden zu lassen. Diese
+                Behandlung darf auf alle Fälle nicht ungünstiger sein, als sie unter den gleichen
+                Umständen Ausländern im Allgemeinen gewährt wird.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_22">
+          <num>
+            <b>Art. 22</b>
+          </num>
+          <heading>Öffentlicher Unterricht</heading>
+          <paragraph eId="art_22/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten gewähren den Flüchtlingen mit Bezug auf den
+                Unterricht in den Primarschulen die gleiche Behandlung wie den Einheimischen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_22/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten gewähren den Flüchtlingen hinsichtlich des
+                Unterrichts in andern als den Primarschulen, insbesondere was die Zulassung zum
+                Studium, die Anerkennung von ausländischen Studienzeugnissen, Diplomen und
+                Universitätsgraden, sowie den Gebührenerlass und die Erteilung von Stipendien
+                anbetrifft, eine möglichst günstige Behandlung, die nicht ungünstiger sein soll als
+                die Ausländern im allgemeinen unter den gleichen Umständen gewährte Behandlung.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_23">
+          <num>
+            <b>Art. 23</b>
+          </num>
+          <heading>Öffentliche Fürsorge</heading>
+          <paragraph eId="art_23/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten gewähren den auf ihrem Gebiet rechtmässig sich
+                aufhaltenden Flüchtlingen die gleiche Fürsorge und öffentliche Unterstützung wie den
+                Einheimischen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_24">
+          <num>
+            <b>Art. 24</b>
+          </num>
+          <heading>Arbeitsgesetzgebung und soziale Sicherheit</heading>
+          <paragraph eId="art_24/para_1">
+            <num>1.</num>
+            <content>
+              <blockList>
+                <listIntroduction eId="art_24/para_1/listintro">Die vertragsschliessenden Staaten
+                  gewähren den rechtmässig auf ihrem Gebiet sich aufhaltenden Flüchtlingen die
+                  gleiche Behandlung wie Einheimischen mit Bezug auf:</listIntroduction>
+                <item eId="art_24/para_1/lbl_a">
+                  <num>a) </num>
+                  <p>Entlöhnung mit Einschluss der Familienzulagen, die Bestandteil des Lohnes sind,
+                    Arbeitszeit, Überstunden, bezahlte Ferien, Beschränkungen bei Heimarbeit,
+                    Mindestalter für Arbeitnehmer, Lehrzeit und Berufsausbildung, Arbeit der Frauen
+                    und Jugendlichen, Vorteile aus Gesamtarbeitsverträgen, soweit diese Bedingungen
+                    durch die Gesetzgebung geregelt sind oder zur Zuständigkeit der
+                    Verwaltungsbehörden gehören;</p>
+                </item>
+                <item eId="art_24/para_1/lbl_b">
+                  <num>b) </num>
+                  <blockList>
+                    <listIntroduction eId="art_24/para_1/lbl_b/listintro">die soziale Sicherheit
+                      (gesetzliche Bestimmungen über Arbeitsunfälle, Berufskrankheiten,
+                      Mutterschaft, Krankheit, Invalidität, Alter und Todesfall, Arbeitslosigkeit,
+                      Familienlasten sowie über alle andern Risiken, die nach der Landesgesetzgebung
+                      durch eine umfassende Sozialversicherung gedeckt sind), vorbehältlich:</listIntroduction>
+                    <item eId="art_24/para_1/lbl_b/lbl_i">
+                      <num>(i) </num>
+                      <p>geeigneter Abmachungen über die Aufrechterhaltung erworbener Rechte und
+                        Anwartschaften,</p>
+                    </item>
+                    <item eId="art_24/para_1/lbl_b/lbl_ii">
+                      <num>(ii) </num>
+                      <p>der besondern durch die Landesgesetzgebung des Aufenthaltslandes
+                        vorgeschriebenen Bestimmungen, die Leistungen oder Teilleistungen
+                        ausschliesslich aus öffentlichen Mitteln vorsehen, sowie Zuwendungen an
+                        Personen, die die Bedingungen für die Auszahlung einer normalen Rente nicht
+                        erfüllen.</p>
+                    </item>
+                  </blockList>
+                </item>
+              </blockList>
+            </content>
+          </paragraph>
+          <paragraph eId="art_24/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die Entschädigungsansprüche, die durch den Tod eines Flüchtlings infolge
+                Arbeitsunfall oder Berufskrankheit entstehen, werden dadurch nicht beeinträchtigt,
+                dass sich der Begünstigte ausserhalb des Gebietes des vertragsschliessenden Staates
+                aufhält.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_24/para_3">
+            <num>3.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten werden die Vorteile der untereinander
+                abgeschlossenen oder noch abzuschliessenden Abkommen über die Erhaltung wohl
+                erworbener Rechte und von Anwartschaften auf dem Gebiete der sozialen Sicherheit auf
+                die Flüchtlinge ausdehnen, sofern diese die Bedingungen erfüllen, die für die
+                Staatsangehörigen der Signatarstaaten dieser Abkommen vorgesehen sind.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_24/para_4">
+            <num>4.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten werden mit Wohlwollen die Möglichkeit prüfen, die
+                Vorteile ähnlicher Abkommen, die zwischen ihnen und Nichtvertragsstaaten in Kraft
+                sind oder sein werden, soweit als möglich auf Flüchtlinge auszudehnen.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_V">
+        <num>Kapitel V </num>
+        <heading>Administrative Massnahmen</heading>
+        <article eId="art_25">
+          <num>
+            <b>Art. 25</b>
+          </num>
+          <heading>Verwaltungshilfe</heading>
+          <paragraph eId="art_25/para_1">
+            <num>1.</num>
+            <content>
+              <p>Wenn ein Flüchtling normalerweise für die Ausübung eines Rechtes die Mitwirkung
+                ausländischer Behörden benötigt, an die er nicht gelangen kann, haben die
+                vertragsschliessenden Staaten, auf deren Gebiet er sich aufhält, dafür zu sorgen,
+                dass ihm die Beihilfe entweder durch die eigenen Behörden oder eine internationale
+                Behörde gewährt wird.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_25/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die in Ziffer 1 erwähnten Behörden werden den Flüchtlingen die Dokumente oder
+                Bescheinigungen ausstellen oder unter ihrer Aufsicht ausstellen lassen, die
+                normalerweise einem Ausländer durch seine heimatlichen Behörden oder durch deren
+                Vermittlung ausgestellt werden.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_25/para_3">
+            <num>3.</num>
+            <content>
+              <p>Die in dieser Weise ausgestellten Dokumente oder Bescheinigungen ersetzen die
+                amtlichen Urkunden, die Ausländern durch die Behörden ihres Landes oder durch deren
+                Vermittlung ausgestellt werden; sie gelten als rechtmässig bis zum Beweise des
+                Gegenteils.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_25/para_4">
+            <num>4.</num>
+            <content>
+              <p>Abgesehen von Ausnahmen, die zugunsten von Bedürftigen zugelassen werden müssen,
+                können für die hier erwähnten Amtshandlungen Gebühren erhoben werden; diese müssen
+                aber mässig sein und den Gebühren entsprechen, die von Einheimischen für ähnliche
+                Amtshandlungen erhoben werden.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_25/para_5">
+            <num>5.</num>
+            <content>
+              <p>Die Bestimmungen dieses Artikels berühren die Artikel 27 und 28 nicht.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_26">
+          <num>
+            <b>Art. 26</b>
+          </num>
+          <heading>Freizügigkeit</heading>
+          <paragraph eId="art_26/para">
+            <content>
+              <p>Jeder vertragsschliessende Staat räumt den Flüchtlingen, die sich rechtmässig auf
+                seinem Gebiet aufhalten, das Recht ein, dort ihren Aufenthaltsort zu wählen und sich
+                frei zu bewegen, vorbehältlich der Bestimmungen, die unter den gleichen Umständen
+                für Ausländer im allgemeinen gelten.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_27">
+          <num>
+            <b>Art. 27</b>
+          </num>
+          <heading>Identitätsausweise</heading>
+          <paragraph eId="art_27/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten stellen jedem Flüchtling, der sich auf ihrem
+                Gebiet aufhält und der kein gültiges Reisepapier besitzt, einen Identitätsausweis
+                aus.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_28">
+          <num>
+            <b>Art. 28</b>
+          </num>
+          <heading>Reiseausweise</heading>
+          <paragraph eId="art_28/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten stellen den Flüchtlingen, die sich rechtmässig
+                auf ihrem Gebiet aufhalten, Reiseausweise aus, die ihnen Reisen ausserhalb dieses
+                Gebietes gestatten, vorausgesetzt, dass keine zwingenden Gründe der Staatssicherheit
+                oder öffentlichen Ordnung entgegenstehen; die Bestimmungen im Anhang zu diesem
+                Abkommen finden auf diese Dokumente Anwendung. Die vertragsschliessenden Staaten
+                können einen solchen Reiseausweis auch jedem andern Flüchtling auf ihrem Gebiet
+                ausstellen; sie werden den Fällen von Flüchtlingen besondere Aufmerksamkeit
+                schenken, die sich auf ihrem Gebiet aufhalten und nicht in der Lage sind, von dem
+                Lande, wo sie ihren ordentlichen Aufenthalt haben, einen Reiseausweis zu erlangen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_28/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die Reiseausweise, die Flüchtlingen auf Grund früherer internationaler
+                Vereinbarungen von den Parteien dieser Vereinbarungen ausgestellt worden sind,
+                werden von den vertragsschliessenden Staaten dieses Abkommens anerkannt und so
+                behandelt, als wären sie den Flüchtlingen auf Grund dieses Artikels ausgestellt
+                worden.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_29">
+          <num>
+            <b>Art. 29</b>
+          </num>
+          <heading>Steuern und Abgaben</heading>
+          <paragraph eId="art_29/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten erheben von den Flüchtlingen keine anderen oder
+                höheren Gebühren, Abgaben oder Steuern irgendwelcher Art, als sie unter ähnlichen
+                Verhältnissen jetzt oder künftig von den eigenen Staatsangehörigen verlangt werden.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_29/para_2">
+            <num>2.</num>
+            <content>
+              <p>Diese Vorschrift steht der Anwendung der gesetzlichen und sonstigen Bestimmungen
+                nicht entgegen, welche die Gebühren für die Ausstellung von Verwaltungsdokumenten,
+                einschliesslich Identitätsausweisen, an Ausländer betreffen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_30">
+          <num>
+            <b>Art. 30</b>
+          </num>
+          <heading>Vermögenstransfer</heading>
+          <paragraph eId="art_30/para_1">
+            <num>1.</num>
+            <content>
+              <p>Jeder vertragsschliessende Staat gestattet den Flüchtlingen nach Massgabe seiner
+                Gesetze und Verordnungen, Vermögenswerte, die sie auf sein Staatsgebiet gebracht
+                haben, in das Gebiet eines anderen Landes überzuführen, in dem sie zur Ansiedlung
+                zugelassen worden sind.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_30/para_2">
+            <num>2.</num>
+            <content>
+              <p>Jeder vertragsschliessende Staat prüft wohlwollend die Gesuche von Flüchtlingen,
+                die um die Ermächtigung nachsuchen, alle andern Vermögenswerte, die zur Ansiedlung
+                in einem anderen Land erforderlich sind, gleichgültig wo sie liegen, in ein anderes
+                Land zu überführen, in dem sie zur Ansiedlung aufgenommen worden sind.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_31">
+          <num>
+            <b>Art. 31</b>
+          </num>
+          <heading>Flüchtlinge, die sich unrechtmässig im Aufnahmeland aufhalten</heading>
+          <paragraph eId="art_31/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten ergreifen wegen illegaler Einreise oder
+                unrechtmässigen Aufenthalts keine Strafmassnahmen gegen Flüchtlinge, die unmittelbar
+                aus einem Gebiet kommen, wo ihr Leben oder ihre Freiheit im Sinne von Artikel 1
+                bedroht war und sofern sie sich unverzüglich den Behörden stellen und triftige
+                Gründe für ihre illegale Einreise oder Anwesenheit darlegen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_31/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten schränken die Bewegungsfreiheit dieser
+                Flüchtlinge nur soweit notwendig ein. Solche Beschränkungen sollen nur solange
+                bestehen, bis die Rechtsstellung der Flüchtlinge im Aufnahmeland geregelt ist oder
+                bis sie die Einreiseerlaubnis in ein anderes Land erhalten haben. Die
+                vertragsschliessenden Staaten gewähren solchen Flüchtlingen eine angemessene Frist
+                und alle erforderlichen Erleichterungen, damit sie die Einreisebewilligung in ein
+                anderes Land erhalten.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_32">
+          <num>
+            <b>Art. 32</b>
+          </num>
+          <heading>Ausweisung</heading>
+          <paragraph eId="art_32/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten weisen einen Flüchtling, der sich rechtmässig auf
+                ihrem Gebiet aufhält, nur aus Gründen der Staatssicherheit oder der öffentlichen
+                Ordnung aus.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_32/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die Ausweisung eines Flüchtlings kann nur auf Grund eines Entscheides, der nach dem
+                gesetzlich vorgeschriebenen Verfahren getroffen wurde, durchgeführt werden. Soweit
+                nicht zwingende Gründe der Staatssicherheit entgegenstehen, muss dem Flüchtling
+                erlaubt werden, Beweise zu seiner Entlastung beizubringen, Rekurs einzureichen und
+                sich dabei vor einer zuständigen Behörde oder vor einer oder mehreren von der
+                zuständigen Behörde bezeichneten Personen vertreten zu lassen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_32/para_3">
+            <num>3.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten räumen einem ausgewiesenen Flüchtling eine
+                angemessene Frist ein, um ihm den Versuch zu einer rechtmässigen Einreise in ein
+                anderes Land zu ermöglichen. Die vertragsschliessenden Staaten können während dieser
+                Frist alle innerstaatlichen Massnahmen treffen, die sie für notwendig erachten.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_33">
+          <num>
+            <b>Art. 33</b>
+          </num>
+          <heading>Verbot der Ausweisung und Zurückstellung</heading>
+          <paragraph eId="art_33/para_1">
+            <num>1.</num>
+            <content>
+              <p>Kein vertragsschliessender Staat darf einen Flüchtling in irgendeiner Form in das
+                Gebiet eines Landes ausweisen oder zurückstellen, wo sein Leben oder seine Freiheit
+                wegen seiner Rasse, Religion, Staatszugehörigkeit, seiner Zugehörigkeit zu einer
+                bestimmten sozialen Gruppe oder seiner politischen Anschauungen gefährdet wäre.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_33/para_2">
+            <num>2.</num>
+            <content>
+              <p>Auf diese Vorschrift kann sich ein Flüchtling nicht berufen, wenn erhebliche Gründe
+                dafür vorliegen, dass er als eine Gefahr für die Sicherheit des Aufenthaltsstaates
+                angesehen werden muss oder wenn er eine Bedrohung für die Gemeinschaft dieses Landes
+                bedeutet, weil er wegen eines besonders schweren Verbrechens oder Vergehens
+                rechtskräftig verurteilt worden ist.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_34">
+          <num>
+            <b>Art. 34</b>
+          </num>
+          <heading>Einbürgerung</heading>
+          <paragraph eId="art_34/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten erleichtern soweit als möglich die Assimilierung
+                und Einbürgerung der Flüchtlinge. Sie bemühen sich insbesondere, das
+                Einbürgerungsverfahren zu beschleunigen und die Kosten des Verfahrens nach
+                Möglichkeit herabzusetzen.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_VI">
+        <num>Kapitel VI </num>
+        <heading>Durchführungs‑ und Übergangsbestimmungen</heading>
+        <article eId="art_35">
+          <num>
+            <b>Art. 35</b>
+          </num>
+          <heading>Zusammenarbeit der staatlichen Behörden <br />mit den Vereinten Nationen</heading>
+          <paragraph eId="art_35/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten verpflichten sich, mit dem Hochkommissariat der
+                Vereinten Nationen für Flüchtlinge oder mit jeder anderen Institution, die ihm
+                nachfolgen könnte, bei der Ausübung ihrer Befugnisse zusammenzuarbeiten und im
+                besondern ihre Aufgabe zu erleichtern, die Durchführung dieses Abkommens zu
+                überwachen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_35/para_2">
+            <num>2.</num>
+            <content>
+              <blockList>
+                <listIntroduction eId="art_35/para_2/listintro">Um dem Hochkommissariat oder jeder
+                  andern ihm allenfalls nachfolgenden Institution der Vereinten Nationen die
+                  Berichterstattung an die zuständigen Organe der Vereinten Nationen zu ermöglichen,
+                  verpflichten sich die vertragsschliessenden Staaten, ihnen in geeigneter Form die
+                  gewünschten Informationen und statistischen Angaben zu machen über:</listIntroduction>
+                <item eId="art_35/para_2/lbl_a">
+                  <num>a) </num>
+                  <p>die Rechtsstellung der Flüchtlinge;</p>
+                </item>
+                <item eId="art_35/para_2/lbl_b">
+                  <num>b) </num>
+                  <p>die Durchführung dieses Abkommens;</p>
+                </item>
+                <item eId="art_35/para_2/lbl_c">
+                  <num>c) </num>
+                  <p>die Gesetze, Verordnungen und Dekrete über Flüchtlinge, die in Kraft sind oder
+                    erlassen werden.</p>
+                </item>
+              </blockList>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_36">
+          <num>
+            <b>Art. 36</b>
+          </num>
+          <heading>Auskünfte über die innerstaatliche Gesetzgebung</heading>
+          <paragraph eId="art_36/para">
+            <content>
+              <p>Die vertragsschliessenden Staaten werden dem Generalsekretär der Vereinten Nationen
+                den Text der Gesetze und Verordnungen mitteilen, die sie zur Durchführung dieser
+                Vereinbarung erlassen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_37">
+          <num>
+            <b>Art. 37</b>
+          </num>
+          <heading>Verhältnis zu früheren Abkommen</heading>
+          <paragraph eId="art_37/para">
+            <content>
+              <p>Unbeschadet der Bestimmungen in Ziffer 2 des Artikels 28 dieses Abkommens ersetzt
+                dieses Abkommen im Verhältnis zwischen den vertragsschliessenden Staaten die
+                Vereinbarungen vom 5. Juli 1922, 31. Mai 1924, 12. Mai 1926, 30. Juni 1928 und 30.
+                Juli 1935, sowie die Abkommen vom 28. Oktober 1933, 10. Februar 1938, das Protokoll
+                vom 14. September 1939 und das Übereinkommen vom 15. Oktober 1946<authorialNote>
+                  <p> [BS <b>11</b> 786]. An den andern in diesem Art. erwähnten Abk. war die
+                Schweiz nicht beteiligt.</p>
+                </authorialNote>.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_VII">
+        <num>Kapitel VII </num>
+        <heading>Schlussbestimmungen</heading>
+        <article eId="art_38">
+          <num>
+            <b>Art. 38</b>
+          </num>
+          <heading>Schlichtung von Streitfällen</heading>
+          <paragraph eId="art_38/para">
+            <content>
+              <p>Streitfragen zwischen den Parteien dieses Abkommens über seine Auslegung oder
+                Durchführung sind auf Begehren einer der beteiligten Parteien dem Internationalen
+                Gerichtshof zu unterbreiten, sofern sie nicht auf andere Weise beigelegt werden
+                können.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_39">
+          <num>
+            <b>Art. 39</b>
+          </num>
+          <heading>Unterzeichnung, Ratifikation und Beitritt</heading>
+          <paragraph eId="art_39/para_1">
+            <num>1.</num>
+            <content>
+              <p>Dieses Abkommen liegt am 28. Juli 1951 in Genf zur Unterzeichnung auf und wird
+                nachher beim Generalsekretär der Vereinten Nationen hinterlegt. Es kann vom 28. Juli
+                bis zum 31. August 1951 am europäischen Sitz der Vereinten Nationen und sodann
+                erneut vom 17. September 1951 bis zum 31. Dezember 1952 am Sitz der Organisation der
+                Vereinten Nationen unterzeichnet werden.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_39/para_2">
+            <num>2.</num>
+            <content>
+              <p>Dieses Abkommen kann von allen Mitgliedstaaten der Organisation der Vereinten
+                Nationen unterzeichnet werden sowie von jedem andern Nichtmitgliedstaat, der zur
+                Konferenz der Bevollmächtigten über die Rechtsstellung der Flüchtlinge und
+                Staatenlosen eingeladen worden ist, oder von jedem Staat, den die Generalversammlung
+                zur Unterzeichnung eingeladen hat. Das Abkommen muss ratifiziert werden; die
+                Ratifikationsurkunden sind beim Generalsekretär der Vereinten Nationen zu
+                hinterlegen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_39/para_3">
+            <num>3.</num>
+            <content>
+              <p>Die in Ziffer 2 dieses Artikels genannten Staaten können diesem Abkommen vom 28.
+                Juli 1951 an beitreten. Der Beitritt erfolgt durch Hinterlegung einer
+                Beitrittserklärung beim Generalsekretär der Vereinten Nationen. </p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_40">
+          <num>
+            <b>Art. 40</b>
+          </num>
+          <heading>Örtlicher Geltungsbereich</heading>
+          <paragraph eId="art_40/para_1">
+            <num>1.</num>
+            <content>
+              <p>Jeder Staat kann im Zeitpunkt der Unterzeichnung, der Ratifikation oder des
+                Beitritts erklären, dass sich dieses Abkommen auf alle Gebiete erstrecken soll, die
+                er auf internationalem Boden vertritt, oder nur auf eines oder mehrere von ihnen.
+                Eine solche Erklärung wird im Zeitpunkt des Inkrafttretens des Abkommens für den
+                betreffenden Staat wirksam.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_40/para_2">
+            <num>2.</num>
+            <content>
+              <p>In jedem späteren Zeitpunkt erfolgt die Ausdehnung des Geltungsbereiches durch eine
+                an den Generalsekretär der Vereinten Nationen gerichtete Mitteilung; sie wird nach
+                Ablauf von neunzig Tagen seit dem Eingang der Mitteilung beim Generalsekretär der
+                Vereinten Nationen rechtswirksam oder allenfalls zu jenem späteren Zeitpunkt, in dem
+                das Abkommen für den betreffenden Staat in Kraft tritt.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_40/para_3">
+            <num>3.</num>
+            <content>
+              <p>Jeder beteiligte Staat wird für die Gebiete, auf die sich dieses Abkommen im
+                Zeitpunkt der Unterzeichnung, Ratifikation oder dem Beitritt nicht erstreckt, die
+                Möglichkeit von Massnahmen zur Ausdehnung der Gültigkeit des Abkommens prüfen, unter
+                dem Vorbehalt der Zustimmung der Regierungen dieser Gebiete, falls dies
+                verfassungsmässig erforderlich ist.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_41">
+          <num>
+            <b>Art. 41</b>
+          </num>
+          <heading>Bundesstaatsklausel</heading>
+          <paragraph eId="art_41/para">
+            <content>
+              <blockList>
+                <listIntroduction eId="art_41/para/listintro">Bei Bundesstaaten oder solchen
+                  Staaten, die nicht Einheitsstaaten sind, finden nachstehende Bestimmungen
+                  Anwendung:</listIntroduction>
+                <item eId="art_41/para/lbl_a">
+                  <num>a. </num>
+                  <p>Mit Bezug auf die Artikel dieses Abkommens, deren Durchführung in die
+                    Zuständigkeit der gesetzgebenden Organe des Bundes fällt, sind die
+                    Verpflichtungen der Bundesregierung die gleichen wie die von Staaten, die nicht
+                    Bundesstaaten sind;</p>
+                </item>
+                <item eId="art_41/para/lbl_b">
+                  <num>b. </num>
+                  <p>die Artikel dieses Abkommens, deren Durchführung in die Zuständigkeit der
+                    Gesetzgebung jedes der Gliedstaaten, Provinzen oder Kantone fällt, die nach der
+                    Bundesverfassung nicht verpflichtet sind, gesetzliche Massnahmen zu ergreifen,
+                    wird die Bundesregierung so bald als möglich und in empfehlendem Sinne den
+                    zuständigen Behörden der Gliedstaaten, Provinzen oder Kantone zur Kenntnis
+                    bringen;</p>
+                </item>
+                <item eId="art_41/para/lbl_c">
+                  <num>c. </num>
+                  <p>ein Bundesstaat, der Vertragspartner dieses Abkommens ist, wird auf das ihm vom
+                    Generalsekretär der Vereinten Nationen übermittelte Begehren jedes anderen
+                    vertragsschliessenden Staates eine Darstellung über die im Bund oder seinen
+                    Gliedstaaten geltenden gesetzlichen Bestimmungen und der Praxis in Bezug auf
+                    irgendeine Bestimmung des Abkommens geben; darin soll dargelegt werden,
+                    inwieweit diese Bestimmung durch einen gesetzgeberischen Akt oder eine andere
+                    Massnahme Wirksamkeit erhalten hat.</p>
+                </item>
+              </blockList>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_42">
+          <num>
+            <b>Art. 42</b>
+          </num>
+          <heading>Vorbehalte</heading>
+          <paragraph eId="art_42/para_1">
+            <num>1.</num>
+            <content>
+              <p>Im Zeitpunkt der Unterzeichnung, der Ratifikation oder des Beitritts kann jeder
+                Staat zu den Artikeln des Abkommens Vorbehalte machen, ausgenommen zu den Artikeln
+                1, 3, 4, 16 Ziffer 1, 33, 36 bis einschliesslich 46.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_42/para_2">
+            <num>2.</num>
+            <content>
+              <p>Jeder vertragsschliessende Staat, der gemäss Ziffer 1 dieses Artikels einen
+                Vorbehalt gemacht hat, kann ihn jederzeit durch schriftliche Mitteilung an den
+                Generalsekretär der Vereinten Nationen zurückziehen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_43">
+          <num>
+            <b>Art. 43</b>
+          </num>
+          <heading>Inkrafttreten</heading>
+          <paragraph eId="art_43/para_1">
+            <num>1.</num>
+            <content>
+              <p>Dieses Abkommen tritt am neunzigsten Tage nach dem Tage der Hinterlegung der
+                sechsten Ratifikations‑ oder Beitrittsurkunde in Kraft.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_43/para_2">
+            <num>2.</num>
+            <content>
+              <p>Für jeden Staat, der das Abkommen nach Hinterlegung der sechsten Ratifikations-
+                oder Beitrittsurkunde ratifiziert oder ihm beitritt, tritt das Abkommen am
+                neunzigsten Tag nach dem Tag der Hinterlegung der Ratifikations‑ oder
+                Beitrittsurkunde dieses Staates in Kraft.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_44">
+          <num>
+            <b>Art. 44</b>
+          </num>
+          <heading>Kündigung</heading>
+          <paragraph eId="art_44/para_1">
+            <num>1.</num>
+            <content>
+              <p>Die vertragsschliessenden Staaten können das Abkommen jederzeit durch schriftliche
+                Mitteilung an den Generalsekretär der Vereinten Nationen kündigen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_44/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die Kündigung wird für den betreffenden Staat ein Jahr nach dem Eingang der
+                Mitteilung beim Generalsekretär der Vereinten Nationen wirksam.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_44/para_3">
+            <num>3.</num>
+            <content>
+              <p>Jeder Staat, der eine Erklärung oder Mitteilung gemäss Artikel 40 gemacht hat, kann
+                jederzeit später dem Generalsekretär der Vereinten Nationen mitteilen, dass das
+                Abkommen für das bezeichnete Gebiet keine Wirksamkeit mehr hat. Das Abkommen tritt
+                alsdann für dieses Gebiet ein Jahr nach dem Eingang der Mitteilung beim
+                Generalsekretär ausser Kraft.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_45">
+          <num>
+            <b>Art. 45</b>
+          </num>
+          <heading>Revision</heading>
+          <paragraph eId="art_45/para_1">
+            <num>1.</num>
+            <content>
+              <p>Jeder vertragsschliessende Staat kann jederzeit durch schriftliche Mitteilung an
+                den Generalsekretär der Vereinten Nationen die Revision dieses Abkommens verlangen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_45/para_2">
+            <num>2.</num>
+            <content>
+              <p>Die Generalversammlung der Vereinten Nationen wird gegebenenfalls die im Hinblick
+                auf dieses Gesuch zu treffenden Massnahmen beantragen.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_46">
+          <num>
+            <b>Art. 46</b>
+          </num>
+          <heading>Mitteilungen durch den Generalsekretär der Vereinten Nationen</heading>
+          <paragraph eId="art_46/para">
+            <content>
+              <blockList>
+                <listIntroduction eId="art_46/para/listintro">Der Generalsekretär der Vereinten
+                  Nationen wird allen Mitgliedstaaten der Vereinten Nationen sowie den in Artikel 39
+                  erwähnten Nichtmitgliedstaaten mitteilen:</listIntroduction>
+                <item eId="art_46/para/lbl_a">
+                  <num>a) </num>
+                  <p>die Erklärungen und Mitteilungen gemäss Abschnitt B des Artikels 1;</p>
+                </item>
+                <item eId="art_46/para/lbl_b">
+                  <num>b) </num>
+                  <p>die Unterzeichnungen, Ratifikationen und Beitrittserklärungen gemäss
+                    Artikel 39;</p>
+                </item>
+                <item eId="art_46/para/lbl_c">
+                  <num>c) </num>
+                  <p>die Erklärungen und Mitteilungen gemäss Artikel 40;</p>
+                </item>
+                <item eId="art_46/para/lbl_d">
+                  <num>d) </num>
+                  <p>die gemäss Artikel 42 formulierten oder zurückgezogenen Vorbehalte;</p>
+                </item>
+                <item eId="art_46/para/lbl_e">
+                  <num>e) </num>
+                  <p>den Zeitpunkt, an dem dieses Abkommen gemäss Artikel 43 in Kraft tritt;</p>
+                </item>
+                <item eId="art_46/para/lbl_f">
+                  <num>f) </num>
+                  <p>die Kündigungen und Mitteilungen gemäss Artikel 44;</p>
+                </item>
+                <item eId="art_46/para/lbl_g">
+                  <num>g) </num>
+                  <p>die Revisionsbegehren gemäss Artikel 45.</p>
+                </item>
+              </blockList>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <signature>
+        <p><i>Zu Urkund dessen</i> haben die gehörig bevollmächtigten Unterzeichneten dieses
+          Abkommen im Namen ihrer Regierungen unterzeichnet.</p>
+        <p>Ausgefertigt in Genf, am 28. Juli eintausendneunhunderteinundfünfzig, in einem einzigen
+          Exemplar, dessen englischer und französischer Text gleicherweise authentisch sind, und das
+          in den Archiven der Organisation der Vereinten Nationen hinterlegt wird. Allen
+          Mitgliedstaaten der Vereinten Nationen sowie den in Artikel 39 genannten
+          Nichtmitgliedstaaten werden beglaubigte Abschriften übermittelt.</p>
+        <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">(Es folgen die Unterschriften)</p>
+      </signature>
+    </body>
+    <components>
+      <component>
+        <doc name="annex">
+          <meta>
+            <identification source="#ch.bk">
+              <FRBRWork>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/main-text" />
+                <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRcountry value="CH" />
+                <FRBRnumber value="0.142.30" />
+                <FRBRname xml:lang="it"
+                  value="Convenzione del 28 luglio 1951 sullo statuto dei rifugiati (con. All.)"
+                  shortForm="" />
+                <FRBRname xml:lang="de"
+                  value="Abkommen vom 28. Juli 1951 über die Rechtsstellung der Flüchtlinge (mit Anhang)"
+                  shortForm="FK" />
+                <FRBRname xml:lang="fr"
+                  value="Convention du 28 juillet 1951 relative au statut des réfugiés (avec annexe)"
+                  shortForm="" />
+                <FRBRauthoritative value="true" />
+              </FRBRWork>
+              <FRBRExpression>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/main-text" />
+                <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRlanguage language="de" />
+              </FRBRExpression>
+              <FRBRManifestation>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml/main-text" />
+                <FRBRuri
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRformat value="xml" />
+              </FRBRManifestation>
+            </identification>
+          </meta>
+          <preface>
+            <container name="headerOfAnnex">
+              <block name="heading">Anhang</block>
+            </container>
+          </preface>
+          <mainBody>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 1</p>
+            <p>1.  Der in Artikel 28 dieses Abkommens erwähnte Reiseausweis hat dem beigefügten
+              Muster<authorialNote>
+                <p> In der AS nicht veröffentlicht.</p>
+              </authorialNote> zu
+              entsprechen.</p>
+            <p>2.  Der Ausweis ist mindestens in zwei Sprachen abzufassen, von denen eine die
+              englische oder französische Sprache sein muss.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 2</p>
+            <p>Vorbehältlich der Vorschriften des Ausstellungslandes können Kinder in den Ausweis
+              eines Elternteiles oder ausnahmsweise eines anderen erwachsenen Flüchtlings
+              aufgenommen werden.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 3</p>
+            <p>Die für die Ausstellung des Ausweises erhobenen Gebühren dürfen den niedrigsten
+              Ansatz, der für heimatliche Pässe gilt, nicht übersteigen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 4</p>
+            <p>Ausser in besondern oder aussergewöhnlichen Fällen ist der Ausweis für möglichst
+              viele Staaten auszustellen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 5</p>
+            <p>Die Gültigkeitsdauer des Ausweises soll nach Wahl der ausstellenden Behörde ein oder
+              zwei Jahre betragen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 6</p>
+            <p>1.  Die Erneuerung oder Verlängerung des Reiseausweises ist Sache der ausstellenden
+              Behörde, solange der Inhaber sich nicht in einem andern Gebiet niedergelassen hat und
+              sich rechtmässig auf dem Gebiet dieser Behörde aufhält. Zur Ausstellung eines neuen
+              Ausweises ist unter der gleichen Bedingung die Behörde zuständig, die den frühern
+              Ausweis abgegeben hat.</p>
+            <p>2.  Diplomatische und konsularische Vertretungen, die dazu besonders ermächtigt
+              wurden, können die Gültigkeitsdauer der von ihrer Regierung ausgestellten Ausweise um
+              höchstens sechs Monate verlängern.</p>
+            <p>3.  Die vertragsschliessenden Staaten prüfen wohlwollend, ob Flüchtlingen, die sich
+              nicht mehr rechtmässig auf ihrem Gebiet aufhalten und die vom Land ihres rechtmässigen
+              Aufenthalts keinen Reiseausweis erhalten können, ein solcher ausgestellt, erneuert
+              oder verlängert werden kann.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 7</p>
+            <p>Die vertragsschliessenden Staaten werden die gemäss Artikel 28 dieser Vereinbarung
+              abgegebenen Ausweise anerkennen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 8</p>
+            <p>Die zuständigen Behörden des Landes, in das der Flüchtling reisen will, werden in
+              seinen Reiseausweis ein Visum eintragen, wenn dies notwendig ist, und sie bereit sind,
+              ihn aufzunehmen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 9</p>
+            <p>1.  Die vertragsschliessenden Staaten verpflichten sich, Flüchtlingen, die das
+              Einreisevisum des endgültigen Bestimmungslandes erhalten haben, Transitvisa zu
+              erteilen.</p>
+            <p>2.  Die Erteilung dieses Visums kann aus Gründen verweigert werden, die auch
+              gegenüber jedem andern Ausländer die Verweigerung des Visums rechtfertigen würden.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 10</p>
+            <p>Die Gebühren für die Erteilung von Aus‑, Ein‑ oder Durchreisevisa dürfen den für Visa
+              in ausländischen Pässen vorgesehenen niedrigsten Ansatz nicht übersteigen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 11</p>
+            <p>Wenn ein Flüchtling sich rechtmässig auf dem Gebiet eines andern
+              vertragsschliessenden Staates niederlässt, ist es Sache der zuständigen Behörden
+              dieses Gebietes, ihm gemäss Artikel 28 einen neuen Reiseausweis abzugeben; der
+              Flüchtling kann sie darum ersuchen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 12</p>
+            <p>Die Behörde, die einen neuen Ausweis abgibt, hat den frühern einzuziehen und dem
+              Ausstellungsland zurückzusenden, falls dies im Ausweis vorgesehen ist; ist dies nicht
+              der Fall, zieht sie ihn ein und annulliert ihn.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 13</p>
+            <p>1.  Jeder vertragsschliessende Staat verpflichtet sich, dem Inhaber eines von ihm
+              gemäss Artikel 28 des Abkommens ausgestellten Reiseausweises zu gestatten, jederzeit
+              während der Gültigkeitsdauer des Ausweises in sein Gebiet zurückzukehren.</p>
+            <p>2.  Unter Vorbehalt von Ziffer 1 kann jeder vertragsschliessende Staat verlangen,
+              dass sich der Inhaber des Ausweises allen Formalitäten unterwirft, die in Bezug auf
+              Ausreise oder Rückkehr in das Land vorgeschrieben werden können.</p>
+            <p>3.  Die vertragsschliessenden Staaten behalten sich das Recht vor, in Ausnahmefällen
+              oder wenn die Aufenthaltsbewilligung eines Flüchtlings für eine bestimmte Zeit gültig
+              ist, die Frist zur Rückkehr bei der Ausstellung des Ausweises zu beschränken; diese
+              Frist darf aber nicht weniger als drei Monate betragen.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 14</p>
+            <p>Die Bestimmungen dieses Anhanges, mit Ausnahme von Paragraph 13, berühren in keiner
+              Weise die Gesetze und Verordnungen, die auf dem Gebiet der vertragsschliessenden
+              Staaten die Bedingungen für die Zulassung, die Durchreise, den Aufenthalt, die
+              Niederlassung und die Ausreise regeln.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 15</p>
+            <p>Weder die Abgabe des Ausweises noch die eingetragenen Vermerke bestimmen oder
+              berühren den Status des Inhabers, insbesondere was die Staatszugehörigkeit anbelangt.</p>
+            <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Paragraph 16</p>
+            <p>Die Ausstellung des Ausweises gibt dem Inhaber keinen Anspruch auf diplomatischen
+              oder konsularischen Schutz des Staates, der den Ausweis abgegeben hat, und überträgt
+              dessen Vertretern keine Schutzbefugnisse.</p>
+          </mainBody>
+        </doc>
+      </component>
+      <component eId="scope_u1">
+        <doc name="scope">
+          <meta>
+            <identification source="#ch.bk">
+              <FRBRWork>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/main-text" />
+                <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRcountry value="CH" />
+                <FRBRnumber value="0.142.30" />
+                <FRBRname xml:lang="it"
+                  value="Convenzione del 28 luglio 1951 sullo statuto dei rifugiati (con. All.)"
+                  shortForm="" />
+                <FRBRname xml:lang="de"
+                  value="Abkommen vom 28. Juli 1951 über die Rechtsstellung der Flüchtlinge (mit Anhang)"
+                  shortForm="FK" />
+                <FRBRname xml:lang="fr"
+                  value="Convention du 28 juillet 1951 relative au statut des réfugiés (avec annexe)"
+                  shortForm="" />
+                <FRBRauthoritative value="true" />
+              </FRBRWork>
+              <FRBRExpression>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/main-text" />
+                <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRlanguage language="de" />
+              </FRBRExpression>
+              <FRBRManifestation>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml/main-text" />
+                <FRBRuri
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRformat value="xml" />
+              </FRBRManifestation>
+            </identification>
+          </meta>
+          <preface>
+            <container name="headerOfAnnex">
+              <block name="heading">Geltungsbereich am 14. Juni 2012<sup>
+                  <authorialNote>
+                    <p>
+                      <ref href="https://fedlex.data.admin.ch/eli/oc/1955/443_461_469"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>1955</b> 443</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1975/1778_1778_1778"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1975</b> 1778</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1976/2847_2847_2847"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1976</b> 2847</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1980/373_373_373"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1980</b> 373</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1982/434_434_434"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1982</b> 434 </ref><ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1982/2068_2068_2068"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">2068</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1983/1172_1172_1172"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1983</b> 1172</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1984/331_331_331"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1984</b> 331</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1985/72_72_72"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1985</b> 72</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1986/171_171_171"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1986</b> 171</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1987/274_274_274"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1987</b> 274</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1988/1554_1554_1554"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1988</b> 1554</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1989/2434_2434_2434"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1989</b> 2434</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1991/817_817_817"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1991</b> 817</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/1993/2334_2334_2334"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>1993</b> 2334</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2002/636"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2002</b> 3978</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2006/256"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2006</b> 1651</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2009/307"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2009</b> 2491 </ref>und <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2012/409"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2012</b> 3601</ref>. Eine
+                aktualisierte Fassung des Geltungsbereiches findet sich auf der Internetseite des
+                EDA (www.eda.admin.ch/vertraege).</p>
+                  </authorialNote>
+                </sup></block>
+            </container>
+          </preface>
+          <mainBody>
+            <table border="1">
+              <tr>
+                <th colspan="2" xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+              </tr>
+              <tr>
+                <th colspan="2" xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">
+                  <p>Vertragsstaaten</p>
+                </th>
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">
+                  <p>Ratifikation <br />Beitritt (B) <br />Nachfolgeerklärung (N)</p>
+                </th>
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">
+                  <p>Inkrafttreten</p>
+                </th>
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+              </tr>
+              <tr>
+                <th colspan="2" xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+              </tr>
+              <tr>
+                <th colspan="2" xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+                <th xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration" />
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Afghanistan</p>
+                </td>
+                <td>
+                  <p>30. August</p>
+                </td>
+                <td>
+                  <p>2005 B</p>
+                </td>
+                <td>
+                  <p>28. November</p>
+                </td>
+                <td>
+                  <p>2005</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Ägypten*</p>
+                </td>
+                <td>
+                  <p>22. Mai</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>20. August</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Albanien</p>
+                </td>
+                <td>
+                  <p>18. August</p>
+                </td>
+                <td>
+                  <p>1992 B</p>
+                </td>
+                <td>
+                  <p>16. November</p>
+                </td>
+                <td>
+                  <p>1992</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Algerien</p>
+                </td>
+                <td>
+                  <p>21. Februar</p>
+                </td>
+                <td>
+                  <p>1963 N</p>
+                </td>
+                <td>
+                  <p>  3. Juli</p>
+                </td>
+                <td>
+                  <p>1962</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Angola* </p>
+                </td>
+                <td>
+                  <p>23. Juni</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>21. September</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Antigua und Barbuda</p>
+                </td>
+                <td>
+                  <p>  7. September</p>
+                </td>
+                <td>
+                  <p>1995 B</p>
+                </td>
+                <td>
+                  <p>  6. Dezember</p>
+                </td>
+                <td>
+                  <p>1995</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Äquatorialguinea</p>
+                </td>
+                <td>
+                  <p>  7. Februar</p>
+                </td>
+                <td>
+                  <p>1986 B</p>
+                </td>
+                <td>
+                  <p>  8. Mai</p>
+                </td>
+                <td>
+                  <p>1986</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Argentinien</p>
+                </td>
+                <td>
+                  <p>15. November</p>
+                </td>
+                <td>
+                  <p>1961 B</p>
+                </td>
+                <td>
+                  <p>13. Februar</p>
+                </td>
+                <td>
+                  <p>1962</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Armenien</p>
+                </td>
+                <td>
+                  <p>  6. Juli</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>  4. Oktober</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Aserbaidschan</p>
+                </td>
+                <td>
+                  <p>12. Februar</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>13. Mai</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Äthiopien*</p>
+                </td>
+                <td>
+                  <p>10. November</p>
+                </td>
+                <td>
+                  <p>1969 B</p>
+                </td>
+                <td>
+                  <p>  8. Februar</p>
+                </td>
+                <td>
+                  <p>1970</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Australien</p>
+                </td>
+                <td>
+                  <p>22. Januar</p>
+                </td>
+                <td>
+                  <p>1954 B</p>
+                </td>
+                <td>
+                  <p>22. April</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Norfolk-Insel</p>
+                </td>
+                <td>
+                  <p>22. Januar</p>
+                </td>
+                <td>
+                  <p>1954 B</p>
+                </td>
+                <td>
+                  <p>22. Januar</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Bahamas*</p>
+                </td>
+                <td>
+                  <p>15. September</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>14. Dezember</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Belarus</p>
+                </td>
+                <td>
+                  <p>23. August</p>
+                </td>
+                <td>
+                  <p>2001 B</p>
+                </td>
+                <td>
+                  <p>21. November</p>
+                </td>
+                <td>
+                  <p>2001</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Belgien* **</p>
+                </td>
+                <td>
+                  <p>22. Juli</p>
+                </td>
+                <td>
+                  <p>1953 </p>
+                </td>
+                <td>
+                  <p>22. April</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Belize</p>
+                </td>
+                <td>
+                  <p>27. Juni</p>
+                </td>
+                <td>
+                  <p>1990 B</p>
+                </td>
+                <td>
+                  <p>25. September</p>
+                </td>
+                <td>
+                  <p>1990</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Benin</p>
+                </td>
+                <td>
+                  <p>  4. April</p>
+                </td>
+                <td>
+                  <p>1962 N</p>
+                </td>
+                <td>
+                  <p>  1. August</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Bolivien</p>
+                </td>
+                <td>
+                  <p>  9. Februar</p>
+                </td>
+                <td>
+                  <p>1982 B</p>
+                </td>
+                <td>
+                  <p>10. Mai</p>
+                </td>
+                <td>
+                  <p>1982</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Bosnien und Herzegowina</p>
+                </td>
+                <td>
+                  <p>  1. September</p>
+                </td>
+                <td>
+                  <p>1993 N</p>
+                </td>
+                <td>
+                  <p>  6. März</p>
+                </td>
+                <td>
+                  <p>1992</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Botsuana*</p>
+                </td>
+                <td>
+                  <p>  6. Januar</p>
+                </td>
+                <td>
+                  <p>1969 B</p>
+                </td>
+                <td>
+                  <p>  6. April</p>
+                </td>
+                <td>
+                  <p>1969</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Brasilien*</p>
+                </td>
+                <td>
+                  <p>16. November</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+                <td>
+                  <p>14. Februar</p>
+                </td>
+                <td>
+                  <p>1961</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Bulgarien</p>
+                </td>
+                <td>
+                  <p>12. Mai</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>10. August</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Burkina Faso</p>
+                </td>
+                <td>
+                  <p>18. Juni</p>
+                </td>
+                <td>
+                  <p>1980 B</p>
+                </td>
+                <td>
+                  <p>16. September</p>
+                </td>
+                <td>
+                  <p>1980</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Burundi</p>
+                </td>
+                <td>
+                  <p>19. Juli</p>
+                </td>
+                <td>
+                  <p>1963 B</p>
+                </td>
+                <td>
+                  <p>17. Oktober</p>
+                </td>
+                <td>
+                  <p>1963</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Chile*</p>
+                </td>
+                <td>
+                  <p>28. Januar</p>
+                </td>
+                <td>
+                  <p>1972 B</p>
+                </td>
+                <td>
+                  <p>27. April</p>
+                </td>
+                <td>
+                  <p>1972</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>China*</p>
+                </td>
+                <td>
+                  <p>24. September</p>
+                </td>
+                <td>
+                  <p>1982 B</p>
+                </td>
+                <td>
+                  <p>23. Dezember</p>
+                </td>
+                <td>
+                  <p>1982</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Macau<sup xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"> a</sup></p>
+                </td>
+                <td>
+                  <p>  3. Dezember</p>
+                </td>
+                <td>
+                  <p>1999</p>
+                </td>
+                <td>
+                  <p>20. Dezember</p>
+                </td>
+                <td>
+                  <p>1999</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Costa Rica</p>
+                </td>
+                <td>
+                  <p>28. März</p>
+                </td>
+                <td>
+                  <p>1978 B</p>
+                </td>
+                <td>
+                  <p>26. Juni</p>
+                </td>
+                <td>
+                  <p>1978</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Côte d’Ivoire</p>
+                </td>
+                <td>
+                  <p>  8. Dezember</p>
+                </td>
+                <td>
+                  <p>1961 N</p>
+                </td>
+                <td>
+                  <p>  7. August</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Dänemark*</p>
+                </td>
+                <td>
+                  <p>  4. Dezember</p>
+                </td>
+                <td>
+                  <p>1952</p>
+                </td>
+                <td>
+                  <p>22. April</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Grönland*</p>
+                </td>
+                <td>
+                  <p>  4. Dezember</p>
+                </td>
+                <td>
+                  <p>1952 B</p>
+                </td>
+                <td>
+                  <p>  4. Dezember</p>
+                </td>
+                <td>
+                  <p>1952</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Deutschland**</p>
+                </td>
+                <td>
+                  <p>  1. Dezember</p>
+                </td>
+                <td>
+                  <p>1953</p>
+                </td>
+                <td>
+                  <p>22. April</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Dominica</p>
+                </td>
+                <td>
+                  <p>17. Februar</p>
+                </td>
+                <td>
+                  <p>1994 B</p>
+                </td>
+                <td>
+                  <p>18. Mai</p>
+                </td>
+                <td>
+                  <p>1994</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Dominikanische Republik</p>
+                </td>
+                <td>
+                  <p>  4. Januar</p>
+                </td>
+                <td>
+                  <p>1978 B</p>
+                </td>
+                <td>
+                  <p>  4. April</p>
+                </td>
+                <td>
+                  <p>1978</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Dschibuti</p>
+                </td>
+                <td>
+                  <p>  9. August</p>
+                </td>
+                <td>
+                  <p>1977 N</p>
+                </td>
+                <td>
+                  <p>27. Juni</p>
+                </td>
+                <td>
+                  <p>1977</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Ecuador*</p>
+                </td>
+                <td>
+                  <p>17. August</p>
+                </td>
+                <td>
+                  <p>1955 B</p>
+                </td>
+                <td>
+                  <p>15. November</p>
+                </td>
+                <td>
+                  <p>1955</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>El Salvador</p>
+                </td>
+                <td>
+                  <p>28. April</p>
+                </td>
+                <td>
+                  <p>1983 B</p>
+                </td>
+                <td>
+                  <p>27. Juli</p>
+                </td>
+                <td>
+                  <p>1983</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Estland*</p>
+                </td>
+                <td>
+                  <p>10. April</p>
+                </td>
+                <td>
+                  <p>1997 B</p>
+                </td>
+                <td>
+                  <p>  9. Juli</p>
+                </td>
+                <td>
+                  <p>1997</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Fidschi*</p>
+                </td>
+                <td>
+                  <p>12. Juni</p>
+                </td>
+                <td>
+                  <p>1972 N</p>
+                </td>
+                <td>
+                  <p>10. Oktober</p>
+                </td>
+                <td>
+                  <p>1970</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Finnland*</p>
+                </td>
+                <td>
+                  <p>10. Oktober</p>
+                </td>
+                <td>
+                  <p>1968 B</p>
+                </td>
+                <td>
+                  <p>  8. Januar</p>
+                </td>
+                <td>
+                  <p>1969</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Frankreich* **</p>
+                </td>
+                <td>
+                  <p>23. Juni</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+                <td>
+                  <p>21. September</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Kolonien, Protektorate und <br />    Gebiete, die vom französischen, <br />    für
+                    die Kolonien zuständigen <br />    Ministerium abhängen</p>
+                </td>
+                <td>
+                  <p>23. Juni</p>
+                </td>
+                <td>
+                  <p>1954 B</p>
+                </td>
+                <td>
+                  <p>23. Juni</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Gabun</p>
+                </td>
+                <td>
+                  <p>27. April</p>
+                </td>
+                <td>
+                  <p>1964 B</p>
+                </td>
+                <td>
+                  <p>26. Juli</p>
+                </td>
+                <td>
+                  <p>1964</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Gambia*</p>
+                </td>
+                <td>
+                  <p>  7. September</p>
+                </td>
+                <td>
+                  <p>1966 N</p>
+                </td>
+                <td>
+                  <p>18. Februar</p>
+                </td>
+                <td>
+                  <p>1965</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Georgien*</p>
+                </td>
+                <td>
+                  <p>  9. August</p>
+                </td>
+                <td>
+                  <p>1999 B</p>
+                </td>
+                <td>
+                  <p>  7. November</p>
+                </td>
+                <td>
+                  <p>1999</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Ghana</p>
+                </td>
+                <td>
+                  <p>18. März</p>
+                </td>
+                <td>
+                  <p>1963 B</p>
+                </td>
+                <td>
+                  <p>16. Juni</p>
+                </td>
+                <td>
+                  <p>1963</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Griechenland*</p>
+                </td>
+                <td>
+                  <p> 5. April</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+                <td>
+                  <p> 4. Juli</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Guatemala</p>
+                </td>
+                <td>
+                  <p>22. September</p>
+                </td>
+                <td>
+                  <p>1983 B</p>
+                </td>
+                <td>
+                  <p>21. Dezember</p>
+                </td>
+                <td>
+                  <p>1983</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Guinea</p>
+                </td>
+                <td>
+                  <p>28. Dezember</p>
+                </td>
+                <td>
+                  <p>1965 N</p>
+                </td>
+                <td>
+                  <p>  2. Oktober</p>
+                </td>
+                <td>
+                  <p>1958</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Guinea-Bissau</p>
+                </td>
+                <td>
+                  <p>11. Februar</p>
+                </td>
+                <td>
+                  <p>1976 B</p>
+                </td>
+                <td>
+                  <p>11. Mai</p>
+                </td>
+                <td>
+                  <p>1976</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Haiti</p>
+                </td>
+                <td>
+                  <p>25. September</p>
+                </td>
+                <td>
+                  <p>1984 B</p>
+                </td>
+                <td>
+                  <p>24. Dezember</p>
+                </td>
+                <td>
+                  <p>1984</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Heiliger Stuhl*</p>
+                </td>
+                <td>
+                  <p>15. März</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+                <td>
+                  <p>13. Juni</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Honduras*</p>
+                </td>
+                <td>
+                  <p>23. März</p>
+                </td>
+                <td>
+                  <p>1992 B</p>
+                </td>
+                <td>
+                  <p>21. Juni</p>
+                </td>
+                <td>
+                  <p>1992</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Iran*</p>
+                </td>
+                <td>
+                  <p>28. Juli</p>
+                </td>
+                <td>
+                  <p>1976 B</p>
+                </td>
+                <td>
+                  <p>26. Oktober</p>
+                </td>
+                <td>
+                  <p>1976</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Irland*</p>
+                </td>
+                <td>
+                  <p>29. November</p>
+                </td>
+                <td>
+                  <p>1956 B</p>
+                </td>
+                <td>
+                  <p>27. Februar</p>
+                </td>
+                <td>
+                  <p>1957</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Island</p>
+                </td>
+                <td>
+                  <p>30. November</p>
+                </td>
+                <td>
+                  <p>1955 B</p>
+                </td>
+                <td>
+                  <p>28. Februar</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Israel*</p>
+                </td>
+                <td>
+                  <p>  1. Oktober</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+                <td>
+                  <p>30. Dezember</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Italien**</p>
+                </td>
+                <td>
+                  <p>15. November</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+                <td>
+                  <p>13. Februar</p>
+                </td>
+                <td>
+                  <p>1955</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Jamaika*</p>
+                </td>
+                <td>
+                  <p>30. Juli</p>
+                </td>
+                <td>
+                  <p>1964 N</p>
+                </td>
+                <td>
+                  <p>  6. August</p>
+                </td>
+                <td>
+                  <p>1962</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Japan</p>
+                </td>
+                <td>
+                  <p>  3. Oktober</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>  1. Januar</p>
+                </td>
+                <td>
+                  <p>1982</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Jemen</p>
+                </td>
+                <td>
+                  <p>18. Januar</p>
+                </td>
+                <td>
+                  <p>1980 B</p>
+                </td>
+                <td>
+                  <p>17. April</p>
+                </td>
+                <td>
+                  <p>1980</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kambodscha</p>
+                </td>
+                <td>
+                  <p>15. Oktober</p>
+                </td>
+                <td>
+                  <p>1992 B</p>
+                </td>
+                <td>
+                  <p>13. Januar</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kamerun</p>
+                </td>
+                <td>
+                  <p>23. Oktober</p>
+                </td>
+                <td>
+                  <p>1961 N</p>
+                </td>
+                <td>
+                  <p>  1. Januar</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kanada*</p>
+                </td>
+                <td>
+                  <p>  4. Juni</p>
+                </td>
+                <td>
+                  <p>1969 B</p>
+                </td>
+                <td>
+                  <p>  2. September</p>
+                </td>
+                <td>
+                  <p>1969</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kasachstan</p>
+                </td>
+                <td>
+                  <p>15. Januar</p>
+                </td>
+                <td>
+                  <p>1999 B</p>
+                </td>
+                <td>
+                  <p>15. April</p>
+                </td>
+                <td>
+                  <p>1999</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kenia</p>
+                </td>
+                <td>
+                  <p>16. Mai</p>
+                </td>
+                <td>
+                  <p>1966 B</p>
+                </td>
+                <td>
+                  <p>14. August</p>
+                </td>
+                <td>
+                  <p>1966</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kirgisistan</p>
+                </td>
+                <td>
+                  <p>  8. Oktober</p>
+                </td>
+                <td>
+                  <p>1996 B</p>
+                </td>
+                <td>
+                  <p>  6. Januar</p>
+                </td>
+                <td>
+                  <p>1997</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kolumbien</p>
+                </td>
+                <td>
+                  <p>10. Oktober</p>
+                </td>
+                <td>
+                  <p>1961</p>
+                </td>
+                <td>
+                  <p>  8. Januar</p>
+                </td>
+                <td>
+                  <p>1962</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kongo (Brazzaville)</p>
+                </td>
+                <td>
+                  <p>15. Oktober</p>
+                </td>
+                <td>
+                  <p>1962 N</p>
+                </td>
+                <td>
+                  <p>15. August</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kongo (Kinshasa)</p>
+                </td>
+                <td>
+                  <p>19. Juli</p>
+                </td>
+                <td>
+                  <p>1965 B</p>
+                </td>
+                <td>
+                  <p>17. Oktober</p>
+                </td>
+                <td>
+                  <p>1965</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Korea (Süd-)</p>
+                </td>
+                <td>
+                  <p>  3. Dezember</p>
+                </td>
+                <td>
+                  <p>1992 B</p>
+                </td>
+                <td>
+                  <p>  3. März</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Kroatien</p>
+                </td>
+                <td>
+                  <p>12. Oktober</p>
+                </td>
+                <td>
+                  <p>1992 N</p>
+                </td>
+                <td>
+                  <p>  8. Oktober</p>
+                </td>
+                <td>
+                  <p>1991</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Lesotho</p>
+                </td>
+                <td>
+                  <p>14. Mai</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>12. August</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Lettland*</p>
+                </td>
+                <td>
+                  <p>31. Juli</p>
+                </td>
+                <td>
+                  <p>1997 B</p>
+                </td>
+                <td>
+                  <p>29. Oktober</p>
+                </td>
+                <td>
+                  <p>1997</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Liberia</p>
+                </td>
+                <td>
+                  <p>15. Oktober</p>
+                </td>
+                <td>
+                  <p>1964 B</p>
+                </td>
+                <td>
+                  <p>13. Januar</p>
+                </td>
+                <td>
+                  <p>1965</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Liechtenstein</p>
+                </td>
+                <td>
+                  <p>  8. März</p>
+                </td>
+                <td>
+                  <p>1957</p>
+                </td>
+                <td>
+                  <p>  6. Juni</p>
+                </td>
+                <td>
+                  <p>1957</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Litauen</p>
+                </td>
+                <td>
+                  <p>28. April</p>
+                </td>
+                <td>
+                  <p>1997 B</p>
+                </td>
+                <td>
+                  <p>27. Juli</p>
+                </td>
+                <td>
+                  <p>1997</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Luxemburg* **</p>
+                </td>
+                <td>
+                  <p>23. Juli</p>
+                </td>
+                <td>
+                  <p>1953</p>
+                </td>
+                <td>
+                  <p>22. April</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Madagaskar*</p>
+                </td>
+                <td>
+                  <p>18. Dezember</p>
+                </td>
+                <td>
+                  <p>1967 B</p>
+                </td>
+                <td>
+                  <p>17. März</p>
+                </td>
+                <td>
+                  <p>1968</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Malawi*</p>
+                </td>
+                <td>
+                  <p>10. Dezember</p>
+                </td>
+                <td>
+                  <p>1987 B</p>
+                </td>
+                <td>
+                  <p>  9. März</p>
+                </td>
+                <td>
+                  <p>1988</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Mali</p>
+                </td>
+                <td>
+                  <p>  2. Februar</p>
+                </td>
+                <td>
+                  <p>1973 N</p>
+                </td>
+                <td>
+                  <p>22. September</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Malta</p>
+                </td>
+                <td>
+                  <p>17. Juni</p>
+                </td>
+                <td>
+                  <p>1971 B</p>
+                </td>
+                <td>
+                  <p>15. September</p>
+                </td>
+                <td>
+                  <p>1971</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Marokko</p>
+                </td>
+                <td>
+                  <p>  7. November</p>
+                </td>
+                <td>
+                  <p>1956 N</p>
+                </td>
+                <td>
+                  <p>  2. März</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Mauretanien</p>
+                </td>
+                <td>
+                  <p>  5. Mai</p>
+                </td>
+                <td>
+                  <p>1987 B</p>
+                </td>
+                <td>
+                  <p>  3. August</p>
+                </td>
+                <td>
+                  <p>1987</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Mazedonien</p>
+                </td>
+                <td>
+                  <p>18. Januar</p>
+                </td>
+                <td>
+                  <p>1994 N</p>
+                </td>
+                <td>
+                  <p>17. November</p>
+                </td>
+                <td>
+                  <p>1991</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Mexiko*</p>
+                </td>
+                <td>
+                  <p>  7. Juni</p>
+                </td>
+                <td>
+                  <p>2000 B</p>
+                </td>
+                <td>
+                  <p>  5. September</p>
+                </td>
+                <td>
+                  <p>2000</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Moldau*</p>
+                </td>
+                <td>
+                  <p>31. Januar</p>
+                </td>
+                <td>
+                  <p>2002 B</p>
+                </td>
+                <td>
+                  <p>  1. Mai</p>
+                </td>
+                <td>
+                  <p>2002</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Monaco*</p>
+                </td>
+                <td>
+                  <p>18. Mai</p>
+                </td>
+                <td>
+                  <p>1954 B</p>
+                </td>
+                <td>
+                  <p>16. August</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Montenegro</p>
+                </td>
+                <td>
+                  <p>10. Oktober</p>
+                </td>
+                <td>
+                  <p>2006 N</p>
+                </td>
+                <td>
+                  <p>  3. Juni</p>
+                </td>
+                <td>
+                  <p>2006</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Mosambik*</p>
+                </td>
+                <td>
+                  <p>16. Dezember</p>
+                </td>
+                <td>
+                  <p>1983 B</p>
+                </td>
+                <td>
+                  <p>15. März</p>
+                </td>
+                <td>
+                  <p>1984</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Namibia*</p>
+                </td>
+                <td>
+                  <p>17. Februar</p>
+                </td>
+                <td>
+                  <p>1995 B</p>
+                </td>
+                <td>
+                  <p>18. Mai</p>
+                </td>
+                <td>
+                  <p>1995</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Nauru</p>
+                </td>
+                <td>
+                  <p>28. Juni</p>
+                </td>
+                <td>
+                  <p>2011 B</p>
+                </td>
+                <td>
+                  <p>26. September</p>
+                </td>
+                <td>
+                  <p>2011</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Neuseeland*</p>
+                </td>
+                <td>
+                  <p>30. Juni</p>
+                </td>
+                <td>
+                  <p>1960 B</p>
+                </td>
+                <td>
+                  <p>28. September</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Nicaragua</p>
+                </td>
+                <td>
+                  <p>28. März</p>
+                </td>
+                <td>
+                  <p>1980 B</p>
+                </td>
+                <td>
+                  <p>26. Juni</p>
+                </td>
+                <td>
+                  <p>1980</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Niederlande* **</p>
+                </td>
+                <td>
+                  <p>  3. Mai</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+                <td>
+                  <p>  1. August</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Niger</p>
+                </td>
+                <td>
+                  <p>25. August</p>
+                </td>
+                <td>
+                  <p>1961 N</p>
+                </td>
+                <td>
+                  <p>  3. August</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Nigeria</p>
+                </td>
+                <td>
+                  <p>23. Oktober</p>
+                </td>
+                <td>
+                  <p>1967 B</p>
+                </td>
+                <td>
+                  <p>21. Januar</p>
+                </td>
+                <td>
+                  <p>1968</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Norwegen*</p>
+                </td>
+                <td>
+                  <p>23. März</p>
+                </td>
+                <td>
+                  <p>1953</p>
+                </td>
+                <td>
+                  <p>22. April</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Österreich*</p>
+                </td>
+                <td>
+                  <p>  1. November</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+                <td>
+                  <p>31. Januar</p>
+                </td>
+                <td>
+                  <p>1955</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Panama</p>
+                </td>
+                <td>
+                  <p>  2. August</p>
+                </td>
+                <td>
+                  <p>1978 B</p>
+                </td>
+                <td>
+                  <p>31. Oktober</p>
+                </td>
+                <td>
+                  <p>1978</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Papua-Neuguinea*</p>
+                </td>
+                <td>
+                  <p>17. Juli</p>
+                </td>
+                <td>
+                  <p>1986 B</p>
+                </td>
+                <td>
+                  <p>15. Oktober</p>
+                </td>
+                <td>
+                  <p>1986</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Paraguay</p>
+                </td>
+                <td>
+                  <p>  1. April</p>
+                </td>
+                <td>
+                  <p>1970 B</p>
+                </td>
+                <td>
+                  <p>30. Juni</p>
+                </td>
+                <td>
+                  <p>1970</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Peru</p>
+                </td>
+                <td>
+                  <p>21. Dezember</p>
+                </td>
+                <td>
+                  <p>1964 B</p>
+                </td>
+                <td>
+                  <p>21. März</p>
+                </td>
+                <td>
+                  <p>1965</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Philippinen</p>
+                </td>
+                <td>
+                  <p>22. Juli</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>20. Oktober</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Polen*</p>
+                </td>
+                <td>
+                  <p>27. September</p>
+                </td>
+                <td>
+                  <p>1991 B</p>
+                </td>
+                <td>
+                  <p>26. Dezember</p>
+                </td>
+                <td>
+                  <p>1991</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Portugal*</p>
+                </td>
+                <td>
+                  <p>22. Dezember</p>
+                </td>
+                <td>
+                  <p>1960 B</p>
+                </td>
+                <td>
+                  <p>22. März</p>
+                </td>
+                <td>
+                  <p>1961</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Ruanda*</p>
+                </td>
+                <td>
+                  <p>  3. Januar</p>
+                </td>
+                <td>
+                  <p>1980 B</p>
+                </td>
+                <td>
+                  <p>  2. April</p>
+                </td>
+                <td>
+                  <p>1980</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Rumänien</p>
+                </td>
+                <td>
+                  <p>  7. August</p>
+                </td>
+                <td>
+                  <p>1991 B</p>
+                </td>
+                <td>
+                  <p>  5. November</p>
+                </td>
+                <td>
+                  <p>1991</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Russland</p>
+                </td>
+                <td>
+                  <p>  2. Februar</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>  3. Mai</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Salomoninseln</p>
+                </td>
+                <td>
+                  <p>28. Februar</p>
+                </td>
+                <td>
+                  <p>1995 B</p>
+                </td>
+                <td>
+                  <p>29. Mai</p>
+                </td>
+                <td>
+                  <p>1995</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Sambia*</p>
+                </td>
+                <td>
+                  <p>24. September</p>
+                </td>
+                <td>
+                  <p>1969 N</p>
+                </td>
+                <td>
+                  <p>24. Oktober</p>
+                </td>
+                <td>
+                  <p>1964</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Samoa</p>
+                </td>
+                <td>
+                  <p>21. September</p>
+                </td>
+                <td>
+                  <p>1988 B</p>
+                </td>
+                <td>
+                  <p>20. Dezember</p>
+                </td>
+                <td>
+                  <p>1988</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>São Tomé und Príncipe</p>
+                </td>
+                <td>
+                  <p>  1. Februar</p>
+                </td>
+                <td>
+                  <p>1978 B</p>
+                </td>
+                <td>
+                  <p>  2. Mai</p>
+                </td>
+                <td>
+                  <p>1978</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Schweden*</p>
+                </td>
+                <td>
+                  <p>26. Oktober</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+                <td>
+                  <p>24. Januar</p>
+                </td>
+                <td>
+                  <p>1955</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Schweiz</p>
+                </td>
+                <td>
+                  <p>21. Januar</p>
+                </td>
+                <td>
+                  <p>1955</p>
+                </td>
+                <td>
+                  <p>21. April</p>
+                </td>
+                <td>
+                  <p>1955</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Senegal</p>
+                </td>
+                <td>
+                  <p>  2. Mai</p>
+                </td>
+                <td>
+                  <p>1963 N</p>
+                </td>
+                <td>
+                  <p>20. Juni</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Serbien</p>
+                </td>
+                <td>
+                  <p>12. März </p>
+                </td>
+                <td>
+                  <p>2001 N</p>
+                </td>
+                <td>
+                  <p>27. April </p>
+                </td>
+                <td>
+                  <p>1992</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Seychellen</p>
+                </td>
+                <td>
+                  <p>23. April</p>
+                </td>
+                <td>
+                  <p>1980 B</p>
+                </td>
+                <td>
+                  <p>22. Juli</p>
+                </td>
+                <td>
+                  <p>1980</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Sierra Leone*</p>
+                </td>
+                <td>
+                  <p>22. Mai</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>20. August</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Simbabwe*</p>
+                </td>
+                <td>
+                  <p>25. August</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>23. November</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Slowakei</p>
+                </td>
+                <td>
+                  <p>  4. Februar</p>
+                </td>
+                <td>
+                  <p>1993 N</p>
+                </td>
+                <td>
+                  <p>  1. Januar</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Slowenien</p>
+                </td>
+                <td>
+                  <p>  6. Juli</p>
+                </td>
+                <td>
+                  <p>1992 N</p>
+                </td>
+                <td>
+                  <p>25. Juni</p>
+                </td>
+                <td>
+                  <p>1991</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Somalia</p>
+                </td>
+                <td>
+                  <p>10. Oktober</p>
+                </td>
+                <td>
+                  <p>1978 B</p>
+                </td>
+                <td>
+                  <p>  8. Januar</p>
+                </td>
+                <td>
+                  <p>1979</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Spanien*</p>
+                </td>
+                <td>
+                  <p>14. August</p>
+                </td>
+                <td>
+                  <p>1978 B</p>
+                </td>
+                <td>
+                  <p>12. November</p>
+                </td>
+                <td>
+                  <p>1978</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>St. Kitts und Nevis</p>
+                </td>
+                <td>
+                  <p>  1. Februar</p>
+                </td>
+                <td>
+                  <p>2002 B</p>
+                </td>
+                <td>
+                  <p>  2. Mai</p>
+                </td>
+                <td>
+                  <p>2002</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>St. Vincent und die Grenadinen</p>
+                </td>
+                <td>
+                  <p>  3. November</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>  1. Februar</p>
+                </td>
+                <td>
+                  <p>1994</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Südafrika</p>
+                </td>
+                <td>
+                  <p>12. Januar</p>
+                </td>
+                <td>
+                  <p>1996 B</p>
+                </td>
+                <td>
+                  <p>11. April</p>
+                </td>
+                <td>
+                  <p>1996</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Sudan*</p>
+                </td>
+                <td>
+                  <p>22. Februar</p>
+                </td>
+                <td>
+                  <p>1974 B</p>
+                </td>
+                <td>
+                  <p>23. Mai</p>
+                </td>
+                <td>
+                  <p>1974</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Suriname</p>
+                </td>
+                <td>
+                  <p>29. November</p>
+                </td>
+                <td>
+                  <p>1978 N</p>
+                </td>
+                <td>
+                  <p>25. November</p>
+                </td>
+                <td>
+                  <p>1975</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Swasiland</p>
+                </td>
+                <td>
+                  <p>14. Februar</p>
+                </td>
+                <td>
+                  <p>2000 B</p>
+                </td>
+                <td>
+                  <p>14. Mai</p>
+                </td>
+                <td>
+                  <p>2000</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Tadschikistan</p>
+                </td>
+                <td>
+                  <p>  7. Dezember</p>
+                </td>
+                <td>
+                  <p>1993 B</p>
+                </td>
+                <td>
+                  <p>  7. März</p>
+                </td>
+                <td>
+                  <p>1994</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Tansania</p>
+                </td>
+                <td>
+                  <p>12. Mai</p>
+                </td>
+                <td>
+                  <p>1964 B</p>
+                </td>
+                <td>
+                  <p>10. August</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Timor-Leste*</p>
+                </td>
+                <td>
+                  <p>  7. Mai</p>
+                </td>
+                <td>
+                  <p>2003 B</p>
+                </td>
+                <td>
+                  <p>  6. August</p>
+                </td>
+                <td>
+                  <p>2003</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Togo</p>
+                </td>
+                <td>
+                  <p>27. Februar</p>
+                </td>
+                <td>
+                  <p>1962 N</p>
+                </td>
+                <td>
+                  <p>27. April</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Trinidad und Tobago</p>
+                </td>
+                <td>
+                  <p>10. November</p>
+                </td>
+                <td>
+                  <p>2000 B</p>
+                </td>
+                <td>
+                  <p>  8. Februar</p>
+                </td>
+                <td>
+                  <p>2001</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Tschad</p>
+                </td>
+                <td>
+                  <p>19. August</p>
+                </td>
+                <td>
+                  <p>1981 B</p>
+                </td>
+                <td>
+                  <p>17. November</p>
+                </td>
+                <td>
+                  <p>1981</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Tschechische Republik</p>
+                </td>
+                <td>
+                  <p>11. Mai</p>
+                </td>
+                <td>
+                  <p>1993 N</p>
+                </td>
+                <td>
+                  <p>  1. Januar</p>
+                </td>
+                <td>
+                  <p>1993</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Tunesien</p>
+                </td>
+                <td>
+                  <p>24. Oktober</p>
+                </td>
+                <td>
+                  <p>1957 N</p>
+                </td>
+                <td>
+                  <p>20. März</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Türkei*</p>
+                </td>
+                <td>
+                  <p>30. März</p>
+                </td>
+                <td>
+                  <p>1962</p>
+                </td>
+                <td>
+                  <p>28. Juni</p>
+                </td>
+                <td>
+                  <p>1962</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Turkmenistan</p>
+                </td>
+                <td>
+                  <p>  2. März</p>
+                </td>
+                <td>
+                  <p>1998 B</p>
+                </td>
+                <td>
+                  <p>31. Mai</p>
+                </td>
+                <td>
+                  <p>1998</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Tuvalu*</p>
+                </td>
+                <td>
+                  <p>  7. März</p>
+                </td>
+                <td>
+                  <p>1986 N</p>
+                </td>
+                <td>
+                  <p>  1. Oktober</p>
+                </td>
+                <td>
+                  <p>1978</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Uganda*</p>
+                </td>
+                <td>
+                  <p>27. September</p>
+                </td>
+                <td>
+                  <p>1976 B</p>
+                </td>
+                <td>
+                  <p>26. Dezember</p>
+                </td>
+                <td>
+                  <p>1976</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Ukraine*</p>
+                </td>
+                <td>
+                  <p>10. Juni</p>
+                </td>
+                <td>
+                  <p>2002 B</p>
+                </td>
+                <td>
+                  <p>  8. September</p>
+                </td>
+                <td>
+                  <p>2002</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Ungarn</p>
+                </td>
+                <td>
+                  <p>14. März</p>
+                </td>
+                <td>
+                  <p>1989 B</p>
+                </td>
+                <td>
+                  <p>12. Juni</p>
+                </td>
+                <td>
+                  <p>1989</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Uruguay</p>
+                </td>
+                <td>
+                  <p>22. September</p>
+                </td>
+                <td>
+                  <p>1970 B</p>
+                </td>
+                <td>
+                  <p>21. Dezember</p>
+                </td>
+                <td>
+                  <p>1970</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Vereinigtes Königreich*</p>
+                </td>
+                <td>
+                  <p>11. März</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+                <td>
+                  <p>  9. Juni</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Falklandinseln*</p>
+                </td>
+                <td>
+                  <p>25. Oktober</p>
+                </td>
+                <td>
+                  <p>1956 B</p>
+                </td>
+                <td>
+                  <p>25. Oktober</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Insel Man*</p>
+                </td>
+                <td>
+                  <p>11. März</p>
+                </td>
+                <td>
+                  <p>1954 B</p>
+                </td>
+                <td>
+                  <p>11. März</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Kanalinseln*</p>
+                </td>
+                <td>
+                  <p>11. März</p>
+                </td>
+                <td>
+                  <p>1954 B</p>
+                </td>
+                <td>
+                  <p>11. März</p>
+                </td>
+                <td>
+                  <p>1954</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    Montserrat</p>
+                </td>
+                <td>
+                  <p>  4. September</p>
+                </td>
+                <td>
+                  <p>1968 B</p>
+                </td>
+                <td>
+                  <p>  4. September</p>
+                </td>
+                <td>
+                  <p>1968</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>    St. Helena und Nebengebiete <br />    (Ascension und <br />    Tristan da
+                    Cunha)*</p>
+                </td>
+                <td>
+                  <p>25. Oktober</p>
+                </td>
+                <td>
+                  <p>1956 B</p>
+                </td>
+                <td>
+                  <p>25. Oktober</p>
+                </td>
+                <td>
+                  <p>1956</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Zentralafrikanische Republik</p>
+                </td>
+                <td>
+                  <p>  4. September</p>
+                </td>
+                <td>
+                  <p>1962 N</p>
+                </td>
+                <td>
+                  <p>13. August</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <p>Zypern*</p>
+                </td>
+                <td>
+                  <p>16. Mai</p>
+                </td>
+                <td>
+                  <p>1963 N</p>
+                </td>
+                <td>
+                  <p>16. August</p>
+                </td>
+                <td>
+                  <p>1960</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+              <tr>
+                <td colspan="2" />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+              <tr>
+                <td>
+                  <p>*</p>
+                </td>
+                <td colspan="5">
+                  <p>Vorbehalte und Erklärungen.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>**</p>
+                </td>
+                <td colspan="5">
+                  <p>Einwendungen.</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td colspan="5">
+                  <p>Die Vorbehalte, Erklärungen und Einwendungen, sowie die Vorbehalte und
+                    Erklärungen, die anlässlich der Erweiterung der territorialen Geltung des
+                    Abkommens gemacht wurden, werden in der AS nicht veröffentlicht. Die
+                    französischen und englischen Texte können auf der Internetseite der Vereinten
+                    Nationen: http://treaties.un.org/ eingesehen oder bei der Direktion für
+                    Völkerrecht, Sektion Staatsverträge, 3003 Bern bezogen werden.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <sup xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">a</sup>
+                  </p>
+                </td>
+                <td colspan="5">
+                  <p>Auf Grund einer Erklärung der Volksrepublik China vom 13. April 1987 ist das
+                    Prot. seit dem 20. Dez. 1999 auf die Besondere Verwaltungsregion (SAR) Macau
+                    anwendbar.</p>
+                </td>
+              </tr>
+            </table>
+          </mainBody>
+        </doc>
+      </component>
+      <component eId="decl_u2">
+        <doc name="declaration">
+          <meta>
+            <identification source="#ch.bk">
+              <FRBRWork>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/main-text" />
+                <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRcountry value="CH" />
+                <FRBRnumber value="0.142.30" />
+                <FRBRname xml:lang="it"
+                  value="Convenzione del 28 luglio 1951 sullo statuto dei rifugiati (con. All.)"
+                  shortForm="" />
+                <FRBRname xml:lang="de"
+                  value="Abkommen vom 28. Juli 1951 über die Rechtsstellung der Flüchtlinge (mit Anhang)"
+                  shortForm="FK" />
+                <FRBRname xml:lang="fr"
+                  value="Convention du 28 juillet 1951 relative au statut des réfugiés (avec annexe)"
+                  shortForm="" />
+                <FRBRauthoritative value="true" />
+              </FRBRWork>
+              <FRBRExpression>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/main-text" />
+                <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRlanguage language="de" />
+              </FRBRExpression>
+              <FRBRManifestation>
+                <FRBRthis
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml/main-text" />
+                <FRBRuri
+                  value="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469/20120614/de/xml" />
+                <FRBRdate date="1955-04-21" name="jolux:dateEntryInForce" />
+                <FRBRdate date="1951-07-28" name="jolux:dateDocument" />
+                <FRBRdate date="2012-06-14" name="jolux:dateApplicability" />
+                <FRBRauthor href="#ch.bk" as="#publisher" />
+                <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+                <FRBRformat value="xml" />
+              </FRBRManifestation>
+            </identification>
+          </meta>
+          <preface>
+            <container name="headerOfAnnex">
+              <block name="heading">Erklärungen, die nach Artikel 1 Buchstabe B des Abkommens
+                abgegeben wurden.</block>
+            </container>
+          </preface>
+          <mainBody>
+            <blockList eId="decl_u2/list_u1">
+              <listIntroduction eId="decl_u2/list_u1/listintro">Die Worte «Ereignisse, die vor dem
+                1. Januar 1951 eingetreten sind», werden von den Vertragsstaaten wie folgt
+                verstanden:</listIntroduction>
+              <item eId="decl_u2/list_u1/lbl_a">
+                <num>a. </num>
+                <p>«Ereignisse, die vor dem 1. Januar 1951 in Europa eingetreten sind»:</p>
+              </item>
+            </blockList>
+            <table fedlex:function="layout">
+              <tr>
+                <td />
+                <td>
+                  <p>Kongo</p>
+                  <p>Türkei</p>
+                </td>
+                <td>
+                  <p>Madagaskar</p>
+                </td>
+                <td>
+                  <p>Monaco</p>
+                </td>
+              </tr>
+            </table>
+            <blockList eId="decl_u2/list_u2">
+              <item eId="decl_u2/list_u2/lbl_b">
+                <num>b. </num>
+                <p>«Ereignisse, die vor dem 1. Januar 1951 in Europa oder anderswo eingetreten
+                  sind»:</p>
+              </item>
+            </blockList>
+            <table border="1">
+              <tr>
+                <td />
+                <td>
+                  <p>Ägypten</p>
+                </td>
+                <td>
+                  <p>Ecuador</p>
+                </td>
+                <td>
+                  <p>Liberia</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Afghanistan</p>
+                </td>
+                <td>
+                  <p>El Salvador</p>
+                </td>
+                <td>
+                  <p>Liechtenstein</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Albanien</p>
+                </td>
+                <td>
+                  <p>Estland</p>
+                </td>
+                <td>
+                  <p>Litauen</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Algerien</p>
+                </td>
+                <td>
+                  <p>Fidschi</p>
+                </td>
+                <td>
+                  <p>Luxemburg</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Angola</p>
+                </td>
+                <td>
+                  <p>Finnland</p>
+                </td>
+                <td>
+                  <p>Malawi</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Antigua und Barbuda</p>
+                </td>
+                <td>
+                  <p>Frankreich</p>
+                </td>
+                <td>
+                  <p>Mali</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Äquatorialguinea</p>
+                </td>
+                <td>
+                  <p>Gabun</p>
+                </td>
+                <td>
+                  <p>Malta</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Argentinien</p>
+                </td>
+                <td>
+                  <p>Gambia</p>
+                </td>
+                <td>
+                  <p>Marokko</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Armenien</p>
+                </td>
+                <td>
+                  <p>Georgien</p>
+                </td>
+                <td>
+                  <p>Mauretanien</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Aserbaidschan</p>
+                </td>
+                <td>
+                  <p>Ghana</p>
+                </td>
+                <td>
+                  <p>Mazedonien</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Äthiopien</p>
+                </td>
+                <td>
+                  <p>Griechenland</p>
+                </td>
+                <td>
+                  <p>Mexiko</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Australien</p>
+                </td>
+                <td>
+                  <p>Guatemala</p>
+                </td>
+                <td>
+                  <p>Moldau</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Bahamas</p>
+                </td>
+                <td>
+                  <p>Guinea</p>
+                </td>
+                <td>
+                  <p>Montenegro</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Belarus</p>
+                </td>
+                <td>
+                  <p>Guinea-Bissau</p>
+                </td>
+                <td>
+                  <p>Mosambik</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Belgien</p>
+                </td>
+                <td>
+                  <p>Haiti</p>
+                </td>
+                <td>
+                  <p>Namibia</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Belize</p>
+                </td>
+                <td>
+                  <p>Heiliger Stuhl</p>
+                </td>
+                <td>
+                  <p>Nauru</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Benin</p>
+                </td>
+                <td>
+                  <p>Honduras</p>
+                </td>
+                <td>
+                  <p>Neuseeland</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Bolivien</p>
+                </td>
+                <td>
+                  <p>Iran</p>
+                </td>
+                <td>
+                  <p>Nicaragua</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Bosnien und</p>
+                </td>
+                <td>
+                  <p>Irland</p>
+                </td>
+                <td>
+                  <p>Niederlande</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>    Herzegowina</p>
+                </td>
+                <td>
+                  <p>Island</p>
+                </td>
+                <td>
+                  <p>Niger</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Botswana</p>
+                </td>
+                <td>
+                  <p>Israel</p>
+                </td>
+                <td>
+                  <p>Nigeria</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Brasilien</p>
+                </td>
+                <td>
+                  <p>Italien</p>
+                </td>
+                <td>
+                  <p>Norwegen</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Bulgarien</p>
+                </td>
+                <td>
+                  <p>Jamaika</p>
+                </td>
+                <td>
+                  <p>Österreich</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Burkina Faso</p>
+                </td>
+                <td>
+                  <p>Japan</p>
+                </td>
+                <td>
+                  <p>Panama</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Burundi</p>
+                </td>
+                <td>
+                  <p>Jemen</p>
+                </td>
+                <td>
+                  <p>Papua-Neuguinea</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Chile</p>
+                </td>
+                <td>
+                  <p>Kamerun</p>
+                </td>
+                <td>
+                  <p>Paraguay</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>China</p>
+                </td>
+                <td>
+                  <p>Kanada</p>
+                </td>
+                <td>
+                  <p>Peru</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>China-Macau</p>
+                </td>
+                <td>
+                  <p>Kasachstan</p>
+                </td>
+                <td>
+                  <p>Philippinen</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Costa Rica</p>
+                </td>
+                <td>
+                  <p>Kenia</p>
+                </td>
+                <td>
+                  <p>Polen</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Côte d’Ivoire</p>
+                </td>
+                <td>
+                  <p>Kirgisistan</p>
+                </td>
+                <td>
+                  <p>Portugal</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Dänemark</p>
+                </td>
+                <td>
+                  <p>Kolumbien</p>
+                </td>
+                <td>
+                  <p>Rumänien</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Deutschland</p>
+                </td>
+                <td>
+                  <p>Kongo (Kinshasa)</p>
+                </td>
+                <td>
+                  <p>Russland</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Dominica</p>
+                </td>
+                <td>
+                  <p>Korea (Süd-)</p>
+                </td>
+                <td>
+                  <p>Ruanda</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Dominikanische</p>
+                </td>
+                <td>
+                  <p>Kroatien</p>
+                </td>
+                <td>
+                  <p>Salomon-Inseln</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>    Republik</p>
+                </td>
+                <td>
+                  <p>Lesotho</p>
+                </td>
+                <td>
+                  <p>Sambia</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Dschibuti</p>
+                </td>
+                <td>
+                  <p>Lettland</p>
+                </td>
+                <td>
+                  <p>Samoa</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Sao Tomé und Principe</p>
+                </td>
+                <td>
+                  <p>St. Kitts und Nevis</p>
+                </td>
+                <td>
+                  <p>Tschad</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Schweden</p>
+                </td>
+                <td>
+                  <p>St. Vincent und</p>
+                </td>
+                <td>
+                  <p>Tschechische Republik</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Schweiz</p>
+                </td>
+                <td>
+                  <p>    die Grenadinen</p>
+                </td>
+                <td>
+                  <p>Tunesien</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Senegal</p>
+                </td>
+                <td>
+                  <p>Südafrika</p>
+                </td>
+                <td>
+                  <p>Turkmenistan</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Serbien</p>
+                </td>
+                <td>
+                  <p>Sudan</p>
+                </td>
+                <td>
+                  <p>Tuvalu</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Seychellen</p>
+                </td>
+                <td>
+                  <p>Suriname</p>
+                </td>
+                <td>
+                  <p>Uganda</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Sierra Leone</p>
+                </td>
+                <td>
+                  <p>Swasiland</p>
+                </td>
+                <td>
+                  <p>Ungarn</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Simbabwe</p>
+                </td>
+                <td>
+                  <p>Tadschikistan</p>
+                </td>
+                <td>
+                  <p>Uruguay</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Slowakei</p>
+                </td>
+                <td>
+                  <p>Tansania</p>
+                </td>
+                <td>
+                  <p>Vereinigtes Königreich</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Slowenien</p>
+                </td>
+                <td>
+                  <p>Timor-Leste</p>
+                </td>
+                <td>
+                  <p>Zentralafrikanische</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Somalia</p>
+                </td>
+                <td>
+                  <p>Togo</p>
+                </td>
+                <td>
+                  <p>    Republik</p>
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>
+                  <p>Spanien</p>
+                </td>
+                <td>
+                  <p>Trinidad und Tobago</p>
+                </td>
+                <td>
+                  <p>Zypern</p>
+                </td>
+              </tr>
+            </table>
+          </mainBody>
+        </doc>
+      </component>
+    </components>
+  </act>
+</akomaNtoso>

@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
+  xmlns:fedlex="http://fedlex.admin.ch/">
+  <act name="publicLaw">
+    <meta>
+      <identification source="#ch.bk">
+        <FRBRWork>
+          <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/1999/358/20250401/main-text" />
+          <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1999/358/20250401" />
+          <FRBRdate date="1999-10-01" name="jolux:dateEntryInForce" />
+          <FRBRdate date="1998-06-26" name="jolux:dateDocument" />
+          <FRBRdate date="2025-04-01" name="jolux:dateApplicability" />
+          <FRBRauthor href="#ch.bk" as="#publisher" />
+          <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+          <FRBRcountry value="CH" />
+          <FRBRnumber value="142.31" />
+          <FRBRname xml:lang="de" value="Asylgesetz vom 26. Juni 1998 (AsylG)" shortForm="AsylG" />
+          <FRBRname xml:lang="rm" value="Lescha d'asil dals 26 da zercladur 1998 (LAsil)"
+            shortForm="LAsil" />
+          <FRBRname xml:lang="fr" value="Loi du 26 juin 1998 sur l'asile (LAsi)" shortForm="LAsi" />
+          <FRBRname xml:lang="it" value="Legge del 26 giugno 1998 sull'asilo (LAsi)"
+            shortForm="LAsi" />
+          <FRBRname xml:lang="en" value="Asylum Act of 26 June 1998 (AsylA)" shortForm="AsylA" />
+          <FRBRauthoritative value="true" />
+        </FRBRWork>
+        <FRBRExpression>
+          <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/1999/358/20250401/de/main-text" />
+          <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1999/358/20250401/de" />
+          <FRBRdate date="1999-10-01" name="jolux:dateEntryInForce" />
+          <FRBRdate date="1998-06-26" name="jolux:dateDocument" />
+          <FRBRdate date="2025-04-01" name="jolux:dateApplicability" />
+          <FRBRauthor href="#ch.bk" as="#publisher" />
+          <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+          <FRBRlanguage language="de" />
+        </FRBRExpression>
+        <FRBRManifestation>
+          <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/1999/358/20250401/de/xml/main-text" />
+          <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/1999/358/20250401/de/xml" />
+          <FRBRdate date="1999-10-01" name="jolux:dateEntryInForce" />
+          <FRBRdate date="1998-06-26" name="jolux:dateDocument" />
+          <FRBRdate date="2025-04-01" name="jolux:dateApplicability" />
+          <FRBRauthor href="#ch.bk" as="#publisher" />
+          <FRBRauthor href="#ch.bk" as="#rightsHolder" />
+          <FRBRformat value="xml" fedlex:generator="2025-q2-rel-1.7.2" />
+        </FRBRManifestation>
+      </identification>
+      <references source="#ch.bk">
+        <TLCOrganization eId="ch.bk"
+          href="https://fedlex.data.admin.ch/vocabulary/legal-institution/2" showAs="Bundeskanzlei" />
+        <TLCRole eId="publisher"
+          href="http://data.legilux.public.lu/resource/ontology/jolux#publisher" showAs="Editeur" />
+        <TLCRole eId="rightsHolder"
+          href="http://data.legilux.public.lu/resource/ontology/jolux#rightsHolder"
+          showAs="Détenteur des droits" />
+        <TLCReference name="language"
+          href="http://publications.europa.eu/resource/authority/language/DEU" showAs="de" />
+        <TLCReference name="format" href="https://fedlex.data.admin.ch/vocabulary/user-format/xml"
+          showAs="xml" />
+      </references>
+    </meta>
+    <preface>
+      <p>
+        <docNumber>142.31</docNumber>
+      </p>
+      <p>
+        <docTitle>Asylgesetz</docTitle>
+      </p>
+      <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">(AsylG)</p>
+      <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">vom 26. Juni 1998 (Stand am 1. April
+        2025)</p>
+    </preface>
+    <preamble>
+      <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Die Bundesversammlung der
+        Schweizerischen Eidgenossenschaft,</p>
+      <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">gestützt auf Artikel 121 Absatz 1 der
+        Bundesverfassung<authorialNote>
+          <p>
+            <ref href="https://fedlex.data.admin.ch/eli/cc/1999/404"
+              xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+              xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>101</b></ref>
+          </p>
+        </authorialNote>
+        ,<authorialNote>
+          <p> Fassung gemäss Ziff. I 1 des BG vom 1. Okt 2010 über die Koordination des Asyl- und
+        des Auslieferungsverfahrens, in Kraft seit 1. April 2011 (<ref
+              href="https://fedlex.data.admin.ch/eli/oc/2011/137"
+              xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+              xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2011</b> 925</ref>; <ref
+              href="https://fedlex.data.admin.ch/eli/fga/2010/264"
+              xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+              xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2010</b> 1467</ref>).</p>
+        </authorialNote> <br />nach
+        Einsicht in die Botschaft des Bundesrates vom 4. Dezember 1995<authorialNote>
+          <p>
+            <ref href="https://fedlex.data.admin.ch/eli/fga/1996/2_1_1_1"
+              xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+              xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>1996</b> II 1</ref>
+          </p>
+        </authorialNote>
+        ,</p>
+      <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">beschliesst:</p>
+    </preamble>
+    <body>
+      <chapter eId="chap_1">
+        <num>1. Kapitel: </num>
+        <heading>Grundsätze</heading>
+        <article eId="art_1">
+          <num>
+            <b>Art. 1</b>
+          </num>
+          <heading>Gegenstand</heading>
+          <paragraph eId="art_1/para">
+            <content>
+              <blockList>
+                <listIntroduction eId="art_1/para/listintro"
+                  xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Dieses Gesetz regelt:</listIntroduction>
+                <item eId="art_1/para/lbl_a">
+                  <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">a. </num>
+                  <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">die Asylgewährung und die
+                    Rechtsstellung der Flüchtlinge in der Schweiz;</p>
+                </item>
+                <item eId="art_1/para/lbl_b">
+                  <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">b. </num>
+                  <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">den vorübergehenden Schutz
+                    von Schutzbedürftigen in der Schweiz und deren Rückkehr.</p>
+                </item>
+              </blockList>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_2">
+          <num>
+            <b>Art. 2</b>
+          </num>
+          <heading>Asyl</heading>
+          <paragraph eId="art_2/para_1">
+            <num>1</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Die Schweiz gewährt
+                Flüchtlingen auf Gesuch hin Asyl; massgebend ist dieses Gesetz.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_2/para_2">
+            <num>2</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Asyl umfasst den Schutz und die
+                Rechtsstellung, die Personen aufgrund ihrer Flüchtlingseigenschaft in der Schweiz
+                gewährt werden. Es schliesst das Recht auf Anwesenheit in der Schweiz ein.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_3">
+          <num>
+            <b>Art. 3</b>
+          </num>
+          <heading>Flüchtlingsbegriff</heading>
+          <paragraph eId="art_3/para_1">
+            <num>1</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Flüchtlinge sind Personen, die
+                in ihrem Heimatstaat oder im Land, in dem sie zuletzt wohnten, wegen ihrer Rasse,
+                Religion, Nationalität, Zugehörigkeit zu einer bestimmten sozialen Gruppe oder wegen
+                ihrer politischen Anschauungen ernsthaften Nachteilen ausgesetzt sind oder
+                begründete Furcht haben, solchen Nachteilen ausgesetzt zu werden.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_3/para_2">
+            <num>2</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Als ernsthafte Nachteile gelten
+                namentlich die Gefährdung des Leibes, des Lebens oder der Freiheit sowie Massnahmen,
+                die einen unerträglichen psychischen Druck bewirken. Den frauenspezifischen
+                Fluchtgründen ist Rechnung zu tragen.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_3/para_3">
+            <num>3</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Keine Flüchtlinge sind
+                Personen, die wegen Wehrdienstverweigerung oder Desertion ernsthaften Nachteilen
+                ausgesetzt sind oder begründete Furcht haben, solchen Nachteilen ausgesetzt zu
+                werden. Vorbehalten bleibt die Einhaltung des Abkommens vom 28. Juli 1951<authorialNote>
+                  <p>
+                    <ref href="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>0.142.30</b></ref>
+                  </p>
+                </authorialNote>
+                über die Rechtsstellung der Flüchtlinge (Flüchtlingskonvention).<authorialNote>
+                  <p> Eingefügt durch Ziff. I des BG vom 28. Sept. 2012 (Dringliche Änderungen des
+                Asylgesetzes) (<ref href="https://fedlex.data.admin.ch/eli/oc/2012/612"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2012</b> 5359</ref>; <ref
+                      href="https://fedlex.data.admin.ch/eli/fga/2010/794"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2010</b> 4455</ref>, <ref
+                      href="https://fedlex.data.admin.ch/eli/fga/2011/1209"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2011</b> 7325</ref>). Fassung
+                gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März 2019 (<ref
+                      href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                      href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                      href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).</p>
+                </authorialNote></p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_3/para_4">
+            <num>4</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Keine Flüchtlinge sind
+                Personen, die Gründe geltend machen, die wegen ihres Verhaltens nach der Ausreise
+                entstanden sind und die weder Ausdruck noch Fortsetzung einer bereits im Heimat-
+                oder Herkunftsstaat bestehenden Überzeugung oder Ausrichtung sind. Vorbehalten
+                bleibt die Flüchtlingskonvention vom 28. Juli 1951.<authorialNote>
+                  <p> Eingefügt durch Ziff. I des BG vom 14. Dez. 2012, in Kraft seit 1. Febr. 2014
+                (<ref href="https://fedlex.data.admin.ch/eli/oc/2013/778"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2013</b> 4375 </ref><ref
+                      href="https://fedlex.data.admin.ch/eli/oc/2013/855"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">5357</ref>; <ref
+                      href="https://fedlex.data.admin.ch/eli/fga/2010/794"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2010</b> 4455</ref>, <ref
+                      href="https://fedlex.data.admin.ch/eli/fga/2011/1209"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2011</b> 7325</ref>).</p>
+                </authorialNote></p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_4">
+          <num>
+            <b>Art. 4</b>
+          </num>
+          <heading>Gewährung vorübergehenden Schutzes</heading>
+          <paragraph eId="art_4/para">
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Die Schweiz kann
+                Schutzbedürftigen für die Dauer einer schweren allgemeinen Gefährdung, insbesondere
+                während eines Krieges oder Bürgerkrieges sowie in Situationen allgemeiner Gewalt,
+                vorübergehenden Schutz gewähren.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_5">
+          <num>
+            <b>Art. 5</b>
+          </num>
+          <heading>Rückschiebungsverbot</heading>
+          <paragraph eId="art_5/para_1">
+            <num>1</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Keine Person darf in
+                irgendeiner Form zur Ausreise in ein Land gezwungen werden, in dem ihr Leib, ihr
+                Leben oder ihre Freiheit aus einem Grund nach Artikel 3 Absatz 1 gefährdet ist oder
+                in dem sie Gefahr läuft, zur Ausreise in ein solches Land gezwungen zu werden.</p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_5/para_2">
+            <num>2</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Eine Person kann sich nicht auf
+                das Rückschiebungsverbot berufen, wenn erhebliche Gründe für die Annahme vorliegen,
+                dass sie die Sicherheit der Schweiz gefährdet, oder wenn sie als gemeingefährlich
+                einzustufen ist, weil sie wegen eines besonders schweren Verbrechens oder Vergehens
+                rechtskräftig verurteilt worden ist.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_5_a">
+          <num>
+            <b>Art. 5</b>
+            <i>a</i>
+            <authorialNote>
+              <p> Eingefügt durch Ziff. I 3 des BG vom 25. Sept. 2020 über polizeiliche Massnahmen
+                zur Bekämpfung von Terrorismus, in Kraft seit 1. Juni 2022 (<ref
+                  href="https://fedlex.data.admin.ch/eli/oc/2021/565"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2021</b> 565</ref>; <ref
+                  href="https://fedlex.data.admin.ch/eli/oc/2022/300"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2022</b> 300</ref>; <ref
+                  href="https://fedlex.data.admin.ch/eli/fga/2019/1718"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2019</b> 4751</ref>).</p>
+            </authorialNote>
+          </num>
+          <heading>Zusammenarbeit und Koordination mit fedpol</heading>
+          <paragraph eId="art_5_a/para_1">
+            <num>1</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Das Staatssekretariat für
+                Migration (SEM) arbeitet im Rahmen seiner gesetzlichen Aufgaben bei der
+                Terrorismusbekämpfung mit fedpol zusammen. </p>
+            </content>
+          </paragraph>
+          <paragraph eId="art_5_a/para_2">
+            <num>2</num>
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Es koordiniert die Massnahmen
+                in seinem Zuständigkeitsbereich mit den vorbeugenden polizeilichen und
+                administrativen Massnahmen von fedpol.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_5_b">
+          <num>
+            <b>Art. 5</b>
+            <i>b</i>
+            <authorialNote>
+              <p> Eingefügt durch Anhang 1 Ziff. 2 des BB vom 18. Dez. 2020 über die Genehmigung und
+                die Umsetzung der Notenaustausche zwischen der Schweiz und der EU betreffend die
+                Übernahme der Rechtsgrundlagen über die Einrichtung, den Betrieb und die Nutzung des
+                Schengener Informationssystems (SIS), in Kraft seit 22. Nov. 2022 (<ref
+                  href="https://fedlex.data.admin.ch/eli/oc/2021/365"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2021</b> 365</ref>; <ref
+                  href="https://fedlex.data.admin.ch/eli/oc/2023/16"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2023</b> 16</ref>; <ref
+                  href="https://fedlex.data.admin.ch/eli/fga/2020/794"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2020</b> 3465</ref>).</p>
+            </authorialNote>
+          </num>
+          <heading>Sicherheitsaufgaben der Migrationsbehörden</heading>
+          <paragraph eId="art_5_b/para">
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Das SEM prüft im Rahmen seiner
+                Aufgaben und Zuständigkeiten, ob Ausländerinnen und Ausländer eine Gefahr für die
+                innere oder die äussere Sicherheit oder die internationalen Beziehungen der Schweiz
+                darstellen. Bei Ausschreibungen im Polizeibereich wird fedpol informiert. Bei Bedarf
+                können auch die betroffenen kantonalen Behörden informiert werden.</p>
+            </content>
+          </paragraph>
+        </article>
+        <article eId="art_6">
+          <num>
+            <b>Art. 6</b>
+            <authorialNote>
+              <p> Fassung gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März 2019 (<ref
+                  href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                  href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                  href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                  xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                  xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).</p>
+            </authorialNote>
+          </num>
+          <heading>Verfahrensgrundsätze</heading>
+          <paragraph eId="art_6/para">
+            <content>
+              <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Verfahren richten sich nach dem
+                Verwaltungsverfahrensgesetz vom 20. Dezember 1968<authorialNote>
+                  <p>
+                    <ref href="https://fedlex.data.admin.ch/eli/cc/1969/737_757_755"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>172.021</b></ref>
+                  </p>
+                </authorialNote>
+                (VwVG), dem Verwaltungsgerichtsgesetz vom 17. Juni 2005<authorialNote>
+                  <p>
+                    <ref href="https://fedlex.data.admin.ch/eli/cc/2006/352"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>173.32</b></ref>
+                  </p>
+                </authorialNote>
+                und dem Bundesgerichtsgesetz vom 17. Juni 2005<authorialNote>
+                  <p>
+                    <ref href="https://fedlex.data.admin.ch/eli/cc/2006/218"
+                      xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                      xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>173.110</b></ref>
+                  </p>
+                </authorialNote>,
+                soweit das vorliegende Gesetz nichts anderes bestimmt.</p>
+            </content>
+          </paragraph>
+        </article>
+      </chapter>
+      <chapter eId="chap_2">
+        <num>2. Kapitel: </num>
+        <heading>Asylsuchende</heading>
+        <section eId="chap_2/sec_1">
+          <num>1. Abschnitt: </num>
+          <heading>Allgemeine Bestimmungen</heading>
+          <article eId="art_6_a">
+            <num>
+              <b>Art. 6</b>
+              <i>a</i>
+              <authorialNote>
+                <p> Eingefügt durch Ziff. I des BG vom 16. Dez. 2005, in Kraft seit 1. Jan. 2008 (<ref
+                    href="https://fedlex.data.admin.ch/eli/oc/2006/727"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2006</b> 4745</ref>, <ref
+                    href="https://fedlex.data.admin.ch/eli/oc/2007/765"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2007</b> 5573</ref>; <ref
+                    href="https://fedlex.data.admin.ch/eli/fga/2002/1106"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2002 </b>6845</ref>).</p>
+              </authorialNote>
+            </num>
+            <heading>Zuständige Behörde</heading>
+            <paragraph eId="art_6_a/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Das SEM entscheidet über
+                  Gewährung oder Verweigerung des Asyls sowie über die Wegweisung aus der Schweiz.<authorialNote>
+                    <p> Fassung gemäss Ziff. I 3 des BG vom 25. Sept. 2020 über polizeiliche
+                  Massnahmen zur Bekämpfung von Terrorismus, in Kraft seit 1. Juni 2022 (<ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2021/565"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2021</b> 565</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2022/300"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2022</b> 300</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2019/1718"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2019</b> 4751</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_6_a/para_2">
+              <num>2</num>
+              <content>
+                <blockList>
+                  <listIntroduction eId="art_6_a/para_2/listintro"
+                    xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Der Bundesrat bezeichnet
+                    neben den EU/EFTA-Staaten weitere Staaten, in denen nach seinen Feststellungen:<authorialNote>
+                      <p> Fassung gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März
+                    2019 (<ref href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                          xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                          xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                          href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                          xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                          xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                          href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                          xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                          xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).</p>
+                    </authorialNote></listIntroduction>
+                  <item eId="art_6_a/para_2/lbl_a">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">a. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Sicherheit vor Verfolgung
+                      besteht, als sichere Heimat- oder Herkunftsstaaten;</p>
+                  </item>
+                  <item eId="art_6_a/para_2/lbl_b">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">b. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">effektiver Schutz vor
+                      Rückschiebung im Sinne von Artikel 5 Absatz 1 besteht, als sichere
+                      Drittstaaten.</p>
+                  </item>
+                </blockList>
+              </content>
+            </paragraph>
+            <paragraph eId="art_6_a/para_3">
+              <num>3</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Er überprüft die Beschlüsse
+                  nach Absatz 2 periodisch.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_6_a/para_4">
+              <num>4</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Er unterbreitet den
+                  zuständigen Kommissionen der eidgenössischen Räte die Liste nach Absatz 2
+                  Buchstabe a vor jeder beabsichtigten Änderung, mindestens aber einmal pro Jahr zur
+                  Konsultation.<authorialNote>
+                    <p> Eingefügt durch Anhang Ziff. 1 des BG vom 14. Dez. 2018
+                  (Verfahrensregelungen und Informationssysteme), in Kraft seit 1. Juni 2019 (<ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2019/278"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2019</b> 1413</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2018/673"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2018</b> 1685</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_7">
+            <num>
+              <b>Art. 7</b>
+            </num>
+            <heading>Nachweis der Flüchtlingseigenschaft</heading>
+            <paragraph eId="art_7/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Wer um Asyl nachsucht, muss
+                  die Flüchtlingseigenschaft nachweisen oder zumindest glaubhaft machen.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_7/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Glaubhaft gemacht ist die
+                  Flüchtlingseigenschaft, wenn die Behörde ihr Vorhandensein mit überwiegender
+                  Wahrscheinlichkeit für gegeben hält.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_7/para_3">
+              <num>3</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Unglaubhaft sind insbesondere
+                  Vorbringen, die in wesentlichen Punkten zu wenig begründet oder in sich
+                  widersprüchlich sind, den Tatsachen nicht entsprechen oder massgeblich auf
+                  gefälschte oder verfälschte Beweismittel abgestützt werden.</p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_8">
+            <num>
+              <b>Art. 8</b>
+            </num>
+            <heading>Mitwirkungspflicht</heading>
+            <paragraph eId="art_8/para_1">
+              <num>1</num>
+              <content>
+                <blockList>
+                  <listIntroduction eId="art_8/para_1/listintro"
+                    xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Asylsuchende sind
+                    verpflichtet, an der Feststellung des Sachverhaltes mitzuwirken. Sie müssen
+                    insbesondere:</listIntroduction>
+                  <item eId="art_8/para_1/lbl_a">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">a. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">ihre Identität offen
+                      legen;</p>
+                  </item>
+                  <item eId="art_8/para_1/lbl_b">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">b.<authorialNote>
+                        <p> Fassung gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März
+                      2019 (<ref href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                            href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                            href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>
+                      ).</p>
+                      </authorialNote>
+                    </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Reisepapiere und
+                      Identitätsausweise abgeben;</p>
+                  </item>
+                  <item eId="art_8/para_1/lbl_c">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">c. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">bei der Anhörung angeben,
+                      weshalb sie um Asyl nachsuchen;</p>
+                  </item>
+                  <item eId="art_8/para_1/lbl_d">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">d. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">allfällige Beweismittel
+                      vollständig bezeichnen und sie unverzüglich einreichen oder, soweit dies
+                      zumutbar erscheint, sich darum bemühen, sie innerhalb einer angemessenen Frist
+                      zu beschaffen;</p>
+                  </item>
+                  <item eId="art_8/para_1/lbl_e">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">e.<authorialNote>
+                        <p> Eingefügt durch Ziff. I des BG vom 16. Dez. 2005, in Kraft seit 1. Jan.
+                      2008 (<ref href="https://fedlex.data.admin.ch/eli/oc/2006/727"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2006</b> 4745</ref>, <ref
+                            href="https://fedlex.data.admin.ch/eli/oc/2007/765"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2007</b> 5573</ref>; <ref
+                            href="https://fedlex.data.admin.ch/eli/fga/2002/1106"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2002 </b>6845</ref>
+                      ).</p>
+                      </authorialNote>
+                    </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">bei der Erhebung der
+                      biometrischen Daten mitwirken;</p>
+                  </item>
+                  <item eId="art_8/para_1/lbl_f">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">f.<authorialNote>
+                        <p> Eingefügt durch Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März
+                      2019 (<ref href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                            href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                            href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>
+                      ).</p>
+                      </authorialNote>
+                    </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">sich einer vom SEM
+                      angeordneten medizinischen Untersuchung unterziehen (Art. 26<i>a</i>);</p>
+                  </item>
+                  <item eId="art_8/para_1/lbl_g">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">g.<authorialNote>
+                        <p> Eingefügt durch Ziff. I des BG vom 1. Okt. 2021, in Kraft seit 1. April
+                      2025 (<ref href="https://fedlex.data.admin.ch/eli/oc/2024/189"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2024</b> 189</ref>; <ref
+                            href="https://fedlex.data.admin.ch/eli/fga/2020/2506"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2020</b> 9287</ref>
+                      ; <ref href="https://fedlex.data.admin.ch/eli/fga/2021/137"
+                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2021</b> 137</ref>).</p>
+                      </authorialNote>
+                    </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">dem SEM ihre
+                      elektronischen Datenträger vorübergehend aushändigen, wenn ihre Identität, die
+                      Nationalität oder der Reiseweg weder gestützt auf Identitätsausweise noch auf
+                      andere Weise festgestellt werden kann; die Bearbeitung der Personendaten aus
+                      elektronischen Datenträgern richtet sich nach Artikel 8<i>a</i>.</p>
+                  </item>
+                </blockList>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Von Asylsuchenden kann
+                  verlangt werden, für die Übersetzung fremdsprachiger Dokumente in eine Amtssprache
+                  besorgt zu sein.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8/para_3">
+              <num>3</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Asylsuchende, die sich in der
+                  Schweiz aufhalten, sind verpflichtet, sich während des Verfahrens den Behörden von
+                  Bund und Kantonen zur Verfügung zu halten. Sie müssen ihre Adresse und jede
+                  Änderung der nach kantonalem Recht zuständigen Behörde des Kantons oder der
+                  Gemeinde (kantonale Behörde) sofort mitteilen.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8/para_3_bis">
+              <num>3bis</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Personen, die ohne triftigen
+                  Grund ihre Mitwirkungspflicht verletzen oder den Asylbehörden während mehr als 20
+                  Tagen nicht zur Verfügung stehen, verzichten damit auf eine Weiterführung des
+                  Verfahrens. Dasselbe gilt für Personen, die den Asylbehörden in einem Zentrum des
+                  Bundes ohne triftigen Grund während mehr als 5 Tagen nicht zur Verfügung stehen.
+                  Die Gesuche werden formlos abgeschrieben. Ein neues Gesuch kann frühestens nach
+                  drei Jahren deponiert werden. Vorbehalten bleibt die Einhaltung der
+                  Flüchtlingskonvention vom 28. Juli 1951<authorialNote>
+                    <p>
+                      <ref href="https://fedlex.data.admin.ch/eli/cc/1955/443_461_469"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>0.142.30</b></ref>
+                    </p>
+                  </authorialNote>
+                  .<authorialNote>
+                    <p> Eingefügt durch Ziff. I des BG vom 14. Dez. 2012 (<ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2013/778"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2013</b> 4375</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2010/794"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2010</b> 4455</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2011/1209"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2011</b> 7325</ref>).
+                  Fassung gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März 2019 (<ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8/para_4">
+              <num>4</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> ...<authorialNote>
+                    <p> Aufgehoben durch Ziff. I des BG vom 1. Okt. 2021, mit Wirkung seit 1. April
+                  2025 (<ref href="https://fedlex.data.admin.ch/eli/oc/2024/189"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2024</b> 189</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2020/2506"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2020</b> 9287</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2021/137"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2021</b> 137</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_8_a">
+            <num>
+              <b>Art. 8</b>
+              <i>a</i>
+              <authorialNote>
+                <p> Eingefügt durch Ziff. I und Abs. 1 durch Ziff. III des BG vom 1. Okt. 2021, in
+                  Kraft seit 1. April 2025 (<ref href="https://fedlex.data.admin.ch/eli/oc/2024/189"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2024</b> 189</ref>; <ref
+                    href="https://fedlex.data.admin.ch/eli/fga/2020/2506"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2020</b> 9287</ref>; <ref
+                    href="https://fedlex.data.admin.ch/eli/fga/2021/137"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2021</b> 137</ref>). Siehe auch
+                  die UeB dieser Änd. am Schluss des Textes.</p>
+              </authorialNote>
+            </num>
+            <heading>Bearbeitung von Personendaten aus elektronischen Datenträgern</heading>
+            <paragraph eId="art_8_a/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Das SEM kann während der
+                  Dauer des Asylverfahrens zur Abklärung der Identität, der Nationalität und des
+                  Reiseweges Personendaten der betroffenen asylsuchenden Person, einschliesslich
+                  besonders schützenswerter Personendaten nach Artikel 5 Buchstabe c des
+                  Datenschutzgesetzes vom 25. September 2020<authorialNote>
+                    <p>
+                      <ref href="https://fedlex.data.admin.ch/eli/cc/2022/491"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">SR <b>235.1</b></ref>
+                    </p>
+                  </authorialNote>
+                  (DSG) aus elektronischen Datenträgern, aus der «Cloud» oder aus «Cloud-Diensten»
+                  bearbeiten.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Personendaten von
+                  Drittpersonen dürfen nur bearbeitet werden, wenn die Bearbeitung der Personendaten
+                  der asylsuchenden Person nicht ausreicht, um die Zielsetzungen nach Absatz 1 zu
+                  erreichen.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_3">
+              <num>3</num>
+              <content>
+                <blockList>
+                  <listIntroduction eId="art_8_a/para_3/listintro"
+                    xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Elektronische Datenträger
+                    sind insbesondere:</listIntroduction>
+                  <item eId="art_8_a/para_3/lbl_a">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">a. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Mobiltelefone, Smartphones
+                      und -watches, SIM-Karten;</p>
+                  </item>
+                  <item eId="art_8_a/para_3/lbl_b">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">b. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Computer, Laptops,
+                      Notebooks, Tablets;</p>
+                  </item>
+                  <item eId="art_8_a/para_3/lbl_c">
+                    <num xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">c. </num>
+                    <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Speichermedien wie
+                      USB-Sticks, SD-Speicherkarten, DVD und CD-ROM.</p>
+                  </item>
+                </blockList>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_4">
+              <num>4</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Das SEM analysiert für jeden
+                  Einzelfall vorgängig die Notwendigkeit und Verhältnismässigkeit des Verfahrens
+                  nach diesem Artikel.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_5">
+              <num>5</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Bis zur Auswertung können die
+                  Personendaten auf einem gesicherten Server des Eidgenössischen Justiz- und
+                  Polizeidepartements (EJPD) zwischengespeichert werden.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_6">
+              <num>6</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Zum Zeitpunkt, zu dem die
+                  asylsuchende Person aufgefordert wird, im Sinne von Artikel 8 Absatz 1 Buchstabe g
+                  ihre elektronischen Datenträger dem SEM auszuhändigen, wird sie über das
+                  vorgesehene Verfahren informiert, insbesondere über dessen Zweck, Ablauf, die Art
+                  der ausgewerteten Daten, die Auswertungsmethode, die Speichermethode und die
+                  Löschung der Daten.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_7">
+              <num>7</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"><i> </i>Die Auswertung erfolgt
+                  grundsätzlich während der Vorbereitungsphase (Art. 26). Sie wird durch
+                  Mitarbeitende des SEM in Anwesenheit der asylsuchendenden Person durchgeführt,
+                  ausser diese verzichtet auf die Anwesenheit bei der Auswertung oder weigert sich,
+                  bei der Auswertung anwesend zu sein. Die Auswertung wird in einem Protokoll
+                  festgehalten. Sie erfolgt auf der Grundlage der nach Absatz 5
+                  zwischengespeicherten Daten und falls nötig anhand der Prüfung des elektronischen
+                  Datenträgers.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_8">
+              <num>8</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Nach der Auswertung werden
+                  die nach Absatz 5 zwischengespeicherten Personendaten gelöscht. Alle Personendaten
+                  werden spätestens ein Jahr nach der Zwischenspeicherung automatisch gelöscht. </p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_9">
+              <num>9</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Alle ausgewerteten
+                  Personendaten sind im Asyldossier abzulegen. Die asylsuchende Person kann sich zur
+                  Auswertung äussern.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_8_a/para_10">
+              <num>10</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Der Bundesrat legt fest,
+                  welche Daten nach Absatz 1 erhoben werden, und regelt den Zugriff sowie die
+                  Einzelheiten der Auswertung der Personendaten. </p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_9">
+            <num>
+              <b>Art. 9</b>
+            </num>
+            <heading>Durchsuchung</heading>
+            <paragraph eId="art_9/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Die zuständige Behörde darf
+                  Asylsuchende, die in einem Zentrum des Bundes<authorialNote>
+                    <p> Ausdruck gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März
+                  2019 (<ref href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).
+                  Diese Änd. wurde im ganzen Erlass berücksichtigt.</p>
+                  </authorialNote>
+                  oder in einer Privat- oder Kollektivunterkunft untergebracht sind, und ihre
+                  mitgeführten Sachen auf Reise- und Identitätspapiere sowie auf gefährliche
+                  Gegenstände, Drogen und Vermögenswerte unklarer Herkunft hin durchsuchen.<authorialNote>
+                    <p> Fassung gemäss Ziff. I des BG vom 16. Dez. 2005, in Kraft seit 1. Jan. 2008
+                  (<ref href="https://fedlex.data.admin.ch/eli/oc/2006/727"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2006</b> 4745</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2007/765"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2007</b> 5573</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2002/1106"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2002 </b>6845</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_9/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Asylsuchende dürfen nur von
+                  Personen gleichen Geschlechts durchsucht werden.</p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_10">
+            <num>
+              <b>Art. 10</b>
+            </num>
+            <heading>Sicherstellung und Einziehung von Dokumenten</heading>
+            <paragraph eId="art_10/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Das SEM<authorialNote>
+                    <p> Die Bezeichnung der Verwaltungseinheit wurde in Anwendung von Art. 16 Abs. 3
+                  der Publikationsverordnung vom 17. Nov. 2004 (<ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2004/746"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2004</b> 4937</ref>) auf
+                  den 1. Jan. 2015 angepasst. Diese Anpassung wurde im ganzen Text vorgenommen. </p>
+                  </authorialNote>
+                  nimmt die Reisepapiere und Identitätsausweise von Asylsuchenden zu den Akten.<authorialNote>
+                    <p> Fassung gemäss Ziff. I des BG vom 16. Dez. 2005, in Kraft seit 1. Jan. 2008
+                  (<ref href="https://fedlex.data.admin.ch/eli/oc/2006/727"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2006</b> 4745</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2007/765"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2007</b> 5573</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2002/1106"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2002 </b>6845</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_10/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Behörden und Amtsstellen
+                  stellen zuhanden des SEM Reisepapiere, Identitätsausweise oder andere Dokumente
+                  sicher, wenn sie Hinweise auf die Identität einer Person, welche in der Schweiz
+                  ein Asylgesuch eingereicht hat, geben können. Bei anerkannten Flüchtlingen gilt
+                  Absatz 5.<authorialNote>
+                    <p> Fassung gemäss Ziff. I des BG vom 14. Dez. 2012, in Kraft seit 1. Febr. 2014
+                  (<ref href="https://fedlex.data.admin.ch/eli/oc/2013/778"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2013</b> 4375 </ref><ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2013/855"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">5357</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2010/794"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2010</b> 4455</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2011/1209"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2011</b> 7325</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_10/para_3">
+              <num>3</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Überprüft die sicherstellende
+                  Behörde oder Amtsstelle Dokumente nach Absatz 2 auf ihre Echtheit hin, so ist dem
+                  SEM das Resultat dieser Überprüfung mitzuteilen.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_10/para_4">
+              <num>4</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Verfälschte und gefälschte
+                  Dokumente sowie echte Dokumente, die missbräuchlich verwendet wurden, können vom
+                  SEM oder von der Beschwerdeinstanz eingezogen oder zuhanden des Berechtigten
+                  sichergestellt werden.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_10/para_5">
+              <num>5</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Pässe oder
+                  Identitätsausweise, welche den in der Schweiz anerkannten Flüchtlingen von deren
+                  Heimatstaat ausgestellt wurden, sind zuhanden des SEM sicherzustellen.<authorialNote>
+                    <p> Eingefügt durch Ziff. I des BG vom 16. Dez. 2005, in Kraft seit 1. Jan. 2008
+                  (<ref href="https://fedlex.data.admin.ch/eli/oc/2006/727"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2006</b> 4745</ref>, <ref
+                        href="https://fedlex.data.admin.ch/eli/oc/2007/765"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2007</b> 5573</ref>; <ref
+                        href="https://fedlex.data.admin.ch/eli/fga/2002/1106"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2002 </b>6845</ref>).</p>
+                  </authorialNote></p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_11">
+            <num>
+              <b>Art. 11</b>
+            </num>
+            <heading>Beweisverfahren</heading>
+            <paragraph eId="art_11/para">
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration">Wird zur Ermittlung des
+                  Sachverhaltes ein Beweisverfahren durchgeführt, so können Asylsuchende zur
+                  Beweisanordnung der Behörde nicht vorgängig Stellung nehmen.</p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_12">
+            <num>
+              <b>Art. 12</b>
+              <authorialNote>
+                <p> Fassung gemäss Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März 2019 (<ref
+                    href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                    href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                    href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).</p>
+              </authorialNote>
+            </num>
+            <heading>Eröffnung und Zustellung bei einem Aufenthalt im Kanton</heading>
+            <paragraph eId="art_12/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Eine Verfügung oder
+                  Mitteilung an die letzte den Behörden bekannte Adresse von Asylsuchenden oder von
+                  diesen Bevollmächtigten wird nach Ablauf der ordentlichen siebentägigen Abholfrist
+                  rechtsgültig, auch wenn die Betroffenen aufgrund einer besonderen Vereinbarung mit
+                  der Schweizerischen Post erst zu einem späteren Zeitpunkt davon Kenntnis erhalten
+                  oder wenn die Sendung als unzustellbar zurückkommt.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_12/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Wird die asylsuchende Person
+                  durch mehrere Bevollmächtigte vertreten und bezeichnen diese keine gemeinsame
+                  Zustelladresse, so eröffnet die Behörde ihre Verfügungen oder stellt Mitteilungen
+                  der von der asylsuchenden Person zuerst bezeichneten bevollmächtigten Person zu.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_12/para_3">
+              <num>3</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Verfügungen können in
+                  geeigneten Fällen mündlich eröffnet und summarisch begründet werden. Die mündliche
+                  Eröffnung ist samt Begründung protokollarisch festzuhalten. Der Protokollauszug
+                  ist der asylsuchenden Person oder ihrer bevollmächtigten Person auszuhändigen.</p>
+              </content>
+            </paragraph>
+          </article>
+          <article eId="art_12_a">
+            <num>
+              <b>Art. 12</b>
+              <i>a</i>
+              <authorialNote>
+                <p> Eingefügt durch Ziff. I des BG vom 25. Sept. 2015, in Kraft seit 1. März 2019 (<ref
+                    href="https://fedlex.data.admin.ch/eli/oc/2016/521"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">AS <b>2016</b> 3101</ref>, <ref
+                    href="https://fedlex.data.admin.ch/eli/oc/2018/438"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp"><b>2018</b> 2855</ref>; <ref
+                    href="https://fedlex.data.admin.ch/eli/fga/2014/1715"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">BBl <b>2014</b> 7991</ref>).</p>
+              </authorialNote>
+            </num>
+            <heading>Eröffnung und Zustellung in den Zentren des Bundes</heading>
+            <paragraph eId="art_12_a/para_1">
+              <num>1</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> In den Zentren des Bundes
+                  erfolgen die Eröffnung von Verfügungen und die Zustellung von Mitteilungen durch
+                  Aushändigung. Ist die asylsuchende Person untergetaucht, so richten sich die
+                  Eröffnung und die Zustellung nach Artikel 12.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_12_a/para_2">
+              <num>2</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Bei Asylsuchenden mit
+                  zugewiesener Rechtsvertretung erfolgen die Eröffnung von Verfügungen und die
+                  Zustellung von Mitteilungen an den mit der Rechtsvertretung beauftragten
+                  Leistungserbringer. Dieser gibt der zugewiesenen Rechtsvertretung die Eröffnung
+                  oder Zustellung am gleichen Tag bekannt.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_12_a/para_3">
+              <num>3</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Bei Asylsuchenden ohne
+                  zugewiesene Rechtsvertretung erfolgen die Eröffnung von Verfügungen und die
+                  Zustellung von Mitteilungen an die asylsuchende Person. Einer von der
+                  asylsuchenden Person bevollmächtigten Person wird die Eröffnung oder Zustellung
+                  unverzüglich bekannt gegeben.</p>
+              </content>
+            </paragraph>
+            <paragraph eId="art_12_a/para_4">
+              <num>4</num>
+              <content>
+                <p xmlns:mig="urn:com:c-moria:legi4ch:xslt:migration"> Die mündliche Eröffnung und
+                  summarische Begründung richtet sich nach Artikel 12 Absatz 3.</p>
+              </content>
+            </paragraph>
+          </article>
+        </section>
+      </chapter>
+    </body>
+  </act>
+</akomaNtoso>
