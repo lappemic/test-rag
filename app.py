@@ -27,7 +27,7 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 st.title("Schwizerischer Rechts-Chatbot im Migrationsrecht")
 
-st.makdown(**test webhook again**)
+st.markdown("**test webhook again**")
 
 # --- Helper functions ---
 
