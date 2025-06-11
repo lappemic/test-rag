@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 GITHUB_SECRET = os.environ.get('GITHUB_WEBHOOK_SECRET', '').encode()
 
-def verifiy_signature(payload, signature):
+def verify_signature(payload, signature):
     mac = hmac.new(GITHUB_SECRET, msg=payload, digestmod=hashlib.sha256)
     expected = 'sha256=' + mac.hexdigest()
     return hmac.compare_digest(expected, signature)
