@@ -7,5 +7,5 @@ openai
 chromadb
 tiktoken
 langchain-openai
-langchain_communityflask
+langchain_community
 flask
