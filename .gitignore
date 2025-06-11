@@ -3,4 +3,5 @@
 .venv
 .DS_Store
 chroma_db/
-data/*.json
+data/*.jsonnohup.out
+nohup.out
