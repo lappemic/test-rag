@@ -10,6 +10,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableBranch, RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
+# dirty dev hack
+DEV_MODE = False
+
 # Load environment variables
 load_dotenv()
 
@@ -320,16 +323,17 @@ if prompt := st.chat_input("Stellen Sie eine Frage zu den Schweizer Gesetzen..."
                 st.error(f"Error generating response: {e}")
 
 # --- Sidebar Controls ---
-st.sidebar.title("Einstellungen")
-if st.sidebar.button("Alle Gesetze aus der Datenbank löschen"):
-    if law_collections:
-        try:
-            with st.spinner("Lösche alle Gesetzessammlungen..."):
-                for collection in law_collections:
-                    chroma_client.delete_collection(name=collection.name)
-            st.sidebar.success("Alle Gesetzessammlungen wurden gelöscht. Bitte laden Sie die Seite neu.")
-            st.rerun()
-        except Exception as e:
-            st.sidebar.error(f"Fehler beim Löschen der Sammlungen: {e}")
-    else:
-        st.sidebar.warning("Keine Sammlungen zum Löschen gefunden.")
+if DEV_MODE:
+    st.sidebar.title("Einstellungen")
+    if st.sidebar.button("Alle Gesetze aus der Datenbank löschen"):
+        if law_collections:
+            try:
+                with st.spinner("Lösche alle Gesetzessammlungen..."):
+                    for collection in law_collections:
+                        chroma_client.delete_collection(name=collection.name)
+                st.sidebar.success("Alle Gesetzessammlungen wurden gelöscht. Bitte laden Sie die Seite neu.")
+                st.rerun()
+            except Exception as e:
+                st.sidebar.error(f"Fehler beim Löschen der Sammlungen: {e}")
+        else:
+            st.sidebar.warning("Keine Sammlungen zum Löschen gefunden.")
