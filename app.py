@@ -1,14 +1,14 @@
-import streamlit as st
+import logging
+import operator
+import os
+
 import chromadb
+import streamlit as st
+from dotenv import load_dotenv
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough, RunnableBranch
-from langchain_openai import ChatOpenAI
-from langchain_openai import OpenAIEmbeddings
-import logging
-import os
-from dotenv import load_dotenv
-import operator
+from langchain_core.runnables import RunnableBranch, RunnablePassthrough
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 # Load environment variables
 load_dotenv()

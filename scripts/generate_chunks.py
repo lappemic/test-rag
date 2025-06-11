@@ -1,7 +1,7 @@
 import json
-import xml.etree.ElementTree as ET
-import re
 import os
+import re
+import xml.etree.ElementTree as ET
 from datetime import datetime
 
 XML_PATHS = [

@@ -1,12 +1,13 @@
 #import os
 import glob
-import os
 import json
 import logging
-from langchain_core.documents import Document
-from langchain_openai import OpenAIEmbeddings
+import os
+
 import chromadb
 from dotenv import load_dotenv
+from langchain_core.documents import Document
+from langchain_openai import OpenAIEmbeddings
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
