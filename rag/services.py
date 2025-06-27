@@ -9,7 +9,14 @@ from conversation.memory import ConversationManager
 from conversation.routing import QueryRouter
 from rag.query_processing import QueryProcessor
 from rag.retrieval import RAGRetriever
-from config.settings import OPENAI_API_KEY, DEFAULT_MODEL
+from rag.reflection import RAGReflector
+from config.settings import (
+    OPENAI_API_KEY, 
+    DEFAULT_MODEL, 
+    ENABLE_REFLECTION, 
+    MAX_REFLECTION_ITERATIONS,
+    REFLECTION_ADDITIONAL_SOURCES_LIMIT
+)
 
 
 class LegalChatbotService:
@@ -47,6 +54,19 @@ class LegalChatbotService:
                 self.query_processor
             )
             
+            # Initialize RAG reflector if enabled
+            if ENABLE_REFLECTION:
+                self.rag_reflector = RAGReflector(
+                    self.llm,
+                    self.embeddings,
+                    self.rag_retriever,
+                    max_iterations=MAX_REFLECTION_ITERATIONS
+                )
+                logging.info("RAG reflection pattern enabled")
+            else:
+                self.rag_reflector = None
+                logging.info("RAG reflection pattern disabled")
+            
             # Set up query routing chain
             self._setup_routing_chain()
             
@@ -72,19 +92,48 @@ class LegalChatbotService:
             
             return {
                 "response": response_text + disclaimer,
-                "sources": {"docs": [], "metas": []}
+                "sources": {"docs": [], "metas": []},
+                "reflection_info": None
             }
         
         def rag_chain_func(input_dict: dict) -> dict:
-            """RAG chain function wrapper."""
+            """RAG chain function wrapper with optional reflection."""
             query = input_dict["question"]
             conversation_history = st.session_state.get("messages", [])
+            
+            # Get initial RAG response
             response, retrieved_docs, retrieved_metas = self.rag_retriever.query_rag(
                 query, self.law_collections, conversation_history=conversation_history
             )
+            
+            reflection_info = None
+            
+            # Apply reflection pattern if enabled
+            if self.rag_reflector and ENABLE_REFLECTION:
+                try:
+                    logging.info("Applying reflection pattern to RAG response")
+                    refined_response, reflection_info = self.rag_reflector.reflect_and_refine(
+                        original_query=query,
+                        initial_response=response,
+                        initial_sources=retrieved_docs,
+                        initial_metas=retrieved_metas,
+                        collections=self.law_collections,
+                        conversation_history=conversation_history
+                    )
+                    response = refined_response
+                    logging.info(f"Reflection completed: {reflection_info['final_status']}")
+                except Exception as e:
+                    logging.error(f"Error during reflection: {e}")
+                    # Continue with original response if reflection fails
+                    reflection_info = {
+                        "error": str(e),
+                        "final_status": "reflection_failed"
+                    }
+            
             return {
                 "response": response,
-                "sources": {"docs": retrieved_docs, "metas": retrieved_metas}
+                "sources": {"docs": retrieved_docs, "metas": retrieved_metas},
+                "reflection_info": reflection_info
             }
         
         self.routing_chain = self.query_router.create_routing_chain(
@@ -109,7 +158,7 @@ class LegalChatbotService:
             query: User's question string
             
         Returns:
-            Dictionary with 'response' and 'sources' keys
+            Dictionary with 'response', 'sources', and 'reflection_info' keys
         """
         if not self.is_ready():
             raise Exception("Service not ready. Please check API key and database collections.")
@@ -123,4 +172,8 @@ class LegalChatbotService:
     
     def get_db_manager(self):
         """Get the database manager instance."""
-        return self.db_manager 
+        return self.db_manager
+    
+    def is_reflection_enabled(self):
+        """Check if reflection pattern is enabled."""
+        return ENABLE_REFLECTION and self.rag_reflector is not None 

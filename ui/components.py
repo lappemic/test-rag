@@ -3,6 +3,7 @@ Reusable UI components for the Swiss Legal Chatbot.
 """
 import streamlit as st
 from datetime import datetime
+from config.settings import ENABLE_REFLECTION
 
 
 def display_welcome_section(loaded_laws):
@@ -34,12 +35,42 @@ def display_welcome_section(loaded_laws):
             return True
 
 
+def display_reflection_info_compact(reflection_info):
+    """Display compact reflection information for historical messages."""
+    if not reflection_info or not ENABLE_REFLECTION:
+        return
+    
+    if reflection_info.get("error"):
+        st.caption("🔄 Reflection failed")
+        return
+    
+    status = reflection_info.get("final_status", "unknown")
+    iterations = reflection_info.get("iterations", 0)
+    additional_sources = reflection_info.get("additional_sources_found", 0)
+    
+    if status == "no_reflection_needed":
+        st.caption("✅ Response complete on first try")
+    elif status == "completed_successfully" and iterations > 0:
+        st.caption(f"🔄 Improved through {iterations} reflection iteration(s), {additional_sources} additional source(s)")
+    elif status == "max_iterations_reached":
+        st.caption(f"🔄 Reflection completed ({iterations} iterations)")
+    elif status == "no_additional_sources_found" and iterations > 0:
+        st.caption(f"🔄 Reflection completed ({iterations} iterations)")
+
+
 def display_chat_message(message):
     """Display a single chat message."""
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-        if message["role"] == "assistant" and message.get("sources"):
-            display_sources(message["sources"])
+        
+        if message["role"] == "assistant":
+            # Display sources if available
+            if message.get("sources"):
+                display_sources(message["sources"])
+            
+            # Display compact reflection info if available
+            if message.get("reflection_info") and ENABLE_REFLECTION:
+                display_reflection_info_compact(message["reflection_info"])
 
 
 def display_sources(sources):
