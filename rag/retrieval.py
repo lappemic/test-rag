@@ -274,77 +274,74 @@ class RAGRetriever:
         return all_results
 
     def _setup_prompt(self):
-        """Set up the RAG prompt template."""
-        self.prompt_template = ChatPromptTemplate.from_template(
-            """
-            You are a Swiss legal expert chatbot with comprehensive knowledge of Swiss federal laws, regulations, and legal principles, specializing in the Systematic Recompilation (SR) of Swiss legislation. Your task is to provide a precise, well-reasoned, and legally accurate answer to the user's question based on the provided context, which includes relevant laws, articles, paragraphs, or metadata from Swiss legal documents.
+        """Set up the RAG prompt template with system message and dynamic prompt."""
+        # Fixed system instructions that don't change per query
+        self.system_message = """
+        You are a Swiss legal expert chatbot with comprehensive knowledge of Swiss federal laws, regulations, and legal principles, specializing in the Systematic Recompilation (SR) of Swiss legislation.
 
+        CORE INSTRUCTIONS:
+
+        **Accuracy and Citations**:
+        - Base responses exclusively on provided context from Swiss legal documents
+        - Cite sources using format: `[Document Title, SR Number, Article ID/Paragraph ID, Date of Applicability]`
+        - Example: `[Asylgesetz (AsylG), SR 142.20, Art. 3/Para. 1, 2025-01-01]`
+        - Prioritize most specific and recent provisions based on `date_applicability`
+
+        **Response Structure**:
+        - Organize responses logically using bullet points, numbered lists, or headings
+        - Break down complex legal concepts for non-experts while maintaining precision
+        - Define technical terms (e.g., "SR Number" as Systematic Recompilation Number)
+
+        **Metadata Usage**:
+        - Reference source chunks using metadata fields (`document_title`, `sr_number`, `article_id`, `paragraph_id`)
+        - Include `date_applicability` for temporal validity
+        - Incorporate `references` or `amendment_history` when available
+
+        **Tone and Language**:
+        - Maintain objective, impartial tone
+        - Respond in German (language of context) unless user specifies otherwise
+        - Never speculate beyond provided context
+
+        **Legal Disclaimer**:
+        - Include in every response: "Diese Informationen dienen nur zur allgemeinen Orientierung und stellen keine Rechtsberatung dar. Für konkrete Fälle konsultieren Sie bitte einen qualifizierten Stelle.\"
+        """
+
+        # Shortened dynamic prompt template for context-dependent instructions
+        self.prompt_template = ChatPromptTemplate.from_messages([
+            ("system", self.system_message),
+            ("user", """
             {conversation_context_section}
 
-            Adhere to the following guidelines:
+            CONTEXT-SPECIFIC GUIDELINES:
 
-            1. **Conversation Awareness**:
-            - Consider the conversation history when formulating your response
-            - Reference previous topics discussed when relevant
-            - Provide continuity in your responses while maintaining legal accuracy
-            - Handle follow-up questions that may reference earlier parts of the conversation
+            1. **Conversation Awareness** (if conversation history provided):
+            - Consider conversation history when formulating your response
+            - Reference previous topics when relevant and maintain continuity
 
-            2. **Accuracy and Relevance**:
-            - Base your response exclusively on the provided context, ensuring all legal references are drawn from the retrieved chunks.
-            - Cite specific sources using the format: `[Document Title, SR Number, Article ID/Paragraph ID, Date of Applicability]`, e.g., `[Asylgesetz (AsylG), SR 142.20, Art. 3/Para. 1, 2025-01-01]`.
-            - If multiple chunks are relevant, prioritize the most specific (e.g., paragraph-level over article-level) and recent provisions based on `date_applicability`.
+            2. **Comprehensive Analysis**:
+            - Apply cited provisions to the specific question/scenario
+            - Address potential ambiguities or exceptions within the context
+            - Provide reasoned analysis grounded in the legal text
 
-            3. **Clarity and Structure**:
-            - Organize your response in a logical, concise manner, using bullet points, numbered lists, or headings where appropriate to enhance readability.
-            - Break down complex legal concepts into clear, understandable terms for users without legal expertise, while maintaining precision for expert users.
-            - Avoid jargon unless necessary, and define any technical terms (e.g., "SR Number" as Systematic Recompilation Number).
+            3. **Handling Insufficient Context**:
+            - If context is insufficient: "The provided context does not contain sufficient information to fully address the question."
+            - Offer general legal principles if applicable, noting limitations
+            - Suggest potential sources when relevant
 
-            4. **Direct Citations**:
-            - For every legal point, explicitly reference the source chunk using the metadata fields (e.g., `document_title`, `sr_number`, `article_id`, `paragraph_id`).
-            - Include the `date_applicability` to clarify the temporal validity of the cited provision.
-            - If the chunk includes `references` or `amendment_history`, incorporate these to provide context for cross-referenced laws or changes in legislation.
+            4. **Known Laws Queries**:
+            - If asked about known laws, list unique `document_title` values with `sr_number`
+            - Format: "Ich kenne folgende Gesetze: [Law Name, SR Number], ..."
 
-            5. **Comprehensive Analysis**:
-            - Apply the cited provisions to the question or scenario, explaining how the law addresses the issue.
-            - Address potential ambiguities, exceptions, or conflicting provisions within the context, referencing relevant `keywords` or `references` if available.
-            - If the question involves interpretation, provide a reasoned analysis grounded in the legal text and metadata (e.g., `article_title` or `chapter_id` for thematic context).
-
-            6. **Neutral and Professional Tone**:
-            - Maintain an objective, impartial tone, avoiding speculative or unsupported statements.
-            - Do not assume facts or scenarios beyond the provided context or question.
-
-            7. **Handling Insufficient Context**:
-            - If the provided context is insufficient to fully answer the question, clearly state: "The provided context does not contain sufficient information to fully address the question."
-            - Offer a general legal principle or framework from Swiss law, if applicable, and note the limitation, e.g., "Based on general principles of Swiss federal law, [explain principle], but specific provisions require further context."
-            - Suggest potential sources (e.g., "Relevant provisions may be found in [Document Title, SR Number]"). 
-
-            8. **Metadata Utilization**:
-            - Leverage metadata fields (e.g., `document_title`, `sr_number`, `article_title`, `chapter_id`, `date_entry_in_force`) to provide context and ensure relevance.
-            - Use `keywords` to identify related topics or filter relevant chunks.
-            - Reference `amendment_history` to clarify whether a provision has been modified or superseded.
-
-            9. **Response to Queries About Known Laws**:
-            - If asked about the laws you have knowledge of (e.g., "Welche Gesetze kennst du?"), list all unique `document_title` values from the context, along with their corresponding `sr_number`, in a clear and concise format, e.g., "Ich kenne folgende Gesetze: [Asylgesetz (AsylG), SR 142.20], [Schweizerische Bundesverfassung (BV), SR 101]."
-            - Do not list specific articles or provisions unless explicitly requested by the user.
-            - If the context contains no relevant `document_title` values, state: "No specific laws are available in the provided context."
-
-            10. **Error Handling**:
-                - If the context contains contradictory or outdated chunks (based on `date_applicability`), prioritize the most recent and specific provision and note the discrepancy, e.g., "An earlier provision [cite] was superseded by [cite]."
-                - If no relevant chunks are retrieved, state: "No relevant legal provisions were found in the provided context for this question."
-
-            11. **Language and Localization**:
-                - Respond in the language of the context (`language` field, e.g., "de" for German) unless the user specifies otherwise.
-                - If the user requests a response in another language (e.g., English), translate legal terms accurately and note: "This response is provided in English for clarity, but the original legal text is in [language]."
-
-            12. **Legal Disclaimer**:
-                - Include in every response: "Diese Informationen dienen nur zur allgemeinen Orientierung und stellen keine Rechtsberatung dar. Für konkrete Fälle konsultieren Sie bitte einen qualifizierten Stelle."
+            5. **Error Handling**:
+            - If contradictory chunks exist, prioritize most recent and specific provision
+            - If no relevant chunks found: "No relevant legal provisions were found in the provided context for this question."
 
             LEGAL CONTEXT:
             {context}
 
             CURRENT QUESTION: {question}
-            """
-                    )
+            """)
+                    ])
     
     def query_rag(self, query, collections, num_results=None, conversation_history=None):
         """
@@ -441,3 +438,131 @@ class RAGRetriever:
         response = rag_chain.invoke({"context": context, "question": query})
         logging.info("Generated response from RAG chain with conversation context")
         return response, retrieved_docs, retrieved_metas 
+
+    def query_rag_stream(self, query, collections, num_results=None, conversation_history=None, status_callback=None):
+        """
+        Query the RAG system with streaming response and conversation memory.
+        
+        Args:
+            query: User's question
+            collections: ChromaDB collections to search
+            num_results: Number of results to retrieve
+            conversation_history: List of previous messages
+            status_callback: Optional callback for status updates
+        
+        Yields:
+            Tuple of (chunk, is_complete, metadata) where:
+            - chunk: Text chunk from streaming response
+            - is_complete: Boolean indicating if response is complete
+            - metadata: Dict with retrieval info (docs, metas) when complete
+        """
+        if num_results is None:
+            num_results = MAX_RESULTS
+            
+        logging.info(f"Streaming RAG query: {query}")
+        
+        if status_callback:
+            status_callback("🔍 Durchsuche Rechtssammlungen...")
+        
+        # Build conversation context
+        conversation_context = self.conversation_manager.build_conversation_context(
+            conversation_history or []
+        )
+        
+        # Enhance query with conversation context for better retrieval
+        enhanced_query = self.query_processor.enhance_query_with_context(
+            query, conversation_context
+        )
+        
+        # Use enhanced query for embedding and retrieval
+        query_embedding = self.embeddings.embed_query(enhanced_query)
+        
+        if status_callback:
+            status_callback("🎯 Optimiere Sammlungsauswahl...")
+        
+        # Optimize collection selection based on configuration
+        if ENABLE_SMART_COLLECTION_FILTERING and self.collection_filter and len(collections) > COLLECTION_FILTERING_THRESHOLD:
+            # Get collection names (with optional caching)
+            collection_names = self._get_collection_names(collections)
+            
+            # Filter collections based on query intent
+            filtered_collections = self.collection_filter.filter_collections(
+                enhanced_query, collections, collection_names
+            )
+            logging.info(f"Smart filtering enabled: querying {len(filtered_collections)} collections (filtered from {len(collections)})")
+        else:
+            filtered_collections = collections
+            if ENABLE_SMART_COLLECTION_FILTERING:
+                logging.info(f"Smart filtering skipped: {len(collections)} collections <= threshold ({COLLECTION_FILTERING_THRESHOLD})")
+        
+        if status_callback:
+            status_callback(f"📚 Durchsuche {len(filtered_collections)} Rechtssammlungen...")
+        
+        # Query collections (parallel or sequential based on configuration)
+        if ENABLE_PARALLEL_QUERYING and self.parallel_querier:
+            logging.info(f"Using parallel querying with {MAX_PARALLEL_WORKERS} workers")
+            all_results = self.parallel_querier.query_collections_parallel(
+                filtered_collections, query_embedding, num_results
+            )
+        else:
+            logging.info("Using sequential querying")
+            all_results = self._query_collections_sequential(filtered_collections, query_embedding, num_results)
+        
+        # Sort all results by distance (ascending)
+        sorted_results = sorted(all_results, key=operator.itemgetter('distance'))
+        
+        # Take the top N results overall
+        top_results = sorted_results[:num_results]
+
+        retrieved_docs = [res["document"] for res in top_results]
+        retrieved_metas = [res["metadata"] for res in top_results]
+        
+        context = "\n".join([
+            f"[Source: {meta.get('document_title', 'Unknown')} - {meta.get('article_id', 'Unknown') or 'meta'}]\n{doc}"
+            for doc, meta in zip(retrieved_docs, retrieved_metas)
+        ])
+        
+        logging.info(f"Retrieved {len(retrieved_docs)} documents for query across {len(filtered_collections)} collections.")
+        
+        if status_callback:
+            status_callback("💭 Generiere rechtliche Antwort...")
+        
+        # Format conversation context for the prompt
+        conversation_context_section = ""
+        if conversation_context:
+            conversation_context_section = f"""
+            CONVERSATION HISTORY:
+            {conversation_context}
+
+            Please consider this conversation history when answering the current question. Reference topics when relevant and maintain continuity in your responses.
+            """
+        
+        # Create streaming chain
+        rag_chain = (
+            {
+                "context": RunnablePassthrough(), 
+                "question": RunnablePassthrough(),
+                "conversation_context_section": lambda x: conversation_context_section
+            }
+            | self.prompt_template
+            | self.llm
+        )
+        
+        # Stream the response
+        chunks = []
+        try:
+            for chunk in rag_chain.stream({"context": context, "question": query}):
+                chunk_content = chunk.content if hasattr(chunk, 'content') else str(chunk)
+                chunks.append(chunk_content)
+                yield chunk_content, False, None
+            
+            # Signal completion with metadata
+            yield "", True, {
+                "retrieved_docs": retrieved_docs,
+                "retrieved_metas": retrieved_metas,
+                "collections_used": len(filtered_collections)
+            }
+            
+        except Exception as e:
+            logging.error(f"Error during streaming: {e}")
+            yield f"Error generating response: {e}", True, None 

@@ -168,6 +168,138 @@ class LegalChatbotService:
             logging.error(f"Error processing query: {e}")
             raise
     
+    def process_query_stream(self, query, status_callback=None):
+        """
+        Process a user query and stream the response with iteration updates.
+        
+        Args:
+            query: User's question string
+            status_callback: Optional callback for status updates
+            
+        Yields:
+            Tuple of (chunk, is_complete, metadata) where:
+            - chunk: Text chunk from streaming response
+            - is_complete: Boolean indicating if response is complete
+            - metadata: Dict with sources and reflection info when complete
+        """
+        if not self.is_ready():
+            raise Exception("Service not ready. Please check API key and database collections.")
+        
+        try:
+            # Check if this is a law listing query
+            route_decision = self.query_router.route_query(query)
+            
+            if route_decision["route"] == "list_laws":
+                # Handle law listing non-streaming
+                loaded_laws = self.db_manager.get_loaded_law_names(self.law_collections)
+                if not loaded_laws:
+                    response_text = "I currently don't have any specific laws loaded in my database. Please run the ingestion script."
+                else:
+                    law_list = "\n".join([f"- {law_name}" for law_name in loaded_laws])
+                    response_text = f"Ich kenne folgende Gesetze:\n\n{law_list}"
+                
+                disclaimer = '\n\nDiese Informationen dienen nur zur allgemeinen Orientierung und stellen keine Rechtsberatung dar. Für konkrete Fälle konsultieren Sie bitte einen qualifizierten Stelle.'
+                full_response = response_text + disclaimer
+                
+                yield full_response, True, {
+                    "sources": {"docs": [], "metas": []},
+                    "reflection_info": None
+                }
+                return
+            
+            # Handle RAG query with streaming
+            conversation_history = st.session_state.get("messages", [])
+            
+            # Stream initial RAG response
+            retrieved_docs = []
+            retrieved_metas = []
+            initial_response_chunks = []
+            
+            for chunk, is_complete, metadata in self.rag_retriever.query_rag_stream(
+                query, self.law_collections, conversation_history=conversation_history, status_callback=status_callback
+            ):
+                if not is_complete:
+                    initial_response_chunks.append(chunk)
+                    yield chunk, False, None
+                else:
+                    if metadata:
+                        retrieved_docs = metadata["retrieved_docs"]
+                        retrieved_metas = metadata["retrieved_metas"]
+            
+            initial_response = "".join(initial_response_chunks)
+            
+            # Apply reflection pattern if enabled
+            if self.rag_reflector and ENABLE_REFLECTION:
+                try:
+                    if status_callback:
+                        status_callback("🔄 Starte Reflexions-Muster...")
+                    
+                    logging.info("Applying reflection pattern to RAG response")
+                    
+                    # Stream reflection refinement
+                    final_response_chunks = []
+                    reflection_info = None
+                    
+                    for chunk, is_complete, refl_info in self.rag_reflector.reflect_and_refine_stream(
+                        original_query=query,
+                        initial_response=initial_response,
+                        initial_sources=retrieved_docs,
+                        initial_metas=retrieved_metas,
+                        collections=self.law_collections,
+                        conversation_history=conversation_history,
+                        status_callback=status_callback
+                    ):
+                        if chunk and not is_complete:
+                            final_response_chunks.append(chunk)
+                            yield chunk, False, {
+                                "reflection_info": refl_info,
+                                "sources": {"docs": retrieved_docs, "metas": retrieved_metas}
+                            }
+                        
+                        if is_complete:
+                            reflection_info = refl_info
+                            break
+                    
+                    # If no refinement occurred, use initial response
+                    if not final_response_chunks:
+                        final_response = initial_response
+                    else:
+                        final_response = "".join(final_response_chunks)
+                    
+                    logging.info(f"Reflection completed: {reflection_info['final_status']}")
+                    
+                    # Final completion signal
+                    yield "", True, {
+                        "sources": {"docs": retrieved_docs, "metas": retrieved_metas},
+                        "reflection_info": reflection_info,
+                        "final_response": final_response
+                    }
+                    
+                except Exception as e:
+                    logging.error(f"Error during reflection: {e}")
+                    # Continue with original response if reflection fails
+                    reflection_info = {
+                        "error": str(e),
+                        "final_status": "reflection_failed"
+                    }
+                    
+                    yield "", True, {
+                        "sources": {"docs": retrieved_docs, "metas": retrieved_metas},
+                        "reflection_info": reflection_info,
+                        "final_response": initial_response
+                    }
+            else:
+                # No reflection, return initial response
+                yield "", True, {
+                    "sources": {"docs": retrieved_docs, "metas": retrieved_metas},
+                    "reflection_info": None,
+                    "final_response": initial_response
+                }
+                
+        except Exception as e:
+            logging.error(f"Error processing streaming query: {e}")
+            yield f"Error generating response: {e}", True, {"error": str(e)}
+    
     def get_db_manager(self):
         """Get the database manager instance."""
         return self.db_manager

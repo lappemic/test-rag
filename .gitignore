@@ -1,7 +1,38 @@
+# Ignore Streamlit secrets and environment files
 .streamlit/secrets.toml
 .env
-.venv
+
+# Ignore virtual environment directories
+.venv/
+venv/
+
+# Ignore macOS system files
 .DS_Store
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+
+# Ignore ChromaDB and data files
 chroma_db/
 data/*.json
+
+# Ignore output and log files
 nohup.out
+*.log
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore temporary files created by editors
+*.swp
+*.swo
+*~
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Ignore pytest cache
+.pytest_cache/

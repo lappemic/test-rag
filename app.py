@@ -9,8 +9,8 @@ from config.settings import (APP_TITLE, DEV_MODE, ENABLE_REFLECTION,
 from rag.services import LegalChatbotService
 from ui.components import (clear_footnotes, display_api_key_input,
                            display_chat_message, display_error_message,
-                           display_response_with_footnotes, display_sources,
-                           display_sources_sidebar, display_welcome_section)
+                           display_reflection_info_detailed, display_response_with_footnotes, 
+                           display_sources, display_sources_sidebar, display_welcome_section)
 from ui.sidebar import setup_sidebar
 from utils.logging_config import setup_logging
 
@@ -85,30 +85,6 @@ html {
 st.title(APP_TITLE)
 
 
-def display_reflection_info(reflection_info):
-    """Display reflection information in the UI."""
-    if not reflection_info:
-        return
-    
-    if reflection_info.get("error"):
-        st.warning(f"🔄 Reflection failed: {reflection_info['error']}")
-        return
-    
-    status = reflection_info.get("final_status", "unknown")
-    iterations = reflection_info.get("iterations", 0)
-    additional_sources = reflection_info.get("additional_sources_found", 0)
-    
-    if status == "no_reflection_needed":
-        st.success("✅ Response was complete on first try")
-    elif status == "completed_successfully":
-        if iterations > 0:
-            st.success(f"🔄 Response improved through {iterations} reflection iteration(s), found {additional_sources} additional source(s)")
-    elif status == "max_iterations_reached":
-        st.warning(f"🔄 Maximum reflection iterations ({iterations}) reached")
-    elif status == "no_additional_sources_found":
-        st.info(f"🔄 Reflection completed after {iterations} iteration(s) - no additional sources found")
-
-
 def main():
     """Main application function."""
     # Check for API key
@@ -136,8 +112,9 @@ def main():
         st.stop()
     
     # Display reflection status if enabled
-    if ENABLE_REFLECTION and service.is_reflection_enabled():
-        st.info("🔄 Reflection pattern is enabled - responses will be automatically improved through iterative refinement")
+    if DEV_MODE:
+        if ENABLE_REFLECTION and service.is_reflection_enabled():
+            st.info("🔄 Reflection pattern is enabled - responses will be automatically improved through iterative refinement")
     
     # Initialize chat history
     if "messages" not in st.session_state:
@@ -160,41 +137,80 @@ def main():
         with st.chat_message("user"):
             st.markdown(prompt)
         
-        # Generate assistant response
+        # Generate assistant response with streaming
         with st.chat_message("assistant"):
-            with st.spinner("Antwort wird gesucht und generiert..."):
-                try:
-                    result = service.process_query(prompt)
-                    response = result["response"]
-                    sources = result.get("sources")
-                    reflection_info = result.get("reflection_info")
-
-                    # Use the new footnote system
-                    if sources:
-                        footnotes = display_response_with_footnotes(response, sources)
-                        # Store footnotes for sidebar display
-                        if "current_footnotes" not in st.session_state:
-                            st.session_state.current_footnotes = []
-                        st.session_state.current_footnotes.extend(footnotes)
+            # Status display for real-time updates
+            status_placeholder = st.empty()
+            response_placeholder = st.empty()
+            reflection_placeholder = st.empty()
+            
+            try:
+                response_chunks = []
+                sources = None
+                reflection_info = None
+                
+                # Status callback for real-time updates
+                def update_status(status_text):
+                    status_placeholder.info(status_text)
+                
+                # Stream the response
+                for chunk, is_complete, metadata in service.process_query_stream(prompt, status_callback=update_status):
+                    if not is_complete:
+                        response_chunks.append(chunk)
+                        # Update response display in real-time
+                        current_response = "".join(response_chunks)
+                        response_placeholder.markdown(current_response)
+                        
+                        # Display reflection iteration info if available
+                        if metadata and metadata.get("reflection_info"):
+                            refl_info = metadata["reflection_info"]
+                            current_iter = refl_info.get("current_iteration", 0)
+                            max_iter = refl_info.get("max_iterations", 0)
+                            if current_iter > 0 and ENABLE_REFLECTION:
+                                reflection_placeholder.info(f"🔄 Reflexions-Iteration {current_iter}/{max_iter} läuft...")
                     else:
-                        st.markdown(response)
-                    
-                    # Display reflection information if available
-                    if DEV_MODE:
-                        if reflection_info and ENABLE_REFLECTION:
-                            with st.expander("🔄 Reflection Details", expanded=False):
-                                display_reflection_info(reflection_info)
+                        # Processing complete
+                        status_placeholder.empty()
+                        if metadata:
+                            sources = metadata.get("sources")
+                            reflection_info = metadata.get("reflection_info")
+                            final_response = metadata.get("final_response", "".join(response_chunks))
+                        else:
+                            final_response = "".join(response_chunks)
+                
+                # Clear temporary placeholders
+                status_placeholder.empty()
+                reflection_placeholder.empty()
+                response_placeholder.empty()
+                
+                # Display final response with footnotes
+                if sources:
+                    footnotes = display_response_with_footnotes(final_response, sources)
+                    # Store footnotes for sidebar display
+                    if "current_footnotes" not in st.session_state:
+                        st.session_state.current_footnotes = []
+                    st.session_state.current_footnotes.extend(footnotes)
+                else:
+                    st.markdown(final_response)
+                
+                # Display reflection information if available
+                if DEV_MODE and reflection_info and ENABLE_REFLECTION:
+                    with st.expander("🔄 Reflection Details", expanded=False):
+                        display_reflection_info_detailed(reflection_info)
 
-                    # Add assistant message to chat history
-                    st.session_state.messages.append({
-                        "role": "assistant",
-                        "content": response,
-                        "sources": sources,
-                        "reflection_info": reflection_info
-                    })
-                    
-                except Exception as e:
-                    display_error_message(e)
+                # Add assistant message to chat history
+                st.session_state.messages.append({
+                    "role": "assistant",
+                    "content": final_response,
+                    "sources": sources,
+                    "reflection_info": reflection_info
+                })
+                
+            except Exception as e:
+                status_placeholder.empty()
+                reflection_placeholder.empty()
+                response_placeholder.empty()
+                display_error_message(e)
     
     # Setup sidebar with footnotes
     setup_sidebar(st.session_state.get("messages", []), service.get_db_manager())

@@ -338,4 +338,149 @@ class RAGReflector:
             reflection_info["final_status"] = "max_iterations_reached"
         
         logging.info(f"Reflection completed after {reflection_info['iterations']} iterations")
-        return current_response, reflection_info 
+        return current_response, reflection_info
+    
+    def reflect_and_refine_stream(self, original_query: str, initial_response: str, initial_sources: List[str], initial_metas: List[Dict], collections, conversation_history=None, status_callback=None):
+        """
+        Apply reflection pattern to iteratively improve the RAG response with streaming updates.
+        
+        Args:
+            original_query: The original user query
+            initial_response: Initial RAG response
+            initial_sources: Initial retrieved documents
+            initial_metas: Initial retrieved metadata
+            collections: ChromaDB collections for additional searches
+            conversation_history: Conversation history for context
+            status_callback: Optional callback for status updates
+            
+        Yields:
+            Tuple of (chunk, is_complete, reflection_info) where:
+            - chunk: Text chunk from streaming response (empty for iteration updates)
+            - is_complete: Boolean indicating if entire reflection is complete
+            - reflection_info: Dict with current reflection status and iteration info
+        """
+        current_response = initial_response
+        all_docs = initial_sources[:]
+        all_metas = initial_metas[:]
+        
+        reflection_info = {
+            "iterations": 0,
+            "evaluations": [],
+            "additional_sources_found": 0,
+            "final_status": "no_reflection_needed",
+            "current_iteration": 0,
+            "max_iterations": self.max_iterations
+        }
+        
+        # First yield the initial response
+        yield initial_response, False, reflection_info
+        
+        for iteration in range(self.max_iterations):
+            reflection_info["current_iteration"] = iteration + 1
+            
+            if status_callback:
+                status_callback(f"🔄 Reflexions-Iteration {iteration + 1}/{self.max_iterations}: Bewerte Antwort...")
+            
+            # Yield iteration start update
+            yield "", False, reflection_info
+            
+            logging.info(f"Reflection iteration {iteration + 1}/{self.max_iterations}")
+            
+            # Evaluate current response
+            evaluation = self.evaluate_response(original_query, current_response, all_docs)
+            reflection_info["evaluations"].append({
+                "iteration": iteration + 1,
+                "status": evaluation.evaluation.value,
+                "feedback": evaluation.feedback,
+                "mentioned_sources": evaluation.mentioned_sources
+            })
+            
+            # If evaluation passes or no mentioned sources, we're done
+            if evaluation.evaluation == EvaluationStatus.PASS or not evaluation.mentioned_sources:
+                reflection_info["final_status"] = "completed_successfully"
+                break
+            
+            if status_callback:
+                status_callback(f"🔍 Iteration {iteration + 1}: Suche nach zusätzlichen Quellen...")
+            
+            # Search for additional sources
+            additional_docs, additional_metas = self.search_additional_sources(
+                evaluation.mentioned_sources, collections, conversation_history
+            )
+            
+            if additional_docs:
+                reflection_info["additional_sources_found"] += len(additional_docs)
+                all_docs.extend(additional_docs)
+                all_metas.extend(additional_metas)
+                
+                if status_callback:
+                    status_callback(f"✨ Iteration {iteration + 1}: Verbessere Antwort mit {len(additional_docs)} neuen Quellen...")
+                
+                # Refine response with additional information using streaming
+                refined_response = self.refine_response_stream(
+                    original_query, current_response, additional_docs, additional_metas, evaluation.feedback
+                )
+                
+                # Stream the refined response
+                response_chunks = []
+                for chunk in refined_response:
+                    if chunk.strip():  # Only yield non-empty chunks
+                        response_chunks.append(chunk)
+                        yield chunk, False, reflection_info
+                
+                current_response = "".join(response_chunks)
+                logging.info(f"Response refined with {len(additional_docs)} additional sources")
+            else:
+                logging.info("No additional sources found, stopping reflection")
+                reflection_info["final_status"] = "no_additional_sources_found"
+                break
+            
+            reflection_info["iterations"] = iteration + 1
+        
+        if reflection_info["iterations"] == self.max_iterations:
+            reflection_info["final_status"] = "max_iterations_reached"
+        
+        # Final completion signal
+        reflection_info["current_iteration"] = reflection_info["iterations"]
+        logging.info(f"Reflection completed after {reflection_info['iterations']} iterations")
+        yield "", True, reflection_info
+    
+    def refine_response_stream(self, original_query: str, original_response: str, additional_docs: List[str], additional_metas: List[Dict], feedback: str):
+        """
+        Refine the original response with additional information using streaming.
+        
+        Args:
+            original_query: The original user query
+            original_response: The original RAG response
+            additional_docs: Additional retrieved documents
+            additional_metas: Additional retrieved metadata
+            feedback: Feedback from the evaluation
+            
+        Yields:
+            Text chunks from the refined response
+        """
+        if not additional_docs:
+            yield original_response
+            return
+        
+        additional_context = "\n".join([
+            f"[Source: {meta.get('document_title', 'Unknown')} - {meta.get('article_id', 'Unknown') or 'meta'}]\n{doc}"
+            for doc, meta in zip(additional_docs, additional_metas)
+        ])
+        
+        try:
+            refinement_chain = self.refinement_prompt | self.llm
+            
+            # Stream the refinement
+            for chunk in refinement_chain.stream({
+                "original_query": original_query,
+                "original_response": original_response,
+                "additional_context": additional_context,
+                "feedback": feedback
+            }):
+                chunk_content = chunk.content if hasattr(chunk, 'content') else str(chunk)
+                yield chunk_content
+                
+        except Exception as e:
+            logging.error(f"Error refining response: {e}")
+            yield original_response  # Return original on error 
