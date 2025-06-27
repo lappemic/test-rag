@@ -13,6 +13,11 @@ DEV_MODE = False
 CHROMA_DB_PATH = "./chroma_db"
 LAW_COLLECTION_PREFIX = "law_"
 
+# Streaming settings
+ENABLE_STREAMING = True                  # Enable response streaming
+STREAMING_CHUNK_SIZE = 25               # Number of words per streaming chunk
+ENABLE_STAGE_NOTIFICATIONS = True       # Show processing stage updates to user
+
 # Model settings
 DEFAULT_MODEL = "gpt-4o"
 MAX_RESULTS = 5

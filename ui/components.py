@@ -30,103 +30,6 @@ def display_welcome_section(loaded_laws):
             return True
 
 
-def display_reflection_info(reflection_info):
-    """Display reflection information in the UI."""
-    if not reflection_info:
-        return
-    
-    if reflection_info.get("error"):
-        st.warning(f"🔄 Reflection failed: {reflection_info['error']}")
-        return
-    
-    status = reflection_info.get("final_status", "unknown")
-    iterations = reflection_info.get("iterations", 0)
-    additional_sources = reflection_info.get("additional_sources_found", 0)
-    
-    if status == "no_reflection_needed":
-        st.success("✅ Response was complete on first try")
-    elif status == "completed_successfully":
-        if iterations > 0:
-            st.success(f"🔄 Response improved through {iterations} reflection iteration(s), found {additional_sources} additional source(s)")
-    elif status == "max_iterations_reached":
-        st.warning(f"🔄 Maximum reflection iterations ({iterations}) reached")
-    elif status == "no_additional_sources_found":
-        st.info(f"🔄 Reflection completed after {iterations} iteration(s) - no additional sources found")
-
-
-def display_reflection_info_detailed(reflection_info):
-    """Display detailed reflection information including iteration-by-iteration breakdown."""
-    if not reflection_info:
-        return
-    
-    if reflection_info.get("error"):
-        st.warning(f"🔄 Reflection failed: {reflection_info['error']}")
-        return
-    
-    status = reflection_info.get("final_status", "unknown")
-    iterations = reflection_info.get("iterations", 0)
-    additional_sources = reflection_info.get("additional_sources_found", 0)
-    evaluations = reflection_info.get("evaluations", [])
-    
-    # Summary
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.metric("Iterations", iterations)
-    with col2:
-        st.metric("Additional Sources", additional_sources)
-    with col3:
-        if status == "completed_successfully":
-            st.metric("Status", "✅ Success")
-        elif status == "max_iterations_reached":
-            st.metric("Status", "⚠️ Max Reached")
-        else:
-            st.metric("Status", "ℹ️ No Reflection")
-    
-    # Iteration details
-    if evaluations:
-        st.subheader("Iteration Details:")
-        for eval_info in evaluations:
-            iteration_num = eval_info.get("iteration", 0)
-            eval_status = eval_info.get("status", "unknown")
-            feedback = eval_info.get("feedback", "")
-            mentioned_sources = eval_info.get("mentioned_sources", [])
-            
-            with st.expander(f"Iteration {iteration_num} - {eval_status}", expanded=False):
-                if eval_status == "FAIL":
-                    st.write("🔍 **Evaluation:** Additional sources needed")
-                    if mentioned_sources:
-                        st.write("**Mentioned Sources:**")
-                        for source in mentioned_sources:
-                            st.write(f"- {source}")
-                else:
-                    st.write("✅ **Evaluation:** Response complete")
-                
-                if feedback:
-                    st.write(f"**Feedback:** {feedback}")
-
-
-def display_reflection_status_live(reflection_info):
-    """Display live reflection status during streaming."""
-    if not reflection_info or not ENABLE_REFLECTION:
-        return
-    
-    current_iter = reflection_info.get("current_iteration", 0)
-    max_iter = reflection_info.get("max_iterations", 0)
-    
-    if current_iter > 0:
-        progress = current_iter / max_iter
-        st.progress(progress, text=f"🔄 Reflexions-Iteration {current_iter}/{max_iter}")
-        
-        # Show what's happening in current iteration
-        evaluations = reflection_info.get("evaluations", [])
-        if evaluations:
-            latest_eval = evaluations[-1]
-            if latest_eval.get("status") == "FAIL":
-                                 st.caption("🔍 Suche nach zusätzlichen Quellen...")
-             else:
-                 st.caption("✅ Bewertung abgeschlossen")
-
-
 def display_reflection_info_compact(reflection_info):
     """Display compact reflection information for historical messages."""
     if not reflection_info or not ENABLE_REFLECTION:
@@ -347,9 +250,9 @@ def display_chat_message(message):
             else:
                 st.markdown(message["content"])
             
-                         # Display compact reflection info if available
-             if message.get("reflection_info") and ENABLE_REFLECTION:
-                 display_reflection_info_compact(message["reflection_info"])
+            # Display compact reflection info if available
+            if message.get("reflection_info") and ENABLE_REFLECTION:
+                display_reflection_info_compact(message["reflection_info"])
         else:
             # For user messages, display normally
             st.markdown(message["content"])
@@ -396,4 +299,68 @@ def export_conversation_button(messages):
 def clear_footnotes():
     """Clear stored footnotes from session state."""
     if "current_footnotes" in st.session_state:
-        st.session_state.current_footnotes = [] 
+        st.session_state.current_footnotes = []
+
+
+def display_stage_notification(stage_key: str, stage_message: str):
+    """
+    Display processing stage notifications for streaming responses.
+    
+    Args:
+        stage_key: Unique identifier for the stage
+        stage_message: Message to display for this stage
+    """
+    stage_icons = {
+        "context": "🧠",
+        "enhancement": "✨", 
+        "embedding": "🔢",
+        "filtering": "🔍",
+        "retrieval": "📚",
+        "processing": "⚙️",
+        "generation": "💭",
+        "streaming": "📝",
+        "complete": "✅",
+        "error": "❌"
+    }
+    
+    icon = stage_icons.get(stage_key, "⏳")
+    
+    # Create a status container that can be updated
+    status_container = st.empty()
+    
+    if stage_key == "complete":
+        status_container.success(f"{icon} {stage_message}")
+    elif stage_key == "error":
+        status_container.error(f"{icon} {stage_message}")
+    else:
+        status_container.info(f"{icon} {stage_message}")
+    
+    return status_container
+
+
+def create_streaming_response_container():
+    """Create a container for streaming response display."""
+    return st.empty()
+
+
+def stream_response_chunks(response_generator, response_container):
+    """
+    Display streaming response chunks in real-time.
+    
+    Args:
+        response_generator: Generator that yields response chunks
+        response_container: Streamlit container to display the response
+        
+    Returns:
+        Complete response text
+    """
+    full_response = ""
+    
+    for chunk in response_generator:
+        if chunk:
+            full_response += chunk
+            response_container.markdown(full_response + "▌")  # Cursor indicator
+    
+    # Remove cursor and display final response
+    response_container.markdown(full_response)
+    return full_response 

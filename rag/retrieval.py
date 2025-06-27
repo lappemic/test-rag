@@ -4,7 +4,7 @@ Document retrieval and RAG processing for the Swiss Legal Chatbot.
 import concurrent.futures
 import logging
 import operator
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Callable, Generator, Any
 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -14,7 +14,7 @@ from config.settings import (COLLECTION_FILTERING_THRESHOLD,
                              ENABLE_PARALLEL_QUERYING,
                              ENABLE_SMART_COLLECTION_FILTERING,
                              LAZY_LOADING_ENABLED, MAX_PARALLEL_WORKERS,
-                             MAX_RESULTS)
+                             MAX_RESULTS, ENABLE_STREAMING, STREAMING_CHUNK_SIZE)
 
 
 class CollectionFilter:
@@ -439,53 +439,53 @@ class RAGRetriever:
         logging.info("Generated response from RAG chain with conversation context")
         return response, retrieved_docs, retrieved_metas 
 
-    def query_rag_stream(self, query, collections, num_results=None, conversation_history=None, status_callback=None):
+    def query_rag_streaming(self, query, collections, num_results=None, conversation_history=None, stage_callback: Callable[[str, str], None] = None) -> Tuple[Generator[str, Any, None], List[str], List[Dict]]:
         """
-        Query the RAG system with streaming response and conversation memory.
+        Query the RAG system with conversation memory and optimized collection querying, supporting streaming.
         
         Args:
             query: User's question
             collections: ChromaDB collections to search
             num_results: Number of results to retrieve
             conversation_history: List of previous messages
-            status_callback: Optional callback for status updates
+            stage_callback: Callback function to be called at each stage of the process
         
-        Yields:
-            Tuple of (chunk, is_complete, metadata) where:
-            - chunk: Text chunk from streaming response
-            - is_complete: Boolean indicating if response is complete
-            - metadata: Dict with retrieval info (docs, metas) when complete
+        Returns:
+            Tuple of (response_generator, retrieved_docs, retrieved_metas)
         """
         if num_results is None:
             num_results = MAX_RESULTS
             
-        logging.info(f"Streaming RAG query: {query}")
+        logging.info(f"Querying RAG system with streaming enabled: {query}")
         
-        if status_callback:
-            status_callback("🔍 Durchsuche Rechtssammlungen...")
+        # Stage 1: Building conversation context
+        if stage_callback:
+            stage_callback("context", "Aufbau des Gesprächskontexts...")
         
-        # Build conversation context
         conversation_context = self.conversation_manager.build_conversation_context(
             conversation_history or []
         )
         
-        # Enhance query with conversation context for better retrieval
+        # Stage 2: Query enhancement
+        if stage_callback:
+            stage_callback("enhancement", "Verbesserung der Anfrage...")
+        
         enhanced_query = self.query_processor.enhance_query_with_context(
             query, conversation_context
         )
         
-        # Use enhanced query for embedding and retrieval
+        # Stage 3: Creating embeddings
+        if stage_callback:
+            stage_callback("embedding", "Erstelle Einbettungen...")
+        
         query_embedding = self.embeddings.embed_query(enhanced_query)
         
-        if status_callback:
-            status_callback("🎯 Optimiere Sammlungsauswahl...")
+        # Stage 4: Collection filtering
+        if stage_callback:
+            stage_callback("filtering", "Filtere relevante Rechtssammlungen...")
         
-        # Optimize collection selection based on configuration
         if ENABLE_SMART_COLLECTION_FILTERING and self.collection_filter and len(collections) > COLLECTION_FILTERING_THRESHOLD:
-            # Get collection names (with optional caching)
             collection_names = self._get_collection_names(collections)
-            
-            # Filter collections based on query intent
             filtered_collections = self.collection_filter.filter_collections(
                 enhanced_query, collections, collection_names
             )
@@ -495,10 +495,10 @@ class RAGRetriever:
             if ENABLE_SMART_COLLECTION_FILTERING:
                 logging.info(f"Smart filtering skipped: {len(collections)} collections <= threshold ({COLLECTION_FILTERING_THRESHOLD})")
         
-        if status_callback:
-            status_callback(f"📚 Durchsuche {len(filtered_collections)} Rechtssammlungen...")
+        # Stage 5: Document retrieval
+        if stage_callback:
+            stage_callback("retrieval", f"Durchsuche {len(filtered_collections)} Rechtssammlungen...")
         
-        # Query collections (parallel or sequential based on configuration)
         if ENABLE_PARALLEL_QUERYING and self.parallel_querier:
             logging.info(f"Using parallel querying with {MAX_PARALLEL_WORKERS} workers")
             all_results = self.parallel_querier.query_collections_parallel(
@@ -508,10 +508,11 @@ class RAGRetriever:
             logging.info("Using sequential querying")
             all_results = self._query_collections_sequential(filtered_collections, query_embedding, num_results)
         
-        # Sort all results by distance (ascending)
-        sorted_results = sorted(all_results, key=operator.itemgetter('distance'))
+        # Stage 6: Result processing
+        if stage_callback:
+            stage_callback("processing", "Verarbeite gefundene Dokumente...")
         
-        # Take the top N results overall
+        sorted_results = sorted(all_results, key=operator.itemgetter('distance'))
         top_results = sorted_results[:num_results]
 
         retrieved_docs = [res["document"] for res in top_results]
@@ -524,8 +525,9 @@ class RAGRetriever:
         
         logging.info(f"Retrieved {len(retrieved_docs)} documents for query across {len(filtered_collections)} collections.")
         
-        if status_callback:
-            status_callback("💭 Generiere rechtliche Antwort...")
+        # Stage 7: Response generation
+        if stage_callback:
+            stage_callback("generation", "Generiere Antwort...")
         
         # Format conversation context for the prompt
         conversation_context_section = ""
@@ -548,21 +550,29 @@ class RAGRetriever:
             | self.llm
         )
         
-        # Stream the response
-        chunks = []
-        try:
-            for chunk in rag_chain.stream({"context": context, "question": query}):
-                chunk_content = chunk.content if hasattr(chunk, 'content') else str(chunk)
-                chunks.append(chunk_content)
-                yield chunk_content, False, None
-            
-            # Signal completion with metadata
-            yield "", True, {
-                "retrieved_docs": retrieved_docs,
-                "retrieved_metas": retrieved_metas,
-                "collections_used": len(filtered_collections)
-            }
-            
-        except Exception as e:
-            logging.error(f"Error during streaming: {e}")
-            yield f"Error generating response: {e}", True, None 
+        def response_generator():
+            """Generator function that streams the response."""
+            try:
+                if stage_callback:
+                    stage_callback("streaming", "Streame Antwort...")
+                
+                # Stream the response from the LLM
+                for chunk in rag_chain.stream({"context": context, "question": query}):
+                    if hasattr(chunk, 'content'):
+                        content = chunk.content
+                    else:
+                        content = str(chunk)
+                    
+                    if content:
+                        yield content
+                
+                if stage_callback:
+                    stage_callback("complete", "Antwort vollständig!")
+                        
+            except Exception as e:
+                logging.error(f"Error during streaming: {e}")
+                if stage_callback:
+                    stage_callback("error", f"Fehler beim Streaming: {str(e)}")
+                yield f"Fehler beim Generieren der Antwort: {str(e)}"
+        
+        return response_generator(), retrieved_docs, retrieved_metas 

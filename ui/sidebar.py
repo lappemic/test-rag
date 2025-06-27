@@ -3,7 +3,7 @@ Sidebar functionality for the Swiss Legal Chatbot.
 """
 import streamlit as st
 
-from config.settings import DEV_MODE
+from config.settings import DEV_MODE, ENABLE_STREAMING, ENABLE_STAGE_NOTIFICATIONS
 from ui.components import display_sources_sidebar, export_conversation_button
 
 

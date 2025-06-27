@@ -5,12 +5,14 @@ A RAG-based chatbot for Swiss migration and asylum law.
 import streamlit as st
 
 from config.settings import (APP_TITLE, DEV_MODE, ENABLE_REFLECTION,
-                             OPENAI_API_KEY)
+                             OPENAI_API_KEY, ENABLE_STREAMING, ENABLE_STAGE_NOTIFICATIONS)
 from rag.services import LegalChatbotService
 from ui.components import (clear_footnotes, display_api_key_input,
                            display_chat_message, display_error_message,
-                           display_reflection_info_detailed, display_response_with_footnotes, 
-                           display_sources, display_sources_sidebar, display_welcome_section)
+                           display_response_with_footnotes, display_sources,
+                           display_sources_sidebar, display_welcome_section,
+                           display_stage_notification, create_streaming_response_container,
+                           stream_response_chunks)
 from ui.sidebar import setup_sidebar
 from utils.logging_config import setup_logging
 
@@ -85,6 +87,30 @@ html {
 st.title(APP_TITLE)
 
 
+def display_reflection_info(reflection_info):
+    """Display reflection information in the UI."""
+    if not reflection_info:
+        return
+    
+    if reflection_info.get("error"):
+        st.warning(f"🔄 Reflection failed: {reflection_info['error']}")
+        return
+    
+    status = reflection_info.get("final_status", "unknown")
+    iterations = reflection_info.get("iterations", 0)
+    additional_sources = reflection_info.get("additional_sources_found", 0)
+    
+    if status == "no_reflection_needed":
+        st.success("✅ Response was complete on first try")
+    elif status == "completed_successfully":
+        if iterations > 0:
+            st.success(f"🔄 Response improved through {iterations} reflection iteration(s), found {additional_sources} additional source(s)")
+    elif status == "max_iterations_reached":
+        st.warning(f"🔄 Maximum reflection iterations ({iterations}) reached")
+    elif status == "no_additional_sources_found":
+        st.info(f"🔄 Reflection completed after {iterations} iteration(s) - no additional sources found")
+
+
 def main():
     """Main application function."""
     # Check for API key
@@ -97,7 +123,21 @@ def main():
     def get_chatbot_service():
         return LegalChatbotService()
     
+    # Clear cache if streaming method is not available (for development)
+    if DEV_MODE:
+        if st.sidebar.button("🔄 Cache leeren (Dev)"):
+            st.cache_resource.clear()
+            st.rerun()
+    
     service = get_chatbot_service()
+    
+    # Verify streaming method is available
+    if not hasattr(service, 'process_query_streaming'):
+        st.error("⚠️ Streaming functionality not available. Please clear cache and restart.")
+        if st.button("🔄 Cache leeren und neu laden"):
+            st.cache_resource.clear()
+            st.rerun()
+        st.stop()
     
     # Check if service is ready
     if not service.is_ready():
@@ -137,79 +177,93 @@ def main():
         with st.chat_message("user"):
             st.markdown(prompt)
         
-        # Generate assistant response with streaming
+        # Generate assistant response
         with st.chat_message("assistant"):
-            # Status display for real-time updates
-            status_placeholder = st.empty()
-            response_placeholder = st.empty()
-            reflection_placeholder = st.empty()
-            
             try:
-                response_chunks = []
+                # Initialize variables
+                response = ""
                 sources = None
                 reflection_info = None
                 
-                # Status callback for real-time updates
-                def update_status(status_text):
-                    status_placeholder.info(status_text)
+                # Get streaming settings from session state (can be overridden by user)
+                use_streaming = st.session_state.get('enable_streaming', ENABLE_STREAMING)
+                use_stage_notifications = st.session_state.get('enable_stage_notifications', ENABLE_STAGE_NOTIFICATIONS)
                 
-                # Stream the response
-                for chunk, is_complete, metadata in service.process_query_stream(prompt, status_callback=update_status):
-                    if not is_complete:
-                        response_chunks.append(chunk)
-                        # Update response display in real-time
-                        current_response = "".join(response_chunks)
-                        response_placeholder.markdown(current_response)
-                        
-                        # Display reflection iteration info if available
-                        if metadata and metadata.get("reflection_info"):
-                            refl_info = metadata["reflection_info"]
-                            current_iter = refl_info.get("current_iteration", 0)
-                            max_iter = refl_info.get("max_iterations", 0)
-                            if current_iter > 0 and ENABLE_REFLECTION:
-                                reflection_placeholder.info(f"🔄 Reflexions-Iteration {current_iter}/{max_iter} läuft...")
-                    else:
-                        # Processing complete
-                        status_placeholder.empty()
-                        if metadata:
-                            sources = metadata.get("sources")
-                            reflection_info = metadata.get("reflection_info")
-                            final_response = metadata.get("final_response", "".join(response_chunks))
-                        else:
-                            final_response = "".join(response_chunks)
-                
-                # Clear temporary placeholders
-                status_placeholder.empty()
-                reflection_placeholder.empty()
-                response_placeholder.empty()
-                
-                # Display final response with footnotes
-                if sources:
-                    footnotes = display_response_with_footnotes(final_response, sources)
-                    # Store footnotes for sidebar display
-                    if "current_footnotes" not in st.session_state:
-                        st.session_state.current_footnotes = []
-                    st.session_state.current_footnotes.extend(footnotes)
+                if use_streaming:
+                    # Use streaming response with stage notifications
+                    stage_container = None
+                    current_stage_container = None
+                    
+                    def stage_callback(stage_key, stage_message):
+                        nonlocal current_stage_container
+                        if use_stage_notifications:
+                            if current_stage_container:
+                                # Clear previous stage notification
+                                current_stage_container.empty()
+                            current_stage_container = display_stage_notification(stage_key, stage_message)
+                    
+                    # Get streaming response
+                    response_generator, retrieved_docs, retrieved_metas = service.process_query_streaming(
+                        prompt, stage_callback=stage_callback if use_stage_notifications else None
+                    )
+                    
+                    # Create response container for streaming
+                    response_container = create_streaming_response_container()
+                    
+                    # Stream the response
+                    response = stream_response_chunks(response_generator, response_container)
+                    
+                    # Clear final stage notification
+                    if current_stage_container and use_stage_notifications:
+                        current_stage_container.empty()
+                    
+                    # Create sources structure
+                    sources = {"docs": retrieved_docs, "metas": retrieved_metas} if retrieved_docs else None
+                    reflection_info = None  # Reflection not supported in streaming mode yet
+                    
+                    # Use the new footnote system for sources
+                    if sources and sources.get("docs"):
+                        # Clear the response container and redisplay with footnotes
+                        response_container.empty()
+                        footnotes = display_response_with_footnotes(response, sources)
+                        # Store footnotes for sidebar display
+                        if "current_footnotes" not in st.session_state:
+                            st.session_state.current_footnotes = []
+                        st.session_state.current_footnotes.extend(footnotes)
+                    
                 else:
-                    st.markdown(final_response)
-                
-                # Display reflection information if available
-                if DEV_MODE and reflection_info and ENABLE_REFLECTION:
-                    with st.expander("🔄 Reflection Details", expanded=False):
-                        display_reflection_info_detailed(reflection_info)
+                    # Use traditional non-streaming response
+                    with st.spinner("Antwort wird gesucht und generiert..."):
+                        result = service.process_query(prompt)
+                        response = result["response"]
+                        sources = result.get("sources")
+                        reflection_info = result.get("reflection_info")
 
+                        # Use the new footnote system
+                        if sources:
+                            footnotes = display_response_with_footnotes(response, sources)
+                            # Store footnotes for sidebar display
+                            if "current_footnotes" not in st.session_state:
+                                st.session_state.current_footnotes = []
+                            st.session_state.current_footnotes.extend(footnotes)
+                        else:
+                            st.markdown(response)
+                        
+                        # Display reflection information if available
+                        if DEV_MODE:
+                            if reflection_info and ENABLE_REFLECTION:
+                                with st.expander("🔄 Reflection Details", expanded=False):
+                                    display_reflection_info(reflection_info)
+                
                 # Add assistant message to chat history
                 st.session_state.messages.append({
-                    "role": "assistant",
-                    "content": final_response,
+                    "role": "assistant", 
+                    "content": response,
                     "sources": sources,
                     "reflection_info": reflection_info
                 })
-                
+                    
             except Exception as e:
-                status_placeholder.empty()
-                reflection_placeholder.empty()
-                response_placeholder.empty()
                 display_error_message(e)
     
     # Setup sidebar with footnotes
