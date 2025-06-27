@@ -2,7 +2,9 @@
 ChromaDB client and operations for the Swiss Legal Chatbot.
 """
 import logging
+
 import chromadb
+
 from config.settings import CHROMA_DB_PATH, LAW_COLLECTION_PREFIX
 
 

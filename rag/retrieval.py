@@ -1,21 +1,20 @@
 """
 Document retrieval and RAG processing for the Swiss Legal Chatbot.
 """
+import concurrent.futures
 import logging
 import operator
-import concurrent.futures
-from typing import List, Dict, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
+
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from config.settings import (
-    MAX_RESULTS, 
-    ENABLE_PARALLEL_QUERYING, 
-    MAX_PARALLEL_WORKERS,
-    ENABLE_SMART_COLLECTION_FILTERING,
-    COLLECTION_FILTERING_THRESHOLD,
-    LAZY_LOADING_ENABLED
-)
+
+from config.settings import (COLLECTION_FILTERING_THRESHOLD,
+                             ENABLE_PARALLEL_QUERYING,
+                             ENABLE_SMART_COLLECTION_FILTERING,
+                             LAZY_LOADING_ENABLED, MAX_PARALLEL_WORKERS,
+                             MAX_RESULTS)
 
 
 class CollectionFilter:

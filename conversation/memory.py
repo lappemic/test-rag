@@ -2,8 +2,10 @@
 Conversation memory and context management for the Swiss Legal Chatbot.
 """
 import logging
+
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+
 from config.settings import MAX_CONVERSATION_LENGTH, MAX_RECENT_MESSAGES
 
 

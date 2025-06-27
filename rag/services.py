@@ -2,21 +2,19 @@
 Service layer for the Swiss Legal Chatbot RAG system.
 """
 import logging
+
 import streamlit as st
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from database.chroma_client import ChromaDBManager
+
+from config.settings import (DEFAULT_MODEL, ENABLE_REFLECTION,
+                             MAX_REFLECTION_ITERATIONS, OPENAI_API_KEY,
+                             REFLECTION_ADDITIONAL_SOURCES_LIMIT)
 from conversation.memory import ConversationManager
 from conversation.routing import QueryRouter
+from database.chroma_client import ChromaDBManager
 from rag.query_processing import QueryProcessor
-from rag.retrieval import RAGRetriever
 from rag.reflection import RAGReflector
-from config.settings import (
-    OPENAI_API_KEY, 
-    DEFAULT_MODEL, 
-    ENABLE_REFLECTION, 
-    MAX_REFLECTION_ITERATIONS,
-    REFLECTION_ADDITIONAL_SOURCES_LIMIT
-)
+from rag.retrieval import RAGRetriever
 
 
 class LegalChatbotService:

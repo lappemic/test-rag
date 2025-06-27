@@ -2,6 +2,7 @@
 Query processing and enhancement for the Swiss Legal Chatbot RAG system.
 """
 import logging
+
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 

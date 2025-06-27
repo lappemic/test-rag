@@ -2,6 +2,7 @@
 Configuration settings for the Swiss Legal Chatbot application.
 """
 import os
+
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -13,7 +14,7 @@ CHROMA_DB_PATH = "./chroma_db"
 LAW_COLLECTION_PREFIX = "law_"
 
 # Model settings
-DEFAULT_MODEL = "gpt-4o-mini"
+DEFAULT_MODEL = "gpt-4o"
 MAX_RESULTS = 5
 MAX_CONVERSATION_LENGTH = 2000
 MAX_RECENT_MESSAGES = 4

@@ -2,8 +2,9 @@
 Sidebar functionality for the Swiss Legal Chatbot.
 """
 import streamlit as st
+
 from config.settings import DEV_MODE
-from ui.components import export_conversation_button
+from ui.components import display_sources_sidebar, export_conversation_button
 
 
 def setup_sidebar(messages, db_manager):
@@ -13,6 +14,8 @@ def setup_sidebar(messages, db_manager):
     # Conversation reset button
     if st.sidebar.button("🔄 Neue Konversation starten"):
         st.session_state.messages = []
+        if "current_footnotes" in st.session_state:
+            st.session_state.current_footnotes = []
         st.sidebar.success("Konversation zurückgesetzt!")
         st.rerun()
     
@@ -21,6 +24,10 @@ def setup_sidebar(messages, db_manager):
         num_messages = len(messages)
         st.sidebar.metric("Nachrichten in dieser Konversation", num_messages)
         export_conversation_button(messages)
+    
+    # Display footnotes/citations if available
+    if hasattr(st.session_state, 'current_footnotes') and st.session_state.current_footnotes:
+        display_sources_sidebar(st.session_state.current_footnotes)
     
     # Developer mode section
     if DEV_MODE:

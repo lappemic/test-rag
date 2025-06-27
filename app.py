@@ -3,17 +3,16 @@ Swiss Legal Chatbot - Main Application
 A RAG-based chatbot for Swiss migration and asylum law.
 """
 import streamlit as st
-from utils.logging_config import setup_logging
-from config.settings import APP_TITLE, OPENAI_API_KEY, ENABLE_REFLECTION
+
+from config.settings import (APP_TITLE, DEV_MODE, ENABLE_REFLECTION,
+                             OPENAI_API_KEY)
 from rag.services import LegalChatbotService
-from ui.components import (
-    display_welcome_section, 
-    display_chat_message, 
-    display_sources,
-    display_error_message,
-    display_api_key_input
-)
+from ui.components import (clear_footnotes, display_api_key_input,
+                           display_chat_message, display_error_message,
+                           display_response_with_footnotes, display_sources,
+                           display_sources_sidebar, display_welcome_section)
 from ui.sidebar import setup_sidebar
+from utils.logging_config import setup_logging
 
 # Initialize logging
 setup_logging()
@@ -24,6 +23,64 @@ st.set_page_config(
     page_icon="⚖️",
     layout="wide"
 )
+
+# Custom CSS for enhanced footnote styling
+st.markdown("""
+<style>
+/* Footnote styling */
+sup a {
+    transition: all 0.2s ease-in-out;
+    border-radius: 4px !important;
+    margin-left: 2px;
+}
+
+sup a:hover {
+    background: rgba(255,107,107,0.2) !important;
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(255,107,107,0.3);
+}
+
+/* Sidebar styling improvements */
+.css-1d391kg {
+    background-color: #f8f9fa;
+}
+
+/* Citation card styling */
+.citation-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Smooth scrolling for footnote navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced expander styling for sources */
+.streamlit-expanderHeader {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* Chat message styling improvements */
+.stChatMessage {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+/* Sidebar section dividers */
+.sidebar-divider {
+    border-top: 2px solid #ff6b6b;
+    margin: 20px 0;
+    opacity: 0.6;
+}
+</style>
+""", unsafe_allow_html=True)
 
 st.title(APP_TITLE)
 
@@ -86,12 +143,18 @@ def main():
     if "messages" not in st.session_state:
         st.session_state.messages = []
     
+    # Clear footnotes for fresh conversation display
+    clear_footnotes()
+    
     # Display chat messages from history
     for message in st.session_state.messages:
         display_chat_message(message)
     
     # Accept user input
     if prompt := st.chat_input("Stellen Sie eine Frage zu den Schweizer Gesetzen..."):
+        # Clear previous footnotes when starting new query
+        clear_footnotes()
+        
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
@@ -106,15 +169,21 @@ def main():
                     sources = result.get("sources")
                     reflection_info = result.get("reflection_info")
 
-                    st.markdown(response)
-                    
+                    # Use the new footnote system
                     if sources:
-                        display_sources(sources)
+                        footnotes = display_response_with_footnotes(response, sources)
+                        # Store footnotes for sidebar display
+                        if "current_footnotes" not in st.session_state:
+                            st.session_state.current_footnotes = []
+                        st.session_state.current_footnotes.extend(footnotes)
+                    else:
+                        st.markdown(response)
                     
                     # Display reflection information if available
-                    if reflection_info and ENABLE_REFLECTION:
-                        with st.expander("🔄 Reflection Details", expanded=False):
-                            display_reflection_info(reflection_info)
+                    if DEV_MODE:
+                        if reflection_info and ENABLE_REFLECTION:
+                            with st.expander("🔄 Reflection Details", expanded=False):
+                                display_reflection_info(reflection_info)
 
                     # Add assistant message to chat history
                     st.session_state.messages.append({
@@ -127,7 +196,7 @@ def main():
                 except Exception as e:
                     display_error_message(e)
     
-    # Setup sidebar
+    # Setup sidebar with footnotes
     setup_sidebar(st.session_state.get("messages", []), service.get_db_manager())
 
 

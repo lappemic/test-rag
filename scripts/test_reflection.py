@@ -3,15 +3,17 @@
 Test script for the reflection pattern implementation.
 """
 
-import sys
 import os
+import sys
 
 # Add the parent directory to the path so we can import our modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from rag.reflection import RAGReflector, EvaluationStatus
-from config.settings import OPENAI_API_KEY, DEFAULT_MODEL
+
+from config.settings import DEFAULT_MODEL, OPENAI_API_KEY
+from rag.reflection import EvaluationStatus, RAGReflector
+
 
 def test_reflection_evaluation():
     """Test the reflection evaluation functionality."""

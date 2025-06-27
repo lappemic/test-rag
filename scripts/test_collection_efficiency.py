@@ -4,18 +4,20 @@ Test script for collection querying efficiency improvements.
 Demonstrates parallel querying, smart collection filtering, and lazy loading.
 """
 import logging
-import time
-import sys
 import os
+import sys
+import time
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from database.chroma_client import ChromaDBManager
+
+from config.settings import OPENAI_API_KEY
 from conversation.memory import ConversationManager
+from database.chroma_client import ChromaDBManager
 from rag.query_processing import QueryProcessor
 from rag.retrieval import RAGRetriever
-from config.settings import OPENAI_API_KEY
 
 # Load environment variables
 load_dotenv()
@@ -143,7 +145,7 @@ def test_parallel_vs_sequential():
         
         # Temporarily modify config for testing
         import config.settings as settings
-        
+
         # Test sequential querying
         print("\n📈 Testing SEQUENTIAL querying...")
         original_parallel = settings.ENABLE_PARALLEL_QUERYING

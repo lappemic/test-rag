@@ -5,10 +5,11 @@ Reflection pattern implementation for the Swiss Legal Chatbot RAG system.
 import logging
 import re
 from enum import Enum
-from typing import List, Dict, Any, Tuple, Optional
-from pydantic import BaseModel
-from langchain_core.output_parsers import StrOutputParser, PydanticOutputParser
+from typing import Any, Dict, List, Optional, Tuple
+
+from langchain_core.output_parsers import PydanticOutputParser, StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel
 
 
 class EvaluationStatus(Enum):
