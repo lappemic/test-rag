@@ -9,3 +9,5 @@ tiktoken
 langchain-openai
 langchain_community
 flask
+scikit-learn
+numpy

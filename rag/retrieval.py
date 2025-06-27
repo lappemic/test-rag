@@ -6,6 +6,9 @@ import logging
 import operator
 from typing import Dict, List, Optional, Tuple, Callable, Generator, Any
 
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
@@ -14,7 +17,8 @@ from config.settings import (COLLECTION_FILTERING_THRESHOLD,
                              ENABLE_PARALLEL_QUERYING,
                              ENABLE_SMART_COLLECTION_FILTERING,
                              LAZY_LOADING_ENABLED, MAX_PARALLEL_WORKERS,
-                             MAX_RESULTS, ENABLE_STREAMING, STREAMING_CHUNK_SIZE)
+                             MAX_RESULTS, ENABLE_STREAMING, STREAMING_CHUNK_SIZE,
+                             ENABLE_MMR, MMR_LAMBDA, MMR_FETCH_K, MMR_USE_FAST_MODE)
 
 
 class CollectionFilter:
@@ -273,6 +277,169 @@ class RAGRetriever:
         
         return all_results
 
+    def _apply_mmr_reranking(self, query_embedding: List[float], all_results: List[Dict], num_results: int) -> List[Dict]:
+        """
+        Apply Max-Marginal Relevance (MMR) re-ranking to improve diversity in retrieved chunks.
+        
+        MMR balances relevance to the query with diversity among selected documents.
+        Formula: MMR(d) = λ * Sim(d, query) - (1-λ) * max(Sim(d, d_i)) for d_i in selected
+        
+        Args:
+            query_embedding: Query embedding vector
+            all_results: List of all retrieved results with embeddings/distances
+            num_results: Final number of results to return
+            
+        Returns:
+            List of re-ranked results with improved diversity
+        """
+        if not ENABLE_MMR or len(all_results) <= num_results:
+            # If MMR is disabled or we have fewer results than needed, return as-is
+            return all_results[:num_results]
+        
+        logging.info(f"Applying MMR re-ranking to {len(all_results)} results (λ={MMR_LAMBDA})")
+        
+        try:
+            # Convert distances to similarities (ChromaDB returns cosine distances, sim = 1 - distance)
+            similarities_to_query = [1.0 - result["distance"] for result in all_results]
+            
+            # Get document texts for embedding
+            document_texts = [result["document"] for result in all_results]
+            
+            # Compute embeddings for all documents (for accurate similarity calculation)
+            # This is more expensive but gives better diversity results
+            logging.debug("Computing document embeddings for MMR...")
+            document_embeddings = []
+            
+            # Batch embedding computation for efficiency
+            batch_size = 10  # Process documents in batches to avoid memory issues
+            for i in range(0, len(document_texts), batch_size):
+                batch_texts = document_texts[i:i + batch_size]
+                batch_embeddings = [self.embeddings.embed_query(text) for text in batch_texts]
+                document_embeddings.extend(batch_embeddings)
+            
+            # Convert to numpy arrays for efficient computation
+            query_emb = np.array(query_embedding).reshape(1, -1)
+            doc_embs = np.array(document_embeddings)
+            
+            # MMR algorithm
+            selected_indices = []
+            remaining_indices = list(range(len(all_results)))
+            
+            # Start with the most relevant document (first in sorted order)
+            best_idx = remaining_indices[0]  
+            selected_indices.append(best_idx)
+            remaining_indices.remove(best_idx)
+            
+            # Select remaining documents using MMR
+            for _ in range(min(num_results - 1, len(remaining_indices))):
+                best_score = -float('inf')
+                best_idx = None
+                
+                for idx in remaining_indices:
+                    # Relevance component (similarity to query)
+                    relevance = similarities_to_query[idx]
+                    
+                    # Diversity component (max similarity to already selected documents)
+                    max_sim_to_selected = 0.0
+                    if selected_indices:
+                        # Calculate cosine similarity between current doc and all selected docs
+                        current_doc_emb = doc_embs[idx:idx+1]
+                        selected_doc_embs = doc_embs[selected_indices]
+                        
+                        # Compute cosine similarity
+                        similarities = cosine_similarity(current_doc_emb, selected_doc_embs)[0]
+                        max_sim_to_selected = np.max(similarities)
+                    
+                    # MMR score
+                    mmr_score = MMR_LAMBDA * relevance - (1 - MMR_LAMBDA) * max_sim_to_selected
+                    
+                    if mmr_score > best_score:
+                        best_score = mmr_score
+                        best_idx = idx
+                
+                if best_idx is not None:
+                    selected_indices.append(best_idx)
+                    remaining_indices.remove(best_idx)
+            
+            # Return results in MMR order
+            mmr_results = [all_results[idx] for idx in selected_indices]
+            
+            logging.info(f"MMR re-ranking completed: selected {len(mmr_results)} diverse results")
+            return mmr_results
+            
+        except Exception as e:
+            logging.warning(f"MMR re-ranking failed: {e}. Falling back to similarity ranking.")
+            return all_results[:num_results]
+
+    def _apply_fast_mmr_reranking(self, query_embedding: List[float], all_results: List[Dict], num_results: int) -> List[Dict]:
+        """
+        Apply fast MMR re-ranking using heuristic-based similarity approximation.
+        
+        This version uses query similarity scores to approximate document-to-document similarity
+        for faster computation when you need reasonable diversity without the embedding overhead.
+        
+        Args:
+            query_embedding: Query embedding vector  
+            all_results: List of all retrieved results
+            num_results: Final number of results to return
+            
+        Returns:
+            List of re-ranked results with improved diversity
+        """
+        if not ENABLE_MMR or len(all_results) <= num_results:
+            return all_results[:num_results]
+        
+        logging.info(f"Applying fast MMR re-ranking to {len(all_results)} results (heuristic-based)")
+        
+        try:
+            # Convert distances to similarities
+            similarities_to_query = [1.0 - result["distance"] for result in all_results]
+            
+            selected_indices = []
+            remaining_indices = list(range(len(all_results)))
+            
+            # Start with the most relevant document
+            best_idx = remaining_indices[0]  
+            selected_indices.append(best_idx)
+            remaining_indices.remove(best_idx)
+            
+            # Select remaining documents using heuristic MMR
+            for _ in range(min(num_results - 1, len(remaining_indices))):
+                best_score = -float('inf')
+                best_idx = None
+                
+                for idx in remaining_indices:
+                    # Relevance component
+                    relevance = similarities_to_query[idx]
+                    
+                    # Diversity component (heuristic approximation)
+                    max_sim_to_selected = 0.0
+                    for selected_idx in selected_indices:
+                        # Approximate similarity using query similarity differences
+                        # Documents with similar query relevance are likely similar to each other
+                        sim_diff = abs(similarities_to_query[idx] - similarities_to_query[selected_idx])
+                        doc_similarity = max(0.0, 1.0 - sim_diff)  # Convert difference to similarity
+                        max_sim_to_selected = max(max_sim_to_selected, doc_similarity)
+                    
+                    # MMR score
+                    mmr_score = MMR_LAMBDA * relevance - (1 - MMR_LAMBDA) * max_sim_to_selected
+                    
+                    if mmr_score > best_score:
+                        best_score = mmr_score
+                        best_idx = idx
+                
+                if best_idx is not None:
+                    selected_indices.append(best_idx)
+                    remaining_indices.remove(best_idx)
+            
+            mmr_results = [all_results[idx] for idx in selected_indices]
+            logging.info(f"Fast MMR re-ranking completed: selected {len(mmr_results)} diverse results")
+            return mmr_results
+            
+        except Exception as e:
+            logging.warning(f"Fast MMR re-ranking failed: {e}. Falling back to similarity ranking.")
+            return all_results[:num_results]
+
     def _setup_prompt(self):
         """Set up the RAG prompt template with system message and dynamic prompt."""
         # Fixed system instructions that don't change per query
@@ -389,21 +556,32 @@ class RAGRetriever:
             if ENABLE_SMART_COLLECTION_FILTERING:
                 logging.info(f"Smart filtering skipped: {len(collections)} collections <= threshold ({COLLECTION_FILTERING_THRESHOLD})")
         
+        # Determine number of results to fetch for MMR
+        fetch_k = MMR_FETCH_K if ENABLE_MMR else num_results
+        
         # Query collections (parallel or sequential based on configuration)
         if ENABLE_PARALLEL_QUERYING and self.parallel_querier:
             logging.info(f"Using parallel querying with {MAX_PARALLEL_WORKERS} workers")
             all_results = self.parallel_querier.query_collections_parallel(
-                filtered_collections, query_embedding, num_results
+                filtered_collections, query_embedding, fetch_k
             )
         else:
             logging.info("Using sequential querying")
-            all_results = self._query_collections_sequential(filtered_collections, query_embedding, num_results)
+            all_results = self._query_collections_sequential(filtered_collections, query_embedding, fetch_k)
         
         # Sort all results by distance (ascending)
         sorted_results = sorted(all_results, key=operator.itemgetter('distance'))
         
-        # Take the top N results overall
-        top_results = sorted_results[:num_results]
+        # Apply MMR re-ranking for diverse results
+        if ENABLE_MMR and len(sorted_results) > num_results:
+            logging.info("Applying MMR re-ranking for improved diversity")
+            if MMR_USE_FAST_MODE:
+                top_results = self._apply_fast_mmr_reranking(query_embedding, sorted_results, num_results)
+            else:
+                top_results = self._apply_mmr_reranking(query_embedding, sorted_results, num_results)
+        else:
+            # Take the top N results overall (traditional approach)
+            top_results = sorted_results[:num_results]
 
         retrieved_docs = [res["document"] for res in top_results]
         retrieved_metas = [res["metadata"] for res in top_results]
@@ -499,21 +677,37 @@ class RAGRetriever:
         if stage_callback:
             stage_callback("retrieval", f"Durchsuche {len(filtered_collections)} Rechtssammlungen...")
         
+        # Determine number of results to fetch for MMR
+        fetch_k = MMR_FETCH_K if ENABLE_MMR else num_results
+        
         if ENABLE_PARALLEL_QUERYING and self.parallel_querier:
             logging.info(f"Using parallel querying with {MAX_PARALLEL_WORKERS} workers")
             all_results = self.parallel_querier.query_collections_parallel(
-                filtered_collections, query_embedding, num_results
+                filtered_collections, query_embedding, fetch_k
             )
         else:
             logging.info("Using sequential querying")
-            all_results = self._query_collections_sequential(filtered_collections, query_embedding, num_results)
+            all_results = self._query_collections_sequential(filtered_collections, query_embedding, fetch_k)
         
-        # Stage 6: Result processing
+        # Stage 6: Result processing and MMR re-ranking
         if stage_callback:
-            stage_callback("processing", "Verarbeite gefundene Dokumente...")
+            if ENABLE_MMR:
+                stage_callback("processing", "Verarbeite und diversifiziere gefundene Dokumente...")
+            else:
+                stage_callback("processing", "Verarbeite gefundene Dokumente...")
         
         sorted_results = sorted(all_results, key=operator.itemgetter('distance'))
-        top_results = sorted_results[:num_results]
+        
+        # Apply MMR re-ranking for diverse results
+        if ENABLE_MMR and len(sorted_results) > num_results:
+            logging.info("Applying MMR re-ranking for improved diversity")
+            if MMR_USE_FAST_MODE:
+                top_results = self._apply_fast_mmr_reranking(query_embedding, sorted_results, num_results)
+            else:
+                top_results = self._apply_mmr_reranking(query_embedding, sorted_results, num_results)
+        else:
+            # Take the top N results overall (traditional approach)
+            top_results = sorted_results[:num_results]
 
         retrieved_docs = [res["document"] for res in top_results]
         retrieved_metas = [res["metadata"] for res in top_results]

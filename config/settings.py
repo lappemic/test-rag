@@ -36,6 +36,12 @@ ENABLE_SMART_COLLECTION_FILTERING = True # Enable intelligent collection filteri
 COLLECTION_FILTERING_THRESHOLD = 3       # Only apply filtering if more than this many collections
 LAZY_LOADING_ENABLED = True              # Enable lazy loading of collection metadata
 
+# Max-Marginal Relevance (MMR) settings
+ENABLE_MMR = True                        # Enable MMR re-ranking for diverse results
+MMR_LAMBDA = 0.5                        # Lambda parameter for relevance vs diversity trade-off (0.0 = max diversity, 1.0 = max relevance)
+MMR_FETCH_K = 15                        # Number of documents to fetch before MMR re-ranking (should be > MAX_RESULTS)
+MMR_USE_FAST_MODE = True                 # Use fast heuristic-based MMR instead of full embedding-based MMR
+
 # Get API key from environment variables
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
