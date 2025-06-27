@@ -180,13 +180,15 @@ class LegalChatbotService:
     def process_query_streaming(self, query, stage_callback=None):
         """
         Process a user query with streaming support and stage notifications.
+        Now includes reflection pattern - reflection happens behind the scenes,
+        only the final refined answer is streamed.
         
         Args:
             query: User's question string
             stage_callback: Optional callback function for stage updates
             
         Returns:
-            Generator that yields response chunks
+            Generator that yields response chunks, retrieved_docs, retrieved_metas, reflection_info
         """
         if not self.is_ready():
             raise Exception("Service not ready. Please check API key and database collections.")
@@ -220,18 +222,80 @@ class LegalChatbotService:
                 def simple_generator():
                     yield final_response
                 
-                return simple_generator(), [], []
+                return simple_generator(), [], [], None
             
             else:
-                # Handle RAG query with streaming
-                response_generator, retrieved_docs, retrieved_metas = self.rag_retriever.query_rag_streaming(
+                # Handle RAG query with reflection applied before streaming
+                
+                # Step 1: Get initial RAG response (non-streaming for reflection)
+                if stage_callback:
+                    stage_callback("rag_processing", "Führe RAG-Analyse durch...")
+                
+                response, retrieved_docs, retrieved_metas = self.rag_retriever.query_rag(
                     query, 
                     self.law_collections, 
-                    conversation_history=conversation_history,
-                    stage_callback=stage_callback
+                    conversation_history=conversation_history
                 )
                 
-                return response_generator, retrieved_docs, retrieved_metas
+                reflection_info = None
+                final_response = response
+                
+                # Step 2: Apply reflection pattern if enabled
+                if self.rag_reflector and ENABLE_REFLECTION:
+                    if stage_callback:
+                        stage_callback("reflection", "Prüfe und verbessere Antwort durch Reflection...")
+                    
+                    try:
+                        logging.info("Applying reflection pattern to RAG response for streaming")
+                        refined_response, reflection_info = self.rag_reflector.reflect_and_refine(
+                            original_query=query,
+                            initial_response=response,
+                            initial_sources=retrieved_docs,
+                            initial_metas=retrieved_metas,
+                            collections=self.law_collections,
+                            conversation_history=conversation_history
+                        )
+                        final_response = refined_response
+                        logging.info(f"Reflection completed for streaming: {reflection_info['final_status']}")
+                    except Exception as e:
+                        logging.error(f"Error during reflection in streaming mode: {e}")
+                        # Continue with original response if reflection fails
+                        reflection_info = {
+                            "error": str(e),
+                            "final_status": "reflection_failed"
+                        }
+                
+                # Step 3: Stream the final (possibly refined) response
+                def streaming_response_generator():
+                    """Generator that streams the final response word by word."""
+                    try:
+                        if stage_callback:
+                            stage_callback("streaming", "Streame finale Antwort...")
+                        
+                        # Split response into words for streaming
+                        words = final_response.split()
+                        chunk_size = getattr(self, 'streaming_chunk_size', 3)  # Default 3 words per chunk
+                        
+                        for i in range(0, len(words), chunk_size):
+                            chunk_words = words[i:i + chunk_size]
+                            chunk = " ".join(chunk_words)
+                            
+                            # Add space after chunk if not the last one
+                            if i + chunk_size < len(words):
+                                chunk += " "
+                            
+                            yield chunk
+                        
+                        if stage_callback:
+                            stage_callback("complete", "Antwort vollständig!")
+                            
+                    except Exception as e:
+                        logging.error(f"Error during response streaming: {e}")
+                        if stage_callback:
+                            stage_callback("error", f"Fehler beim Streaming: {str(e)}")
+                        yield f"Fehler beim Generieren der Antwort: {str(e)}"
+                
+                return streaming_response_generator(), retrieved_docs, retrieved_metas, reflection_info
         
         except Exception as e:
             logging.error(f"Error processing streaming query: {e}")
@@ -241,4 +305,4 @@ class LegalChatbotService:
                     stage_callback("error", f"Fehler: {str(e)}")
                 yield f"Es ist ein Fehler aufgetreten: {str(e)}"
             
-            return error_generator(), [], [] 
+            return error_generator(), [], [], None 

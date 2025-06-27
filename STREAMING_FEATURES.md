@@ -20,6 +20,17 @@ The Swiss Legal Chatbot now supports **answer streaming** with **real-time stage
 
 The RAG system processes queries through these stages:
 
+#### For Law List Queries:
+1. **⚙️ Lade verfügbare Gesetze** - Loading available laws
+2. **✅ Liste der Gesetze vollständig** - Law list complete
+
+#### For Complex RAG Queries:
+1. **⚙️ Führe RAG-Analyse durch** - Performing RAG analysis
+2. **🔄 Prüfe und verbessere Antwort durch Reflection** - Checking and improving answer through reflection (if enabled)
+3. **📝 Streame finale Antwort** - Streaming final answer
+4. **✅ Antwort vollständig** - Answer complete
+
+#### Original Detailed RAG Stages (used within RAG analysis):
 1. **🧠 Aufbau des Gesprächskontexts** - Building conversation context
 2. **✨ Verbesserung der Anfrage** - Query enhancement  
 3. **🔢 Erstelle Einbettungen** - Creating embeddings
@@ -27,8 +38,6 @@ The RAG system processes queries through these stages:
 5. **📚 Durchsuche X Rechtssammlungen** - Searching X law collections
 6. **⚙️ Verarbeite gefundene Dokumente** - Processing found documents
 7. **💭 Generiere Antwort** - Generating answer
-8. **📝 Streame Antwort** - Streaming answer
-9. **✅ Antwort vollständig** - Answer complete
 
 ## Configuration
 
@@ -100,14 +109,15 @@ response_generator, docs, metas = service.process_query_streaming(
 
 ## Future Enhancements
 
-- **Reflection + Streaming**: Integration of reflection pattern with streaming
 - **Progress bars**: Visual progress indicators for each stage
 - **Customizable stages**: User-configurable stage visibility
 - **Performance metrics**: Display timing information for each stage
+- **Advanced reflection streaming**: Stream reflection iterations in real-time
 
 ## Notes
 
-- Reflection pattern is currently disabled in streaming mode (complexity considerations)
+- **Reflection pattern is now ENABLED in streaming mode** - reflection happens behind the scenes before streaming the final answer
 - Stage notifications are automatically cleared when moving to the next stage
 - Streaming works seamlessly with the existing footnote and source citation system
-- All error states are handled gracefully with appropriate user feedback 
+- All error states are handled gracefully with appropriate user feedback
+- Reflection adds processing stages: "RAG-Analyse" and "Reflection" before streaming the final answer 

@@ -120,7 +120,7 @@ def main():
     
     # Initialize the chatbot service
     @st.cache_resource
-    def get_chatbot_service():
+    def get_chatbot_service(reflection_enabled):
         return LegalChatbotService()
     
     # Clear cache if streaming method is not available (for development)
@@ -129,7 +129,7 @@ def main():
             st.cache_resource.clear()
             st.rerun()
     
-    service = get_chatbot_service()
+    service = get_chatbot_service(ENABLE_REFLECTION)
     
     # Verify streaming method is available
     if not hasattr(service, 'process_query_streaming'):
@@ -190,7 +190,7 @@ def main():
                 use_stage_notifications = st.session_state.get('enable_stage_notifications', ENABLE_STAGE_NOTIFICATIONS)
                 
                 if use_streaming:
-                    # Use streaming response with stage notifications
+                    # Use streaming response with stage notifications and reflection
                     stage_container = None
                     current_stage_container = None
                     
@@ -202,8 +202,8 @@ def main():
                                 current_stage_container.empty()
                             current_stage_container = display_stage_notification(stage_key, stage_message)
                     
-                    # Get streaming response
-                    response_generator, retrieved_docs, retrieved_metas = service.process_query_streaming(
+                    # Get streaming response (now includes reflection)
+                    response_generator, retrieved_docs, retrieved_metas, reflection_info = service.process_query_streaming(
                         prompt, stage_callback=stage_callback if use_stage_notifications else None
                     )
                     
@@ -219,7 +219,6 @@ def main():
                     
                     # Create sources structure
                     sources = {"docs": retrieved_docs, "metas": retrieved_metas} if retrieved_docs else None
-                    reflection_info = None  # Reflection not supported in streaming mode yet
                     
                     # Use the new footnote system for sources
                     if sources and sources.get("docs"):
@@ -230,6 +229,12 @@ def main():
                         if "current_footnotes" not in st.session_state:
                             st.session_state.current_footnotes = []
                         st.session_state.current_footnotes.extend(footnotes)
+                    
+                    # Display reflection information for streaming mode
+                    if DEV_MODE:
+                        if reflection_info and ENABLE_REFLECTION:
+                            with st.expander("🔄 Reflection Details (Streaming)", expanded=False):
+                                display_reflection_info(reflection_info)
                     
                 else:
                     # Use traditional non-streaming response
