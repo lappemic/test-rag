@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Application constants
-DEV_MODE = True
+DEV_MODE = False
 CHROMA_DB_PATH = "./chroma_db"
 LAW_COLLECTION_PREFIX = "law_"
 
