@@ -11,6 +11,7 @@ from typing import List, Dict, Optional
 import logging
 from dataclasses import dataclass
 import hashlib
+from pathlib import Path
 
 # Load environment variables from .env file
 try:
@@ -34,13 +35,16 @@ class ChunkConfig:
     preserve_article_boundaries: bool = True
     extract_cross_references: bool = True
 
-# Your existing XML files
-XML_PATHS = [
-    "data/antifolterkonvention.xml",
-    "data/bundesverfassung.xml",
-    "data/asylgesetz.xml",
-    "data/aig.xml",
-]
+# Dynamically discover all XML files in data directory
+def get_xml_files():
+    """Dynamically discover all XML files in the data directory."""
+    data_dir = Path("data")
+    xml_files = list(data_dir.glob("*.xml"))
+    xml_paths = [str(xml_file) for xml_file in xml_files]
+    logger.info(f"Discovered XML files: {[os.path.basename(p) for p in xml_paths]}")
+    return xml_paths
+
+XML_PATHS = get_xml_files()
 
 # Enhanced chunking configuration
 CHUNK_CONFIG = ChunkConfig()

@@ -4,13 +4,18 @@ import re
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
-XML_PATHS = [
-    # "data/genfer_fluechtlingskonvention.xml",
-    "data/antifolterkonvention.xml",
-    "data/bundesverfassung.xml",
-    "data/asylgesetz.xml",
-    "data/aig.xml",
-]
+# Dynamically discover all XML files in data directory
+def get_xml_files():
+    """Dynamically discover all XML files in the data directory."""
+    xml_files = []
+    data_dir = "data"
+    for file in os.listdir(data_dir):
+        if file.endswith(".xml"):
+            xml_files.append(os.path.join(data_dir, file))
+    print(f"Discovered XML files: {[os.path.basename(p) for p in xml_files]}")
+    return xml_files
+
+XML_PATHS = get_xml_files()
 OUTPUT_PATH = "data/law_chunks.json"
 
 
